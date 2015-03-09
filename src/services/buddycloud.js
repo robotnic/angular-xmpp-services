@@ -143,7 +143,7 @@ angular.module('BuddycloudModule', [])
             function addMethods(item) {
                 item.remove = function() {
                     console.log("want to delete this", this);
-                    //removeitem(this.node,this.entry.atom.id)
+                    //emoveitem(this.node,this.entry.atom.id)
                     removeitem(this)
                 };
                 item.reply = function(text) {
@@ -272,8 +272,10 @@ angular.module('BuddycloudModule', [])
            
             function removeitem(item) {
                 var q = $q.defer();
+                var request={node:item.node,id:item.entry.atom.id};
+                console.log(item,request);
                 xmpp.socket.send(
-                    'xmpp.buddycloud.item.delete', item,
+                    'xmpp.buddycloud.item.delete', request,
                     function(error, data) {
                         if (error) {
                             console.error(error);
