@@ -34,6 +34,7 @@ angular.module('BuddycloudModule', [])
 
                 xmpp.socket.on('xmpp.buddycloud.push.item', function(response) {
                     console.log("push item", response);
+                    var isnew=true;
                     if (!api.data.unread[response.node]) {
                         api.data.unread[response.node] = 0;
                     }
@@ -44,9 +45,16 @@ angular.module('BuddycloudModule', [])
                         var ar = response.id.split(",");
                         var id = ar[ar.length - 1];
                         response.id = id;
-                        addMethods(response);
-                        response.entry.atom.author.image = response.entry.atom.author.name.split("@")[0];
-                        api.data.items.push(response);
+                        for(var i=0;i<api.data.items.length;i++){
+                            if(api.data.items[i].id==id){
+                                isnew=false;
+                            }
+                        }
+                        if(isnew){
+                            addMethods(response);
+                            response.entry.atom.author.image = response.entry.atom.author.name.split("@")[0];
+                            api.data.items.push(response);
+                        }
                     }
                     console.log("notify");
                     q.notify();

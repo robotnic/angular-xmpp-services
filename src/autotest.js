@@ -65,11 +65,11 @@ angular.module('Test', ['AngularXmpp','jsonFormatter','angularMoment'])
             },{
                 name:"create",
                 type:"buddycloud",
-                check:["me", "roster", "connected","error"],
+                check:["subscriptions",  "affiliations","myaffiliations","items","errors"]
             },{
-                name:"descroy",
+                name:"destroy",
                 type:"buddycloud",
-                check:["me", "roster", "connected","error"],
+                check:["subscriptions",  "affiliations","myaffiliations","items","errors"]
             }]
         }
 
