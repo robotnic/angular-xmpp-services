@@ -1,11 +1,11 @@
 {
-  "name": "angular-xmpp",
+  "name": "angular-xmpp-services",
   "authors": [
     "bernhard zwischenbrgger"
   ],
   "version": "0.0.2",
   "main": [
-    "bin/assets/angular-xmpp-0.0.2.js"
+    "bin/assets/angular-xmpp-services.0.0.2.js"
   ],
   "ignore":[
         ".*",
@@ -17,7 +17,7 @@
     ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:robotnic/angular_xmpp.git"
+    "url": "git@github.com:robotnic/angular_xmpp_services.git"
   },
   "dependencies": {
     "angular-strap": "~2.1.6",
