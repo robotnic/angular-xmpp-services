@@ -17,7 +17,7 @@
     ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:robotnic/angular_xmpp_services.git"
+    "url": "git@github.com:robotnic/angular-xmpp-services.git"
   },
   "dependencies": {
     "angular-strap": "~2.1.6",
