@@ -739,6 +739,7 @@ angular.module('BuddycloudModule', [])
                                     //workaround for buggy id
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
+                                        addMethods(response[i]);
                                     }
 
                                     if (append) {
