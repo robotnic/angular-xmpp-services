@@ -326,8 +326,10 @@ angular.module('BuddycloudModule', [])
             function calcRights(item) {
                 var write = false;
                 var remove = false;
-                if (api.data.affiliations[item.node]) {
-                    var affiliation = api.data.affiliations[item.node].affiliation;
+                console.log(item.node,item);
+                if (api.data.myaffiliations[item.node]) {
+                    console.log(api.data.myaffiliations[item.node]);
+                    var affiliation = api.data.myaffiliations[item.node].affiliation;
                     if (affiliation === "publisher" || affiliation === "owner" || affiliation === "moderator") {
                         write = true;
                     }
