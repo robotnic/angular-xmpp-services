@@ -337,8 +337,9 @@ angular.module('BuddycloudModule', [])
                         remove = true;
                     }
                 }
-                if (item.entry.atom.author.name == xmpp.jid) {
+                if (item.entry.atom.author.name == xmpp.data.me.jid.user+"@"+xmpp.data.me.jid.domain) {
                     remove = true;
+                    update = true;
                 }
                 return {
                     publish: write,
