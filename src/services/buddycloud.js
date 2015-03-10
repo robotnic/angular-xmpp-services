@@ -149,39 +149,49 @@ angular.module('BuddycloudModule', [])
             */
 
             function addMethods(item) {
-                item.remove = function() {
-                    console.log("want to delete this", this);
-                    //emoveitem(this.node,this.entry.atom.id)
-                    removeitem(this)
-                };
-                item.reply = function(text) {
-                    xmpp.socket.send("xmpp.buddycloud.publish", {
-                        node: item.node,
-                        "content": {
-                            "atom": {
-                                "content": text
+
+                var rights=calcRights(item);
+                console.log("rights",rights);
+
+                if(rights.remove){
+                    item.remove = function() {
+                        console.log("want to delete this", this);
+                        //emoveitem(this.node,this.entry.atom.id)
+                        removeitem(this)
+                    };
+                }
+                if(rights.publish){
+                    item.reply = function(text) {
+                        xmpp.socket.send("xmpp.buddycloud.publish", {
+                            node: item.node,
+                            "content": {
+                                "atom": {
+                                    "content": text
+                                },
+                                "in-reply-to": {
+                                    "ref": this.id
+                                }
+                            }
+                        }, function(data) {
+                            api.q.notify(data);
+                        });
+                    };
+                }
+                if(rights.update){
+                    item.save = function() {
+                        console.log("saving", this);
+                        xmpp.socket.send("xmpp.buddycloud.publish", {
+                            node: this.node,
+                            "content": {
+                                "atom": {
+                                    "content": this.entry.atom.content
+                                }
                             },
-                            "in-reply-to": {
-                                "ref": this.id
-                            }
-                        }
-                    }, function(data) {
-                        api.q.notify(data);
-                    });
-                };
-                item.save = function() {
-                    console.log("saving", this);
-                    xmpp.socket.send("xmpp.buddycloud.publish", {
-                        node: this.node,
-                        "content": {
-                            "atom": {
-                                "content": this.entry.atom.content
-                            }
-                        },
-                        id: this.id
-                    }, function(data) {
-                        api.q.notify(data);
-                    });
+                            id: this.id
+                        }, function(data) {
+                            api.q.notify(data);
+                        });
+                    }
                 }
             }
 
@@ -328,7 +338,7 @@ angular.module('BuddycloudModule', [])
                 if (item.entry.atom.author.name == xmpp.jid) {
                     remove = true;
                 }
-                item.rights = {
+                return {
                     publish: write,
                     remove: remove,
                     update: remove
