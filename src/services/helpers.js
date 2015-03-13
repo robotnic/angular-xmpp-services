@@ -18,7 +18,7 @@ angular.module('Helpers', [])
         console.log(y);
         return y;
     }
-});
+})
 
 //http://stackoverflow.com/questions/19992090/angularjs-group-by-directive
 
