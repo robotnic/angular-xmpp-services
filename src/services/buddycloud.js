@@ -472,6 +472,13 @@ angular.module('BuddycloudModule', [])
                                     api.q.notify("subscribed");
                                 });
                             });
+
+                            //add user to roster !!!!!!!!!!!!!!!!!!!
+                            api.xmpp.send('xmpp.roster.add', {
+                                "jid": "user@evilprofessor.co.uk"
+                            }).then(function(data){
+                                console.log("user added",data);
+                            });
                         }
                     }
                 }

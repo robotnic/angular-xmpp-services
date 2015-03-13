@@ -7,7 +7,7 @@
   [0,"buddycloud","send('xmpp.buddycloud.subscribe',{'node':'/user/eva@laos.buddycloud.com/posts'})"],
   [0,"buddycloud","send('xmpp.buddycloud.subscribe',{'node':'/user/robotnic@laos.buddycloud.com/posts'})"],
   [0,"buddycloud","send('xmpp.buddycloud.subscribe',{'node':'/user/seppl@laos.buddycloud.com/posts'})"],
-  [0,"buddycloud","open({'node':'/user/test1@laos.buddycloud.com/posts','content':{'atom':{'content':'klmlk'}}})"],
+  [0,"buddycloud","open({'node':'/user/test1@laos.buddycloud.com/posts'})"],
   [0,"buddycloud","send('xmpp.buddycloud.publish',{'node':'/user/test1@laos.buddycloud.com/posts','content':{'atom':{'content':'klmlk'}}})"],
   [0,"buddycloud","send('xmpp.buddycloud.publish',{'node':'/user/test1@laos.buddycloud.com/posts','content':{'atom':{'content':'message2'}}})"],
   [0,"buddycloud","send('xmpp.buddycloud.publish',{'node':'/user/test1@laos.buddycloud.com/posts','content':{'atom':'atom'}})"]

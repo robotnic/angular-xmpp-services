@@ -147,22 +147,22 @@ The xmpp websocket connections
             if(!$scope.appstate[$scope.counter])$scope.appstate[$scope.counter]=[];
                 if(command.type=="xmpp"){
                     for(var i=0;i<xmpps.length;i++){
-                        $scope.appstate[$scope.counter][i]=JSON.parse(JSON.stringify(xmpps[i].data));
+                        $scope.appstate[$scope.counter][i]=JSON.parse(JSON.stringify(xmpps[i].data,keepfunctions));
                     }
                 }
                 if(command.type=="buddycloud"){
                     for(var i=0;i<buddyclouds.length;i++){
-                        $scope.appstate[$scope.counter][i]=JSON.parse(JSON.stringify(buddyclouds[i].data));
+                        $scope.appstate[$scope.counter][i]=JSON.parse(JSON.stringify(buddyclouds[i].data,keepfunctions));
                     }
                 }
                 if(command.type=="message"){
                     for(var i=0;i<messages.length;i++){
-                        $scope.appstate[$scope.counter][i]=JSON.parse(JSON.stringify(messages[i]));
+                        $scope.appstate[$scope.counter][i]=JSON.parse(JSON.stringify(messages[i],keepfunctions));
                     }
                 }
                 if(command.type=="muc"){
                     for(var i=0;i<buddyclouds.length;i++){
-                        $scope.appstate[$scope.counter][i]=JSON.parse(JSON.stringify(mucs[i].data));
+                        $scope.appstate[$scope.counter][i]=JSON.parse(JSON.stringify(mucs[i].data,keepfunctions));
                     }
                 }
 
@@ -422,10 +422,19 @@ common
         };
 
         function equals(a,b){
+            console.log("=====",a,b);
             var a=JSON.stringify(a,replacer);
             var b=JSON.stringify(b,replacer);
             
-            return a==b;
+            return a===b;
+        }
+
+        function keepfunctions(a,b){
+            if(typeof(b)=="function"){
+                return "function()";
+            }else{
+                return b;
+            }
         }
 
         /**

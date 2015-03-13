@@ -6,6 +6,7 @@
   [0,"buddycloud","send('xmpp.buddycloud.register',{})"],
   [0,"buddycloud","open({'node':'/user/test1@laos.buddycloud.com/posts',rsm:{'max':2000}})"],
   [1,"buddycloud","open({'node':'/user/test2@laos.buddycloud.com/posts',rsm:{'max':2000}})"],
+  [1,"buddycloud","open({'node':'/user/test2@laos.buddycloud.com',rsm:{'max':2000}})"],
   [0,"buddycloud","data.items[0].remove()"],
 
   [0,"buddycloud","send('xmpp.buddycloud.create', {'node':'/user/weather77@laos.buddycloud.com/posts'})"],
