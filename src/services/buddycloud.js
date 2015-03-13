@@ -474,10 +474,14 @@ angular.module('BuddycloudModule', [])
                             });
 
                             //add user to roster !!!!!!!!!!!!!!!!!!!
+
+                            console.log(that.data.currentnode);
+                            var jid=api.xmpp.parseNodeString(buddycloud.data.currentnode);
                             api.xmpp.send('xmpp.roster.add', {
-                                "jid": "user@evilprofessor.co.uk"
+                                "jid": jid
                             }).then(function(data){
                                 console.log("user added",data);
+                                api.q.notify("user added");
                             });
                         }
                     }
