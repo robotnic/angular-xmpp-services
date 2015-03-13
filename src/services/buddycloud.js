@@ -352,7 +352,7 @@ angular.module('BuddycloudModule', [])
                                 console.log(error);
                                 q.reject(error);
                             } else {
-                                if (!node) {
+                                if (false && !node) {
                                     api.data.myaffiliations = {};
                                     for (var i = 0; i < data.length; i++) {
                                         api.data.myaffiliations[data[i].node] = data[i];
@@ -360,10 +360,13 @@ angular.module('BuddycloudModule', [])
                                     nodeMethods();
                                 } else {
 
+                                    api.data.affiliations[data[i].node] = [];
                                     for (var i = 0; i < data.length; i++) {
+                                        /*
                                         if (!api.data.affiliations[data[i].node]) {
                                             api.data.affiliations[data[i].node] = [];
                                         }
+                                        */
                                         api.data.affiliations[data[i].node].push(data[i]);
                                     }
                                 }
