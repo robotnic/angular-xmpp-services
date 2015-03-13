@@ -11,7 +11,14 @@ angular.module('Helpers', [])
     }
 })
 
-
+.filter('group',function(){
+    return function(data,selector){
+        //http://stackoverflow.com/questions/11090817/group-by-order-by-on-json-data-using-javascript-jquery
+        var y=_.chain(data).sortBy(selector).groupBy(selector).value();  
+        console.log(y);
+        return y;
+    }
+});
 
 //http://stackoverflow.com/questions/19992090/angularjs-group-by-directive
 
