@@ -476,7 +476,7 @@ angular.module('BuddycloudModule', [])
                             //add user to roster !!!!!!!!!!!!!!!!!!!
 
                             console.log(that.data.currentnode);
-                            var jid=that.xmpp.parseNodeString(that.data.currentnode);
+                            var jid=that.xmpp.parseNodeString(that.data.currentnode).jid;
                             api.xmpp.send('xmpp.roster.add', {
                                 "jid": jid
                             }).then(function(data){
