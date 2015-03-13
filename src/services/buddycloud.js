@@ -361,10 +361,9 @@ angular.module('BuddycloudModule', [])
                                 } else {
 
                                     for (var i = 0; i < data.length; i++) {
-                                        //if (!api.data.affiliations[data[i].node]) {
-                                        if (i==0) {
-                                            api.data.affiliations[data[i].node] = [];
-                                        }
+                                        api.data.affiliations[data[i].node] = [];
+                                    }
+                                    for (var i = 0; i < data.length; i++) {
                                         api.data.affiliations[data[i].node].push(data[i]);
                                     }
                                 }
