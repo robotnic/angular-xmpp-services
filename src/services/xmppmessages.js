@@ -50,7 +50,7 @@ angular.module('XmppMessage', [])
             watch:function(){
                 return watch();
             },
-            send:function(user, message) {
+            send:function(message) {
                 api.items.push(message);
                 xmpp.socket.send('xmpp.chat.message', message);
             },
