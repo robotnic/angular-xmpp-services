@@ -33,7 +33,6 @@ angular.module('BuddycloudModule', [])
 
 
                 xmpp.socket.on('xmpp.buddycloud.push.item', function(response) {
-                    console.log("push item", response);
                     var isnew=true;
                     if (!api.data.unread[response.node]) {
                         api.data.unread[response.node] = 0;
@@ -56,7 +55,6 @@ angular.module('BuddycloudModule', [])
                             api.data.items.push(response);
                         }
                     }
-                    console.log("notify");
                     q.notify();
                 });
 
@@ -74,11 +72,8 @@ angular.module('BuddycloudModule', [])
 
 
                 xmpp.socket.on('xmpp.buddycloud.push.subscription', function(data) {
-                    console.log("------------------------------------------sub", data);
-                    console.log(data.jid.user, api.xmpp.data.me.jid.user, data.jid.domain, api.xmpp.data.me.jid.domain);
                     var forMe = false;
                     if (data.jid.user == api.xmpp.data.me.jid.user && data.jid.domain == api.xmpp.data.me.jid.domain) {
-                        console.log("für mich");
                         forMe = true;
                     }
                     var found = false;
@@ -111,11 +106,9 @@ angular.module('BuddycloudModule', [])
                     }
                     if (data.subscription == 'subscribed') {
                         if (data.node == api.data.currentnode) {
-                            console.log("ERSTE SAHNE");
                             api.data.subscribed = true;
                         }
                     }
-                    console.log("thedata", data);
                     getAffiliations().then(function() {
                         q.notify();
                     }, function(error) {
@@ -124,7 +117,6 @@ angular.module('BuddycloudModule', [])
 
                 });
                 xmpp.socket.on("xmpp.buddycloud.push.affiliation", function(data) {
-                    console.log("affiliation changed2", data);
                     getAffiliations({
                         'node': data.node
                     }).then(function() {
@@ -133,7 +125,6 @@ angular.module('BuddycloudModule', [])
                 });
 
                 xmpp.socket.on("xmpp.buddycloud.push.configuration", function(data) {
-                    console.log("xmpp.buddycloud.push.configuration",data);
                     getAffiliations().then(function() {
                         //api.maketree(api.data.items);
                     });
@@ -151,11 +142,9 @@ angular.module('BuddycloudModule', [])
             function addMethods(item) {
 
                 var rights=calcRights(item);
-                console.log("rights",rights);
 
                 if(rights.remove){
                     item.remove = function() {
-                        console.log("want to delete this", this);
                         //emoveitem(this.node,this.entry.atom.id)
                         removeitem(this)
                     };
@@ -179,7 +168,6 @@ angular.module('BuddycloudModule', [])
                 }
                 if(rights.update){
                     item.save = function() {
-                        console.log("saving", this);
                         xmpp.socket.send("xmpp.buddycloud.publish", {
                             node: this.node,
                             "content": {
@@ -272,13 +260,11 @@ angular.module('BuddycloudModule', [])
                             api.data.errors.unshift(error);
                             q.reject(error);
                         } else {
-                            console.log("Message sent.", data);
                             q.resolve(response);
                             //            rate(node,data.id);
                         }
                     }
                 );
-                console.log("promise", q.promise);
                 return q.promise;
             }
 
@@ -292,7 +278,6 @@ angular.module('BuddycloudModule', [])
                 var q = $q.defer();
                 var id=item.entry.atom.id;
                 var request={node:item.node,id:id};
-                console.log(item,request);
                 xmpp.socket.send(
                     'xmpp.buddycloud.item.delete', request,
                     function(error, data) {
@@ -302,7 +287,6 @@ angular.module('BuddycloudModule', [])
                             api.q.notify("error");
                             q.reject("deleted");
                         } else {
-                            console.log("deleted ", data);
                             for (var i = 0; i < api.data.items.length; i++) {
                                 if (api.data.items[i].entry.atom.id === id) {
                                     api.data.items.splice(i, 1);
@@ -327,9 +311,7 @@ angular.module('BuddycloudModule', [])
             function calcRights(item) {
                 var write = false;
                 var remove = false;
-                console.log(item.node,item);
                 if (api.data.myaffiliations[item.node]) {
-                    console.log(api.data.myaffiliations[item.node]);
                     var affiliation = api.data.myaffiliations[item.node].affiliation;
                     if (affiliation === "publisher" || affiliation === "owner" || affiliation === "moderator") {
                         write = true;
@@ -338,7 +320,6 @@ angular.module('BuddycloudModule', [])
                         remove = true;
                     }
                 }
-                console.log(item.entry.atom.author.name , xmpp.data.me.jid.user+"@"+xmpp.data.me.jid.domain);
                 if (item.entry.atom.author.name == xmpp.data.me.jid.user+"@"+xmpp.data.me.jid.domain) {
                     remove = true;
                     update = true;
@@ -359,7 +340,6 @@ angular.module('BuddycloudModule', [])
                 }; //ugly
                 var node = request.node
                 var q = $q.defer();
-                console.log("affrequest", request);
                 if (false && api.data.affiliations[node]) {
                     nodeMethods();
                     q.resolve(api.data.affiliations);
@@ -368,7 +348,6 @@ angular.module('BuddycloudModule', [])
                     xmpp.socket.send(
                         'xmpp.buddycloud.affiliations', request,
                         function(error, data) {
-                            console.log(">>affiliations<<", request.node, error, data);
                             if (error) {
                                 console.log(error);
                                 q.reject(error);
@@ -376,22 +355,18 @@ angular.module('BuddycloudModule', [])
                                 if (!node) {
                                     api.data.myaffiliations = {};
                                     for (var i = 0; i < data.length; i++) {
-                                        console.log(i, data[i].node);
                                         api.data.myaffiliations[data[i].node] = data[i];
                                     }
-                                    console.log(api.data.myaffiliations);
                                     nodeMethods();
                                 } else {
 
                                     for (var i = 0; i < data.length; i++) {
-                                        console.log(i, data[i].node);
                                         if (!api.data.affiliations[data[i].node]) {
                                             api.data.affiliations[data[i].node] = [];
                                         }
                                         api.data.affiliations[data[i].node].push(data[i]);
                                     }
                                 }
-                                console.log("==========", api.data.affiliations);
                                 nodeMethods();
                                 q.resolve(api.data.affiliations);
                                 api.q.notify(api.data.affiliations);
@@ -407,18 +382,12 @@ angular.module('BuddycloudModule', [])
 
 
             function nodeMethods() {
-                console.log("=======Node Methods========", api.data.currentnode);
-                console.log("=======myaff========", api.data.myaffiliations);
-                console.log("=======myaff========", api.data.myaffiliations[api.data.currentnode]);
                 delete api.subscribe;
                 delete api.unsubscribe;
                 delete api.config;
                 delete api.affiliation;
-                console.log("all methods deleted");
                 if (api.data.myaffiliations[api.data.currentnode] && api.data.myaffiliations[api.data.currentnode].affiliation == "owner") {
-                    console.log("=======current node myaff========", api.data.myaffiliations[api.data.currentnode].affiliation);
                     api.config = function() {
-                        console.log(this);
                         api.send('xmpp.buddycloud.config.get', {
                             node: this.data.currentnode
                         }).then(function(response) {
@@ -428,24 +397,19 @@ angular.module('BuddycloudModule', [])
                 } else {
                     api.data.subscribed = false;
                     for (var i = 0; i < api.data.subscriptions.length; i++) {
-                        console.log(api.data.subscriptions[i].subscription);
                         if (api.data.subscriptions[i].node == api.data.currentnode) {
                             api.data.subscribed = true;
                         }
                     }
                     if (api.data.myaffiliations[api.data.currentnode]) {
                         api.data.nodeaffiliation = api.data.myaffiliations[api.data.currentnode].affiliation;
-                        console.log(api.data.nodeaffiliation);
                     }
-                    console.log("issubscribed", api.data.subscribed);
                     if (api.data.subscribed) {
                         api.unsubscribe = function() {
-                            console.log("unsubscribe", this);
                             var that = this;
                             api.send('xmpp.buddycloud.unsubscribe', {
                                 'node': this.data.currentnode
                             }).then(function(data) {
-                                console.log("########", that);
                                 getAffiliations({
                                     'node': that.data.currentnode
                                 }).then(function() {
@@ -460,9 +424,7 @@ angular.module('BuddycloudModule', [])
                         }
                     } else {
                         api.subscribe = function() {
-                            console.log("subscribe", this);
                             var that = this;
-                            console.log("222########", that);
                             api.send('xmpp.buddycloud.subscribe', {
                                 'node': that.data.currentnode
                             }).then(function() {
@@ -475,7 +437,6 @@ angular.module('BuddycloudModule', [])
 
                             //add user to roster !!!!!!!!!!!!!!!!!!!
 
-                            console.log(that.data.currentnode);
                             var jid=that.xmpp.parseNodeString(that.data.currentnode).jid;
                             api.xmpp.send('xmpp.roster.add', {
                                 "jid": jid
@@ -487,7 +448,6 @@ angular.module('BuddycloudModule', [])
                     }
                 }
                 api.publish = function(content) {
-                    console.log(this, content);
                     if (this.data.currentnode == "recent") {
                         api.send('xmpp.buddycloud.publish', {
                             'node': '/user/' + api.xmpp.data.me.jid.user + '@' + api.xmpp.data.me.jid.domain + '/posts',
@@ -501,16 +461,13 @@ angular.module('BuddycloudModule', [])
                     }
                 }
                 api.affiliation = function(jid, affiliation) {
-                    console.log(jid, this.data.currentnode);
                     var jidstring = jid.user + "@" + jid.domain;
-                    console.log(jidstring);
                     api.send('xmpp.buddycloud.affiliation', {
                         'node': this.data.currentnode,
                         'jid': jidstring,
                         'affiliation': affiliation
                     })
                 }
-                console.log("DURCH", api);
             }
 
 
@@ -518,7 +475,6 @@ angular.module('BuddycloudModule', [])
         @method makeNodeList
         */
             function makeNodeList(data) {
-                console.log(data);
                 api.data.subscriptions = [];
                 for (var i = 0; i < data.length; i++) {
                     if (!data[i].node) console.log(data[i]);
@@ -535,15 +491,12 @@ angular.module('BuddycloudModule', [])
         */
 
             function opennode(request) {
-                console.log("opennode request", request);
                 $q.all([
                     api.send('xmpp.buddycloud.retrieve', request),
                     api.send('xmpp.buddycloud.affiliations', request),
                     api.send('xmpp.buddycloud.config.get', request)
                 ]).then(function() {
-                    console.log("SUPICOMPARE", request.node, api.data.currentnode);
                     if (request.node == api.data.currentnode) {
-                        console.log("SUPI", request.node);
                         //api.data.subscribed=true;
                     }
                     nodeMethods();
@@ -562,7 +515,6 @@ angular.module('BuddycloudModule', [])
                     opennode(this);
                 }
                 api.data.subscriptions.push(data);
-                console.log(api.data.subscriptions);
             }
 
 
