@@ -55,7 +55,7 @@ angular.module('BuddycloudModule', [])
                             api.data.items.push(response);
                         }
                     }
-                    q.notify();
+                    q.notify("push item");
                 });
 
                 xmpp.socket.on('xmpp.buddycloud.push.retract', function(response) {
@@ -66,7 +66,7 @@ angular.module('BuddycloudModule', [])
                             break;
                         }
                     }
-                    q.notify();
+                    q.notify("retract");
                 });
 
 
@@ -110,7 +110,7 @@ angular.module('BuddycloudModule', [])
                         }
                     }
                     getAffiliations().then(function() {
-                        q.notify();
+                        q.notify("ffilitaions");
                     }, function(error) {
                         console.log(error);
                     });
@@ -500,7 +500,7 @@ angular.module('BuddycloudModule', [])
                         //api.data.subscribed=true;
                     }
                     nodeMethods();
-                    api.q.notify();
+                    api.q.notify("opennode");
                 });
 
             }
