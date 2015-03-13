@@ -179,6 +179,16 @@ angular.module('XmppCoreFactory', [])
                     break;
                 case 'xmpp.roster.add':
                     console.log("not implemented");
+                    var q=$q.defer();
+                    api.socket.send( 'xmpp.roster.add', request,
+                    function(error, data) {
+                        if(error){
+                            console.log("error",error);
+                        }else{
+                            q.resolve("roster add");
+                        }
+                    })
+                    return q.promise;
                     break;
                 case 'xmpp.roster.remove':
                     var q=$q.defer();
