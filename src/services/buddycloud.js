@@ -426,6 +426,17 @@ angular.module('BuddycloudModule', [])
                             }, function(error) {
                                 api.data.errors.unshift(error);
                             });
+
+
+                            //roster remove
+
+                            var jid=that.xmpp.parseNodeString(that.data.currentnode).jid;
+                            api.xmpp.send('xmpp.roster.remove', {
+                                "jid": jid
+                            }).then(function(data){
+                                api.q.notify("user removed");
+                            });
+
                         }
                     } else {
                         api.subscribe = function() {
