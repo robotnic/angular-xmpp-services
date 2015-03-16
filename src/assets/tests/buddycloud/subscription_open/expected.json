@@ -14,81 +14,57 @@
           "open": "function()"
         }
       ],
-      "affiliations": {
+      "affiliations": {},
+      "myaffiliations": {
         "/user/test1@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         }
       },
-      "myaffiliations": {},
       "errors": [],
       "subscribed": false
     },
@@ -122,81 +98,57 @@
           "open": "function()"
         }
       ],
-      "affiliations": {
+      "affiliations": {},
+      "myaffiliations": {
         "/user/test1@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         }
       },
-      "myaffiliations": {},
       "errors": [],
       "subscribed": false
     },
@@ -214,81 +166,57 @@
           "open": "function()"
         }
       ],
-      "affiliations": {
+      "affiliations": {},
+      "myaffiliations": {
         "/user/test2@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         }
       },
-      "myaffiliations": {},
       "errors": [],
       "subscribed": false
     },
@@ -314,81 +242,57 @@
           "open": "function()"
         }
       ],
-      "affiliations": {
+      "affiliations": {},
+      "myaffiliations": {
         "/user/test1@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         }
       },
-      "myaffiliations": {},
       "errors": [],
       "subscribed": false
     },
@@ -415,93 +319,65 @@
           "open": "function()"
         }
       ],
-      "affiliations": {
+      "affiliations": {},
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "publisher",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
         "/user/test2@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/posts": {
-          "publisher": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "publisher",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         }
       },
-      "myaffiliations": {},
       "errors": [],
       "subscribed": false
     },
@@ -559,71 +435,60 @@
               }
             }
           ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
         }
       },
-      "myaffiliations": {},
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/next": {
+          "node": "/user/test1@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/current": {
+          "node": "/user/test1@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test1@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test1@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/status": {
+          "node": "/user/test1@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        }
+      },
       "errors": [],
-      "subscribed": true,
+      "subscribed": false,
       "rsm": {},
       "items": [],
       "currentnode": "/user/test1@laos.buddycloud.com/posts",
@@ -681,93 +546,65 @@
           "open": "function()"
         }
       ],
-      "affiliations": {
+      "affiliations": {},
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "publisher",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
         "/user/test2@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         },
         "/user/test2@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/posts": {
-          "publisher": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "publisher",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
         }
       },
-      "myaffiliations": {},
       "errors": [],
       "subscribed": false
     }
@@ -811,71 +648,60 @@
               }
             }
           ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
         }
       },
-      "myaffiliations": {},
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/next": {
+          "node": "/user/test1@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/current": {
+          "node": "/user/test1@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test1@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test1@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/status": {
+          "node": "/user/test1@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        }
+      },
       "errors": [],
-      "subscribed": true,
+      "subscribed": false,
       "rsm": {},
       "items": [],
       "currentnode": "/user/test1@laos.buddycloud.com/posts",
@@ -936,78 +762,6 @@
         }
       ],
       "affiliations": {
-        "/user/test2@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
         "/user/test1@laos.buddycloud.com/posts": {
           "publisher": [
             {
@@ -1031,12 +785,70 @@
           ]
         }
       },
-      "myaffiliations": {},
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "publisher",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/next": {
+          "node": "/user/test2@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/current": {
+          "node": "/user/test2@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test2@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test2@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/status": {
+          "node": "/user/test2@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/posts": {
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        }
+      },
       "errors": [],
       "subscribed": true,
       "rsm": {},
       "items": [],
       "currentnode": "/user/test1@laos.buddycloud.com/posts",
+      "nodeaffiliation": "publisher",
       "config": [
         {
           "var": "buddycloud#channel_type",
@@ -1108,82 +920,71 @@
               }
             }
           ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
         }
       },
-      "myaffiliations": {},
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/next": {
+          "node": "/user/test1@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/current": {
+          "node": "/user/test1@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test1@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test1@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/status": {
+          "node": "/user/test1@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        }
+      },
       "errors": [],
-      "subscribed": true,
+      "subscribed": false,
       "rsm": {},
       "items": [
         {
           "node": "/user/test1@laos.buddycloud.com/posts",
-          "id": "823090d5-aa02-4519-a342-385c838aed7a",
+          "id": "4965e47e-a1cc-47c1-9645-351e42aae2d6",
           "entry": {
             "atom": {
               "title": "Post",
-              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,823090d5-aa02-4519-a342-385c838aed7a",
-              "updated": "2015-03-16T12:03:07.562Z",
-              "published": "2015-03-16T12:03:07.562Z",
+              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,4965e47e-a1cc-47c1-9645-351e42aae2d6",
+              "updated": "2015-03-16T15:50:28.936Z",
+              "published": "2015-03-16T15:50:28.936Z",
               "content": {
                 "content": "Hi Anna",
                 "type": "text"
@@ -1205,6 +1006,7 @@
             }
           },
           "remove": "function()",
+          "reply": "function()",
           "save": "function()"
         }
       ],
@@ -1266,78 +1068,6 @@
         }
       ],
       "affiliations": {
-        "/user/test2@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
         "/user/test1@laos.buddycloud.com/posts": {
           "publisher": [
             {
@@ -1361,20 +1091,77 @@
           ]
         }
       },
-      "myaffiliations": {},
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "publisher",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/next": {
+          "node": "/user/test2@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/current": {
+          "node": "/user/test2@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test2@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test2@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/status": {
+          "node": "/user/test2@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/posts": {
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        }
+      },
       "errors": [],
       "subscribed": true,
       "rsm": {},
       "items": [
         {
           "node": "/user/test1@laos.buddycloud.com/posts",
-          "id": "823090d5-aa02-4519-a342-385c838aed7a",
+          "id": "4965e47e-a1cc-47c1-9645-351e42aae2d6",
           "entry": {
             "atom": {
               "title": "Post",
-              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,823090d5-aa02-4519-a342-385c838aed7a",
-              "updated": "2015-03-16T12:03:07.562Z",
-              "published": "2015-03-16T12:03:07.562Z",
+              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,4965e47e-a1cc-47c1-9645-351e42aae2d6",
+              "updated": "2015-03-16T15:50:28.936Z",
+              "published": "2015-03-16T15:50:28.936Z",
               "content": {
                 "content": "Hi Anna",
                 "type": "text"
@@ -1394,10 +1181,12 @@
                 "object-type": "person"
               }
             }
-          }
+          },
+          "reply": "function()"
         }
       ],
       "currentnode": "/user/test1@laos.buddycloud.com/posts",
+      "nodeaffiliation": "publisher",
       "config": [
         {
           "var": "buddycloud#channel_type",
@@ -1469,82 +1258,71 @@
               }
             }
           ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
         }
       },
-      "myaffiliations": {},
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/next": {
+          "node": "/user/test1@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/current": {
+          "node": "/user/test1@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test1@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test1@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/status": {
+          "node": "/user/test1@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        }
+      },
       "errors": [],
-      "subscribed": true,
+      "subscribed": false,
       "rsm": {},
       "items": [
         {
           "node": "/user/test1@laos.buddycloud.com/posts",
-          "id": "823090d5-aa02-4519-a342-385c838aed7a",
+          "id": "4965e47e-a1cc-47c1-9645-351e42aae2d6",
           "entry": {
             "atom": {
               "title": "Post",
-              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,823090d5-aa02-4519-a342-385c838aed7a",
-              "updated": "2015-03-16T12:03:07.562Z",
-              "published": "2015-03-16T12:03:07.562Z",
+              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,4965e47e-a1cc-47c1-9645-351e42aae2d6",
+              "updated": "2015-03-16T15:50:28.936Z",
+              "published": "2015-03-16T15:50:28.936Z",
               "content": {
                 "content": "Hi Anna",
                 "type": "text"
@@ -1566,236 +1344,18 @@
             }
           },
           "remove": "function()",
+          "reply": "function()",
           "save": "function()"
         },
         {
           "node": "/user/test1@laos.buddycloud.com/posts",
-          "id": "8b6536d5-f70d-4f87-8c45-43892e36762c",
+          "id": "db15a2c9-898d-41af-9b5b-c8dfb1703e2d",
           "entry": {
             "atom": {
               "title": "Post",
-              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,8b6536d5-f70d-4f87-8c45-43892e36762c",
-              "updated": "2015-03-16T12:03:10.550Z",
-              "published": "2015-03-16T12:03:10.550Z",
-              "content": {
-                "content": "Hi Elfi",
-                "type": "text"
-              },
-              "author": {
-                "name": "test2@laos.buddycloud.com",
-                "uri": "acct:test2@laos.buddycloud.com",
-                "image": "test2"
-              }
-            },
-            "activity": {
-              "verb": "post",
-              "object": {
-                "object-type": "note"
-              },
-              "author": {
-                "object-type": "person"
-              }
-            }
-          }
-        }
-      ],
-      "currentnode": "/user/test1@laos.buddycloud.com/posts",
-      "config": [
-        {
-          "var": "buddycloud#channel_type",
-          "value": "personal"
-        },
-        {
-          "var": "buddycloud#default_affiliation",
-          "value": "publisher"
-        },
-        {
-          "var": "pubsub#access_model",
-          "value": "open"
-        },
-        {
-          "var": "pubsub#creation_date",
-          "value": "2015-02-26T00:11:39.754Z"
-        },
-        {
-          "var": "pubsub#description",
-          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
-        },
-        {
-          "var": "pubsub#owner",
-          "value": "test1@laos.buddycloud.com"
-        },
-        {
-          "var": "pubsub#title",
-          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
-        }
-      ]
-    },
-    {
-      "unread": {
-        "/user/test1@laos.buddycloud.com/posts": 2
-      },
-      "nodes": [],
-      "subscriptions": [
-        {
-          "subscription": "subscribed",
-          "jid": {
-            "domain": "laos.buddycloud.com",
-            "user": "test2"
-          },
-          "node": "/user/test2@laos.buddycloud.com/posts",
-          "open": "function()"
-        },
-        {
-          "node": "/user/test1@laos.buddycloud.com/posts",
-          "subscription": "subscribed",
-          "jid": {
-            "domain": "laos.buddycloud.com",
-            "user": "test2"
-          },
-          "open": "function()"
-        }
-      ],
-      "affiliations": {
-        "/user/test2@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/posts": {
-          "publisher": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "publisher",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ],
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        }
-      },
-      "myaffiliations": {},
-      "errors": [],
-      "subscribed": true,
-      "rsm": {},
-      "items": [
-        {
-          "node": "/user/test1@laos.buddycloud.com/posts",
-          "id": "823090d5-aa02-4519-a342-385c838aed7a",
-          "entry": {
-            "atom": {
-              "title": "Post",
-              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,823090d5-aa02-4519-a342-385c838aed7a",
-              "updated": "2015-03-16T12:03:07.562Z",
-              "published": "2015-03-16T12:03:07.562Z",
-              "content": {
-                "content": "Hi Anna",
-                "type": "text"
-              },
-              "author": {
-                "name": "test1@laos.buddycloud.com",
-                "uri": "acct:test1@laos.buddycloud.com",
-                "image": "test1"
-              }
-            },
-            "activity": {
-              "verb": "post",
-              "object": {
-                "object-type": "note"
-              },
-              "author": {
-                "object-type": "person"
-              }
-            }
-          }
-        },
-        {
-          "node": "/user/test1@laos.buddycloud.com/posts",
-          "id": "8b6536d5-f70d-4f87-8c45-43892e36762c",
-          "entry": {
-            "atom": {
-              "title": "Post",
-              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,8b6536d5-f70d-4f87-8c45-43892e36762c",
-              "updated": "2015-03-16T12:03:10.550Z",
-              "published": "2015-03-16T12:03:10.550Z",
+              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,db15a2c9-898d-41af-9b5b-c8dfb1703e2d",
+              "updated": "2015-03-16T15:50:31.913Z",
+              "published": "2015-03-16T15:50:31.913Z",
               "content": {
                 "content": "Hi Elfi",
                 "type": "text"
@@ -1817,6 +1377,7 @@
             }
           },
           "remove": "function()",
+          "reply": "function()",
           "save": "function()"
         }
       ],
@@ -1851,6 +1412,215 @@
           "value": "test1@laos.buddycloud.com's very own buddycloud channel"
         }
       ]
+    },
+    {
+      "unread": {
+        "/user/test1@laos.buddycloud.com/posts": 2
+      },
+      "nodes": [],
+      "subscriptions": [
+        {
+          "subscription": "subscribed",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          },
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "open": "function()"
+        },
+        {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "subscription": "subscribed",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          },
+          "open": "function()"
+        }
+      ],
+      "affiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "publisher": [
+            {
+              "node": "/user/test1@laos.buddycloud.com/posts",
+              "affiliation": "publisher",
+              "jid": {
+                "domain": "laos.buddycloud.com",
+                "user": "test2"
+              }
+            }
+          ],
+          "owner": [
+            {
+              "node": "/user/test1@laos.buddycloud.com/posts",
+              "affiliation": "owner",
+              "jid": {
+                "domain": "laos.buddycloud.com",
+                "user": "test1"
+              }
+            }
+          ]
+        }
+      },
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "publisher",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/next": {
+          "node": "/user/test2@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/current": {
+          "node": "/user/test2@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test2@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test2@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/status": {
+          "node": "/user/test2@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/posts": {
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        }
+      },
+      "errors": [],
+      "subscribed": true,
+      "rsm": {},
+      "items": [
+        {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "id": "4965e47e-a1cc-47c1-9645-351e42aae2d6",
+          "entry": {
+            "atom": {
+              "title": "Post",
+              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,4965e47e-a1cc-47c1-9645-351e42aae2d6",
+              "updated": "2015-03-16T15:50:28.936Z",
+              "published": "2015-03-16T15:50:28.936Z",
+              "content": {
+                "content": "Hi Anna",
+                "type": "text"
+              },
+              "author": {
+                "name": "test1@laos.buddycloud.com",
+                "uri": "acct:test1@laos.buddycloud.com",
+                "image": "test1"
+              }
+            },
+            "activity": {
+              "verb": "post",
+              "object": {
+                "object-type": "note"
+              },
+              "author": {
+                "object-type": "person"
+              }
+            }
+          },
+          "reply": "function()"
+        },
+        {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "id": "db15a2c9-898d-41af-9b5b-c8dfb1703e2d",
+          "entry": {
+            "atom": {
+              "title": "Post",
+              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,db15a2c9-898d-41af-9b5b-c8dfb1703e2d",
+              "updated": "2015-03-16T15:50:31.913Z",
+              "published": "2015-03-16T15:50:31.913Z",
+              "content": {
+                "content": "Hi Elfi",
+                "type": "text"
+              },
+              "author": {
+                "name": "test2@laos.buddycloud.com",
+                "uri": "acct:test2@laos.buddycloud.com",
+                "image": "test2"
+              }
+            },
+            "activity": {
+              "verb": "post",
+              "object": {
+                "object-type": "note"
+              },
+              "author": {
+                "object-type": "person"
+              }
+            }
+          },
+          "remove": "function()",
+          "reply": "function()",
+          "save": "function()"
+        }
+      ],
+      "currentnode": "/user/test1@laos.buddycloud.com/posts",
+      "nodeaffiliation": "publisher",
+      "config": [
+        {
+          "var": "buddycloud#channel_type",
+          "value": "personal"
+        },
+        {
+          "var": "buddycloud#default_affiliation",
+          "value": "publisher"
+        },
+        {
+          "var": "pubsub#access_model",
+          "value": "open"
+        },
+        {
+          "var": "pubsub#creation_date",
+          "value": "2015-02-26T00:11:39.754Z"
+        },
+        {
+          "var": "pubsub#description",
+          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
+        },
+        {
+          "var": "pubsub#owner",
+          "value": "test1@laos.buddycloud.com"
+        },
+        {
+          "var": "pubsub#title",
+          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
+        }
+      ]
     }
   ],
   [
@@ -1892,271 +1662,71 @@
               }
             }
           ]
+        }
+      },
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
+          "node": "/user/test1@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
         },
         "/user/test1@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        }
-      },
-      "myaffiliations": {},
-      "errors": [],
-      "subscribed": true,
-      "rsm": {},
-      "items": [
-        {
-          "node": "/user/test1@laos.buddycloud.com/posts",
-          "id": "8b6536d5-f70d-4f87-8c45-43892e36762c",
-          "entry": {
-            "atom": {
-              "title": "Post",
-              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,8b6536d5-f70d-4f87-8c45-43892e36762c",
-              "updated": "2015-03-16T12:03:10.550Z",
-              "published": "2015-03-16T12:03:10.550Z",
-              "content": {
-                "content": "Hi Elfi",
-                "type": "text"
-              },
-              "author": {
-                "name": "test2@laos.buddycloud.com",
-                "uri": "acct:test2@laos.buddycloud.com",
-                "image": "test2"
-              }
-            },
-            "activity": {
-              "verb": "post",
-              "object": {
-                "object-type": "note"
-              },
-              "author": {
-                "object-type": "person"
-              }
-            }
+          "node": "/user/test1@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
           }
         }
-      ],
-      "currentnode": "/user/test1@laos.buddycloud.com/posts",
-      "config": [
-        {
-          "var": "buddycloud#channel_type",
-          "value": "personal"
-        },
-        {
-          "var": "buddycloud#default_affiliation",
-          "value": "publisher"
-        },
-        {
-          "var": "pubsub#access_model",
-          "value": "open"
-        },
-        {
-          "var": "pubsub#creation_date",
-          "value": "2015-02-26T00:11:39.754Z"
-        },
-        {
-          "var": "pubsub#description",
-          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
-        },
-        {
-          "var": "pubsub#owner",
-          "value": "test1@laos.buddycloud.com"
-        },
-        {
-          "var": "pubsub#title",
-          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
-        }
-      ]
-    },
-    {
-      "unread": {
-        "/user/test1@laos.buddycloud.com/posts": 2
       },
-      "nodes": [],
-      "subscriptions": [
-        {
-          "subscription": "subscribed",
-          "jid": {
-            "domain": "laos.buddycloud.com",
-            "user": "test2"
-          },
-          "node": "/user/test2@laos.buddycloud.com/posts",
-          "open": "function()"
-        },
-        {
-          "node": "/user/test1@laos.buddycloud.com/posts",
-          "subscription": "subscribed",
-          "jid": {
-            "domain": "laos.buddycloud.com",
-            "user": "test2"
-          },
-          "open": "function()"
-        }
-      ],
-      "affiliations": {
-        "/user/test2@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/posts": {
-          "publisher": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "publisher",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ],
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        }
-      },
-      "myaffiliations": {},
       "errors": [],
-      "subscribed": true,
+      "subscribed": false,
       "rsm": {},
       "items": [
         {
           "node": "/user/test1@laos.buddycloud.com/posts",
-          "id": "8b6536d5-f70d-4f87-8c45-43892e36762c",
+          "id": "db15a2c9-898d-41af-9b5b-c8dfb1703e2d",
           "entry": {
             "atom": {
               "title": "Post",
-              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,8b6536d5-f70d-4f87-8c45-43892e36762c",
-              "updated": "2015-03-16T12:03:10.550Z",
-              "published": "2015-03-16T12:03:10.550Z",
+              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,db15a2c9-898d-41af-9b5b-c8dfb1703e2d",
+              "updated": "2015-03-16T15:50:31.913Z",
+              "published": "2015-03-16T15:50:31.913Z",
               "content": {
                 "content": "Hi Elfi",
                 "type": "text"
@@ -2178,6 +1748,7 @@
             }
           },
           "remove": "function()",
+          "reply": "function()",
           "save": "function()"
         }
       ],
@@ -2212,145 +1783,6 @@
           "value": "test1@laos.buddycloud.com's very own buddycloud channel"
         }
       ]
-    }
-  ],
-  [
-    {
-      "unread": {
-        "/user/test1@laos.buddycloud.com/posts": 2
-      },
-      "nodes": [],
-      "subscriptions": [
-        {
-          "subscription": "subscribed",
-          "jid": {
-            "domain": "laos.buddycloud.com",
-            "user": "test1"
-          },
-          "node": "/user/test1@laos.buddycloud.com/posts",
-          "open": "function()"
-        }
-      ],
-      "affiliations": {
-        "/user/test1@laos.buddycloud.com/posts": {
-          "publisher": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "publisher",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ],
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        }
-      },
-      "myaffiliations": {},
-      "errors": [],
-      "subscribed": true,
-      "rsm": {},
-      "items": [],
-      "currentnode": "/user/test1@laos.buddycloud.com/posts",
-      "config": [
-        {
-          "var": "buddycloud#channel_type",
-          "value": "personal"
-        },
-        {
-          "var": "buddycloud#default_affiliation",
-          "value": "publisher"
-        },
-        {
-          "var": "pubsub#access_model",
-          "value": "open"
-        },
-        {
-          "var": "pubsub#creation_date",
-          "value": "2015-02-26T00:11:39.754Z"
-        },
-        {
-          "var": "pubsub#description",
-          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
-        },
-        {
-          "var": "pubsub#owner",
-          "value": "test1@laos.buddycloud.com"
-        },
-        {
-          "var": "pubsub#title",
-          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
-        }
-      ]
     },
     {
       "unread": {
@@ -2378,78 +1810,6 @@
         }
       ],
       "affiliations": {
-        "/user/test2@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
         "/user/test1@laos.buddycloud.com/posts": {
           "publisher": [
             {
@@ -2473,12 +1833,104 @@
           ]
         }
       },
-      "myaffiliations": {},
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "publisher",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/next": {
+          "node": "/user/test2@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/current": {
+          "node": "/user/test2@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test2@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test2@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/status": {
+          "node": "/user/test2@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/posts": {
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        }
+      },
       "errors": [],
       "subscribed": true,
       "rsm": {},
-      "items": [],
+      "items": [
+        {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "id": "db15a2c9-898d-41af-9b5b-c8dfb1703e2d",
+          "entry": {
+            "atom": {
+              "title": "Post",
+              "id": "tag:null@cs.buddycloud.com,/user/test1@laos.buddycloud.com/posts,db15a2c9-898d-41af-9b5b-c8dfb1703e2d",
+              "updated": "2015-03-16T15:50:31.913Z",
+              "published": "2015-03-16T15:50:31.913Z",
+              "content": {
+                "content": "Hi Elfi",
+                "type": "text"
+              },
+              "author": {
+                "name": "test2@laos.buddycloud.com",
+                "uri": "acct:test2@laos.buddycloud.com",
+                "image": "test2"
+              }
+            },
+            "activity": {
+              "verb": "post",
+              "object": {
+                "object-type": "note"
+              },
+              "author": {
+                "object-type": "person"
+              }
+            }
+          },
+          "remove": "function()",
+          "reply": "function()",
+          "save": "function()"
+        }
+      ],
       "currentnode": "/user/test1@laos.buddycloud.com/posts",
+      "nodeaffiliation": "publisher",
       "config": [
         {
           "var": "buddycloud#channel_type",
@@ -2530,205 +1982,6 @@
       ],
       "affiliations": {
         "/user/test1@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test1@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test1"
-              }
-            }
-          ]
-        }
-      },
-      "myaffiliations": {},
-      "errors": [],
-      "subscribed": true,
-      "rsm": {},
-      "items": [],
-      "currentnode": "/user/test1@laos.buddycloud.com/posts",
-      "config": [
-        {
-          "var": "buddycloud#channel_type",
-          "value": "personal"
-        },
-        {
-          "var": "buddycloud#default_affiliation",
-          "value": "publisher"
-        },
-        {
-          "var": "pubsub#access_model",
-          "value": "open"
-        },
-        {
-          "var": "pubsub#creation_date",
-          "value": "2015-02-26T00:11:39.754Z"
-        },
-        {
-          "var": "pubsub#description",
-          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
-        },
-        {
-          "var": "pubsub#owner",
-          "value": "test1@laos.buddycloud.com"
-        },
-        {
-          "var": "pubsub#title",
-          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
-        }
-      ]
-    },
-    {
-      "unread": {
-        "/user/test1@laos.buddycloud.com/posts": 2
-      },
-      "nodes": [],
-      "subscriptions": [
-        {
-          "subscription": "subscribed",
-          "jid": {
-            "domain": "laos.buddycloud.com",
-            "user": "test2"
-          },
-          "node": "/user/test2@laos.buddycloud.com/posts",
-          "open": "function()"
-        }
-      ],
-      "affiliations": {
-        "/user/test2@laos.buddycloud.com/geo/next": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/next",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/current": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/current",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/geo/previous": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/geo/previous",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/subscriptions": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/subscriptions",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/status": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/status",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test2@laos.buddycloud.com/posts": {
-          "owner": [
-            {
-              "node": "/user/test2@laos.buddycloud.com/posts",
-              "affiliation": "owner",
-              "jid": {
-                "domain": "laos.buddycloud.com",
-                "user": "test2"
-              }
-            }
-          ]
-        },
-        "/user/test1@laos.buddycloud.com/posts": {
           "publisher": [
             {
               "node": "/user/test1@laos.buddycloud.com/posts",
@@ -2751,7 +2004,56 @@
           ]
         }
       },
-      "myaffiliations": {},
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/next": {
+          "node": "/user/test1@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/current": {
+          "node": "/user/test1@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test1@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test1@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/status": {
+          "node": "/user/test1@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        }
+      },
       "errors": [],
       "subscribed": false,
       "rsm": {},
@@ -2787,6 +2089,396 @@
           "value": "test1@laos.buddycloud.com's very own buddycloud channel"
         }
       ]
+    },
+    {
+      "unread": {
+        "/user/test1@laos.buddycloud.com/posts": 2
+      },
+      "nodes": [],
+      "subscriptions": [
+        {
+          "subscription": "subscribed",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          },
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "open": "function()"
+        },
+        {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "subscription": "subscribed",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          },
+          "open": "function()"
+        }
+      ],
+      "affiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "publisher": [
+            {
+              "node": "/user/test1@laos.buddycloud.com/posts",
+              "affiliation": "publisher",
+              "jid": {
+                "domain": "laos.buddycloud.com",
+                "user": "test2"
+              }
+            }
+          ],
+          "owner": [
+            {
+              "node": "/user/test1@laos.buddycloud.com/posts",
+              "affiliation": "owner",
+              "jid": {
+                "domain": "laos.buddycloud.com",
+                "user": "test1"
+              }
+            }
+          ]
+        }
+      },
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "publisher",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/next": {
+          "node": "/user/test2@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/current": {
+          "node": "/user/test2@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test2@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test2@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/status": {
+          "node": "/user/test2@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/posts": {
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        }
+      },
+      "errors": [],
+      "subscribed": true,
+      "rsm": {},
+      "items": [],
+      "currentnode": "/user/test1@laos.buddycloud.com/posts",
+      "nodeaffiliation": "publisher",
+      "config": [
+        {
+          "var": "buddycloud#channel_type",
+          "value": "personal"
+        },
+        {
+          "var": "buddycloud#default_affiliation",
+          "value": "publisher"
+        },
+        {
+          "var": "pubsub#access_model",
+          "value": "open"
+        },
+        {
+          "var": "pubsub#creation_date",
+          "value": "2015-02-26T00:11:39.754Z"
+        },
+        {
+          "var": "pubsub#description",
+          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
+        },
+        {
+          "var": "pubsub#owner",
+          "value": "test1@laos.buddycloud.com"
+        },
+        {
+          "var": "pubsub#title",
+          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
+        }
+      ]
+    }
+  ],
+  [
+    {
+      "unread": {
+        "/user/test1@laos.buddycloud.com/posts": 2
+      },
+      "nodes": [],
+      "subscriptions": [
+        {
+          "subscription": "subscribed",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          },
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "open": "function()"
+        }
+      ],
+      "affiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "owner": [
+            {
+              "node": "/user/test1@laos.buddycloud.com/posts",
+              "affiliation": "owner",
+              "jid": {
+                "domain": "laos.buddycloud.com",
+                "user": "test1"
+              }
+            }
+          ]
+        }
+      },
+      "myaffiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "node": "/user/test1@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/next": {
+          "node": "/user/test1@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/current": {
+          "node": "/user/test1@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test1@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test1@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        },
+        "/user/test1@laos.buddycloud.com/status": {
+          "node": "/user/test1@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          }
+        }
+      },
+      "errors": [],
+      "subscribed": false,
+      "rsm": {},
+      "items": [],
+      "currentnode": "/user/test1@laos.buddycloud.com/posts",
+      "config": [
+        {
+          "var": "buddycloud#channel_type",
+          "value": "personal"
+        },
+        {
+          "var": "buddycloud#default_affiliation",
+          "value": "publisher"
+        },
+        {
+          "var": "pubsub#access_model",
+          "value": "open"
+        },
+        {
+          "var": "pubsub#creation_date",
+          "value": "2015-02-26T00:11:39.754Z"
+        },
+        {
+          "var": "pubsub#description",
+          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
+        },
+        {
+          "var": "pubsub#owner",
+          "value": "test1@laos.buddycloud.com"
+        },
+        {
+          "var": "pubsub#title",
+          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
+        }
+      ]
+    },
+    {
+      "unread": {
+        "/user/test1@laos.buddycloud.com/posts": 2
+      },
+      "nodes": [],
+      "subscriptions": [
+        {
+          "subscription": "subscribed",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          },
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "open": "function()"
+        }
+      ],
+      "affiliations": {
+        "/user/test1@laos.buddycloud.com/posts": {
+          "publisher": [
+            {
+              "node": "/user/test1@laos.buddycloud.com/posts",
+              "affiliation": "publisher",
+              "jid": {
+                "domain": "laos.buddycloud.com",
+                "user": "test2"
+              }
+            }
+          ],
+          "owner": [
+            {
+              "node": "/user/test1@laos.buddycloud.com/posts",
+              "affiliation": "owner",
+              "jid": {
+                "domain": "laos.buddycloud.com",
+                "user": "test1"
+              }
+            }
+          ]
+        }
+      },
+      "myaffiliations": {
+        "/user/test2@laos.buddycloud.com/geo/next": {
+          "node": "/user/test2@laos.buddycloud.com/geo/next",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/current": {
+          "node": "/user/test2@laos.buddycloud.com/geo/current",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/geo/previous": {
+          "node": "/user/test2@laos.buddycloud.com/geo/previous",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/subscriptions": {
+          "node": "/user/test2@laos.buddycloud.com/subscriptions",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/status": {
+          "node": "/user/test2@laos.buddycloud.com/status",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        },
+        "/user/test2@laos.buddycloud.com/posts": {
+          "node": "/user/test2@laos.buddycloud.com/posts",
+          "affiliation": "owner",
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          }
+        }
+      },
+      "errors": [],
+      "subscribed": false,
+      "rsm": {},
+      "items": [],
+      "currentnode": "/user/test1@laos.buddycloud.com/posts",
+      "nodeaffiliation": "publisher",
+      "config": [
+        {
+          "var": "buddycloud#channel_type",
+          "value": "personal"
+        },
+        {
+          "var": "buddycloud#default_affiliation",
+          "value": "publisher"
+        },
+        {
+          "var": "pubsub#access_model",
+          "value": "open"
+        },
+        {
+          "var": "pubsub#creation_date",
+          "value": "2015-02-26T00:11:39.754Z"
+        },
+        {
+          "var": "pubsub#description",
+          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
+        },
+        {
+          "var": "pubsub#owner",
+          "value": "test1@laos.buddycloud.com"
+        },
+        {
+          "var": "pubsub#title",
+          "value": "test1@laos.buddycloud.com's very own buddycloud channel"
+        }
+      ]
     }
   ]
 ]
+
