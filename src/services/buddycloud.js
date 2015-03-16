@@ -493,6 +493,7 @@ angular.module('BuddycloudModule', [])
                 $q.all([
                     api.send('xmpp.buddycloud.retrieve', request),
                     api.send('xmpp.buddycloud.affiliations', request),
+                    api.send('xmpp.buddycloud.affiliations', {}),
                     api.send('xmpp.buddycloud.config.get', request)
                 ]).then(function() {
                     if (request.node == api.data.currentnode) {
