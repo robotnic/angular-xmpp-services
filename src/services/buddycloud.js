@@ -369,6 +369,7 @@ angular.module('BuddycloudModule', [])
                                         api.data.affiliations[data[i].node][data[i].affiliation].push(data[i]);
                                     }
                                 }
+                                console.log("AFFILIATIONS",api.data.affiliations);
                                 nodeMethods();
                                 q.resolve(api.data.affiliations);
                                 api.q.notify(api.data.affiliations);
