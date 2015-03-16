@@ -462,12 +462,14 @@ angular.module('BuddycloudModule', [])
                         })
                     }
                 }
-                api.affiliation = function(jid, affiliation) {
-                    api.send('xmpp.buddycloud.affiliation', {
-                        'node': this.data.currentnode,
-                        'jid': jid,
-                        'affiliation': affiliation
-                    })
+                if(api.data.myaffiliations[this.data.currentnode] && api.data.myaffiliations[this.data.currentnode].affiliation=='owner'){
+                    api.affiliation = function(jid, affiliation) {
+                        api.send('xmpp.buddycloud.affiliation', {
+                            'node': this.data.currentnode,
+                            'jid': jid,
+                            'affiliation': affiliation
+                        })
+                    }
                 }
             }
 
