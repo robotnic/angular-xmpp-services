@@ -107,7 +107,9 @@ angular.module('BuddycloudModule', [])
                             api.data.subscribed = true;
                         }
                     }
+                    console.log("request after subs",api.data.currentnode);
                     getAffiliations({node:api.data.currentnode}).then(function() {
+                        console.log("aas",api.data.affiliations);
                         q.notify("affiliations after subscriptions");
                     }, function(error) {
                         console.log(error);
@@ -462,7 +464,7 @@ angular.module('BuddycloudModule', [])
                         })
                     }
                 }
-                if(api.data.myaffiliations[this.data.currentnode] && api.data.myaffiliations[this.data.currentnode].affiliation=='owner'){
+                if(api.data.myaffiliations[api.data.currentnode] && api.data.myaffiliations[api.data.currentnode].affiliation=='owner'){
                     api.affiliation = function(jid, affiliation) {
                         api.send('xmpp.buddycloud.affiliation', {
                             'node': this.data.currentnode,
@@ -570,6 +572,7 @@ angular.module('BuddycloudModule', [])
                                 } else {
 
                                     for (var i = 0; i < api.data.subscriptions.length; i++) {
+                                        console.log("subscription bug", api.data.subscriptions[i].node , data.node) ;
                                         if (api.data.subscriptions[i].node == data.node) {
                                             api.data.subscriptions.splice(i, 1);
                                             delete api.data.myaffiliations[data.node];
@@ -759,7 +762,9 @@ angular.module('BuddycloudModule', [])
                         return q.promise;
 
                         break;
-
+                    case 'xmpp.buddycloud.presence':
+                        xmpp.socket.send( 'xmpp.buddycloud.presence', data);
+                        break;
                     default:
                         var q = $q.defer();
                         xmpp.socket.send(
@@ -807,6 +812,7 @@ angular.module('BuddycloudModule', [])
                     var q=$q.defer();
                     api.send('xmpp.buddycloud.discover', {}).then(function() {
                         q.resolve();
+                        api.q.notify("init");
                         api.send('xmpp.buddycloud.register', {});
                         api.send('xmpp.buddycloud.subscriptions', {});
                         api.send('xmpp.buddycloud.affiliations', {});
