@@ -351,7 +351,7 @@ angular.module('BuddycloudModule', [])
                                 console.log(error);
                                 q.reject(error);
                             } else {
-                                if (false && !node) {
+                                if (!node) {
                                     api.data.myaffiliations = {};
                                     for (var i = 0; i < data.length; i++) {
                                         api.data.myaffiliations[data[i].node] = data[i];
