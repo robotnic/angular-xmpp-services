@@ -1,0 +1,12 @@
+[
+  [0,"buddycloud","init()"],
+  [1,"buddycloud","init()"],
+  [1,"buddycloud","send('xmpp.buddycloud.subscribe',{'node':'/user/test1@laos.buddycloud.com/posts'})"],
+  [0,"buddycloud","open({'node':'/user/test1@laos.buddycloud.com/posts'})"],
+  [1,"buddycloud","open({'node':'/user/test1@laos.buddycloud.com/posts'})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna' }}})"],
+  [1,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Elfi' }}})"],
+  [0,"buddycloud","data.items[0].remove()"],
+  [1,"buddycloud","data.items[0].remove()"],
+  [1,"buddycloud","send('xmpp.buddycloud.unsubscribe',{'node':'/user/test1@laos.buddycloud.com/posts'})"]
+]

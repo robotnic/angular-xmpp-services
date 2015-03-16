@@ -1,0 +1,8 @@
+[
+  [0,"buddycloud","init()"],
+  [1,"buddycloud","init()"],
+  [0,"buddycloud","open({'node':'/user/test1@laos.buddycloud.com/posts'})"],
+  [1,"buddycloud","open({'node':'/user/test1@laos.buddycloud.com/posts'})"],
+  [0,"buddycloud","reset(0)"],
+  [1,"buddycloud","reset(1)"]
+]

@@ -11,7 +11,8 @@
           "resource": "test",
           "user": "test1"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -24,7 +25,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -37,7 +39,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -55,7 +58,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -68,7 +72,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -81,7 +86,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -99,7 +105,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -112,7 +119,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -125,7 +133,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -143,7 +152,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -166,7 +176,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -179,7 +190,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -206,7 +218,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -228,7 +241,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -241,7 +255,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -269,7 +284,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -291,7 +307,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -304,7 +321,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -331,7 +349,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -353,7 +372,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -366,7 +386,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -402,7 +423,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -424,7 +446,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -437,7 +460,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -472,7 +496,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -494,7 +519,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -516,7 +542,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -551,7 +578,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -573,7 +601,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -596,7 +625,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -631,7 +661,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -653,7 +684,8 @@
           "resource": "test",
           "user": "test2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -675,7 +707,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -713,7 +746,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -741,7 +775,8 @@
         "presence": {
           "status": "Cool that"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -763,7 +798,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -801,7 +837,8 @@
         "presence": {
           "status": "bored to death"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -829,7 +866,8 @@
         "presence": {
           "status": "Cool that2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -851,7 +889,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -889,7 +928,8 @@
         "presence": {
           "status": "I also haz new status"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -917,7 +957,8 @@
         "presence": {
           "status": "Cool that2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -939,7 +980,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -974,7 +1016,8 @@
         "presence": {
           "status": "I also haz new status"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -990,7 +1033,8 @@
         "presence": {
           "status": "Cool that2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -1012,7 +1056,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -1039,7 +1084,8 @@
         "presence": {
           "status": "I also haz new status"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -1055,7 +1101,8 @@
         "presence": {
           "status": "Cool that2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -1077,7 +1124,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -1095,7 +1143,8 @@
         "presence": {
           "status": "I also haz new status"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -1111,7 +1160,8 @@
         "presence": {
           "status": "Cool that2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -1133,7 +1183,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -1151,7 +1202,8 @@
         "presence": {
           "status": "I also haz new status"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -1167,7 +1219,8 @@
         "presence": {
           "status": "Cool that2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -1189,7 +1242,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
+      },
+      "items": []
     }
   ],
   [
@@ -1207,7 +1261,8 @@
         "presence": {
           "status": "I also haz new status"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -1223,7 +1278,8 @@
         "presence": {
           "status": "Cool that2"
         }
-      }
+      },
+      "items": []
     },
     {
       "connected": true,
@@ -1236,85 +1292,8 @@
           "resource": "test",
           "user": "test3"
         }
-      }
-    }
-  ],
-  [
-    {
-      "connected": false,
-      "roster": [],
-      "me": null
-    },
-    {
-      "connected": true,
-      "roster": [],
-      "me": {
-        "status": "online",
-        "jid": {
-          "local": "test2",
-          "domain": "laos.buddycloud.com",
-          "resource": "test",
-          "user": "test2"
-        },
-        "presence": {
-          "status": "Cool that2"
-        }
-      }
-    },
-    {
-      "connected": true,
-      "roster": [],
-      "me": {
-        "status": "online",
-        "jid": {
-          "local": "test3",
-          "domain": "laos.buddycloud.com",
-          "resource": "test",
-          "user": "test3"
-        }
-      }
-    }
-  ],
-  [
-    {
-      "connected": false,
-      "roster": [],
-      "me": null
-    },
-    {
-      "connected": false,
-      "roster": [],
-      "me": null
-    },
-    {
-      "connected": true,
-      "roster": [],
-      "me": {
-        "status": "online",
-        "jid": {
-          "local": "test3",
-          "domain": "laos.buddycloud.com",
-          "resource": "test",
-          "user": "test3"
-        }
-      }
-    }
-  ],
-  [
-    {
-      "connected": false,
-      "roster": [],
-      "me": null
-    },
-    {
-      "connected": false,
-      "roster": [],
-      "me": null
-    },
-    {
-      "connected": false,
-      "roster": [],
-      "me": null
+      },
+      "items": []
     }
   ]
 ]
