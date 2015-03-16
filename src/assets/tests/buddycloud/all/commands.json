@@ -37,5 +37,4 @@
   [1,"buddycloud","send( 'xmpp.buddycloud.subscription', { 'node': '/user/test1@laos.buddycloud.com/posts', 'jid': 'test2@laos.buddycloud.com','subscription':'invited'})"],
   [1,"buddycloud","send( 'xmpp.buddycloud.subscription', { 'node': '/user/test2@laos.buddycloud.com/posts', 'jid': 'test2@laos.buddycloud.com','subscription':'invited'})"],
   [1,"buddycloud","send( 'xmpp.buddycloud.subscription', { 'node': '/user/test1@laos.buddycloud.com/posts', 'jid': 'test2@laos.buddycloud.com','subscription':'invited'})"],
-  [1,"buddycloud","send( 'xmpp.buddycloud.subscription', { 'node': '/user/test2@laos.buddycloud.com/posts', 'jid': 'notexistinguser@laos.buddycloud.com','subscription':'invited'})"]
 ]

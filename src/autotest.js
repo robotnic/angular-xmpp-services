@@ -16,7 +16,7 @@ var testaccount1 = "test1@laos.buddycloud.com";
 var testaccount2 = "test2@laos.buddycloud.com";
 var testaccount3 = "test3@laos.buddycloud.com";
 
-var excludefromtest=["receivetime"];
+var excludefromtest=["receivetime","id","updated","published"];
 
 
 
@@ -52,6 +52,10 @@ angular.module('Test', ['AngularXmpp','jsonFormatter','angularMoment'])
                 name:"subscription",
                 type:"buddycloud",
                 check:["subscriptions",  "affiliations","myaffiliations","errors"]
+            },{
+                name:"subscription_open",
+                type:"buddycloud",
+                check:["subscriptions",  "affiliations","myaffiliations","items","errors"]
             },
             {
                 name:"buddycloud",
@@ -67,7 +71,7 @@ angular.module('Test', ['AngularXmpp','jsonFormatter','angularMoment'])
                 type:"buddycloud",
                 check:["subscriptions",  "affiliations","myaffiliations","items","errors"]
             },{
-                name:"destroy",
+                name:"reset",
                 type:"buddycloud",
                 check:["subscriptions",  "affiliations","myaffiliations","items","errors"]
             }]
@@ -97,7 +101,6 @@ The xmpp websocket connections
             for (var i = 0; i < numberOfConnections; i++) {
                 xmpps[i] = initsocket();
                 $scope.commands[i] = [];
-                console.log($scope.commands);
             }
         }
 
@@ -139,7 +142,6 @@ The xmpp websocket connections
 
         $scope.savestate=function(){
             var command=$scope.allcommands[$scope.counter];
-            console.log("SAVING",$scope.counter);
             if(!command){
                 console.log("no command");
                 return false;
@@ -260,6 +262,9 @@ xmppcore
             if(test.type=="buddycloud"){
                 for (var i = 0; i < 2; i++) {
                     buddyclouds[i] = new BuddycloudFactory(xmpps[i]);
+                    buddyclouds[i].reset=function(i){
+                        reset(i);
+                    }
                 }
             }
             if(test.type=="message"){
@@ -269,6 +274,27 @@ xmppcore
             }
         }
 
+        function reset(i){
+                /*
+                for(var j=0;j=buddyclouds[j].data.subscriptions.length;j++){
+                    buddyclouds[i].send('xmpp.buddycloud.unsubscribe',{'node':'/user/test"+(i+1)+"@laos.buddycloud.com/posts'})
+                }
+                */
+                for(var j=0;j<buddyclouds[i].data.items.length;j++){
+                    if(buddyclouds[i].data.items[j].remove){
+                        buddyclouds[i].data.items[j].remove();
+                    }else{
+                        console.log("can not remove",buddyclouds[i].data.items[j].id);
+                    }
+                }
+                for(var j=0;j<buddyclouds[i].data.subscriptions.length;j++){
+                    //var node="/user/test"+(i+1)+"@laos.buddycloud.com/posts";
+                    var node=buddyclouds[i].data.subscriptions[j].node;
+                    buddyclouds[i].send('xmpp.buddycloud.unsubscribe',{'node':node});
+                }
+        }
+        
+
         $scope.doTest($scope.testplan.xmpp[0]);
        
 
@@ -276,11 +302,9 @@ xmppcore
             var name=window.location.hash.split("/")[1]; 
             var type=window.location.hash.split("/")[0]; 
             type=type.substr(1);
-            console.log(type,name);
             var topic=$scope.testplan[type];
             for(var i=0;i<topic.length;i++){
                 if(topic[i].name==name){
-                    console.log(topic[i]);
                     $scope.doTest(topic[i]);
                 }
             }
@@ -369,7 +393,6 @@ common
 
                 checkresult(true);
                 //counter
-                console.log("LLLL",$scope.allcommands.length,$scope.counter);
                 if(($scope.allcommands.length -1) > $scope.counter){
                     $scope.counter++;
                     $scope.savestate();
@@ -381,7 +404,6 @@ common
         }
 
         function checkresult(goodbadcount){
-                console.log("checkresult",$scope.counter);
                 var good = 0;
                 var bad = 0;
                 $scope.allcommands[$scope.counter].checkresults = [];
@@ -416,13 +438,11 @@ common
                 $scope.resultstring = JSON.stringify($scope.appstate, null, "  ");
 
 
-                console.log($scope.counter,$scope.allcommands[$scope.counter].checkresults);
 
 
         };
 
         function equals(a,b){
-            console.log("=====",a,b);
             var a=JSON.stringify(a,replacer);
             var b=JSON.stringify(b,replacer);
             
