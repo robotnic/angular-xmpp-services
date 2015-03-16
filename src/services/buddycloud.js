@@ -108,7 +108,7 @@ angular.module('BuddycloudModule', [])
                         }
                     }
                     getAffiliations().then(function() {
-                        //q.notify("affilitaions");
+                        q.notify("affiliations after subscriptions");
                     }, function(error) {
                         console.log(error);
                     });
