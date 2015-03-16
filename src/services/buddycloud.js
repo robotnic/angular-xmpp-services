@@ -107,7 +107,7 @@ angular.module('BuddycloudModule', [])
                             api.data.subscribed = true;
                         }
                     }
-                    getAffiliations().then(function() {
+                    getAffiliations({node:api.data.currentnode}).then(function() {
                         q.notify("affiliations after subscriptions");
                     }, function(error) {
                         console.log(error);
