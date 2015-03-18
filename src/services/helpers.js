@@ -14,7 +14,7 @@ angular.module('Helpers', [])
         }
         return user;
     }
-})
+}) 
 
 .filter('group',function(){
     return function(data,selector){
