@@ -3,11 +3,16 @@ angular.module('Helpers', [])
 
 .filter('getUser', function() {
     return function(item) {
+        var user="";
         if (item.indexOf("@") !== -1) {
-            return item.split("@")[0];
+            user= item.split("@")[0];
         } else {
-            return item;
+            user= item;
         }
+        if (user.indexOf("/") !== -1) {
+            user=user.substring(user.lastIndexOf("/"));
+        }
+        return user;
     }
 })
 
