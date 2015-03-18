@@ -10,7 +10,7 @@ angular.module('Helpers', [])
             user= item;
         }
         if (user.indexOf("/") !== -1) {
-            user=user.substring(user.lastIndexOf("/"));
+            user=user.substring(user.lastIndexOf("/")+1);
         }
         return user;
     }
