@@ -803,6 +803,7 @@ angular.module('BuddycloudModule', [])
 
 
             var api = {
+                version:"0.0.2",
                 q: xmpp.q,
                 data: {
                     unread: {},

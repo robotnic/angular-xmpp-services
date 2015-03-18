@@ -111,7 +111,8 @@ The xmpp websocket connections
 
         function initsocket() {
             //var xmpp=new Xmpp("https://buddycloud.org/");
-            var xmpp = new Xmpp("https://laos.buddycloud.com/");
+//            var xmpp = new Xmpp("https://laos.buddycloud.com/");
+            var xmpp = new Xmpp("http://localhost:3000/");
             //var xmpp=new Xmpp("https://xmpp-ftw.jit.su/");
 
             xmpp.watch().then(function(data) {
@@ -275,11 +276,6 @@ xmppcore
         }
 
         function reset(i){
-                /*
-                for(var j=0;j=buddyclouds[j].data.subscriptions.length;j++){
-                    buddyclouds[i].send('xmpp.buddycloud.unsubscribe',{'node':'/user/test"+(i+1)+"@laos.buddycloud.com/posts'})
-                }
-                */
                 for(var j=0;j<buddyclouds[i].data.items.length;j++){
                     if(buddyclouds[i].data.items[j].remove){
                         buddyclouds[i].data.items[j].remove();
@@ -290,7 +286,14 @@ xmppcore
                 for(var j=0;j<buddyclouds[i].data.subscriptions.length;j++){
                     //var node="/user/test"+(i+1)+"@laos.buddycloud.com/posts";
                     var node=buddyclouds[i].data.subscriptions[j].node;
+                    console.log("do it away",node);
+                    buddyclouds[i].send('xmpp.buddycloud.delete',{'node':node});
                     buddyclouds[i].send('xmpp.buddycloud.unsubscribe',{'node':node});
+                }
+                for(var j in buddyclouds[i].data.myaffiliations){
+                    var node=buddyclouds[i].data.myaffiliations[j].node;
+                    console.log("also delete this",node);
+                    buddyclouds[i].send('xmpp.buddycloud.delete',{'node':node});
                 }
         }
         
@@ -445,8 +448,16 @@ common
         function equals(a,b){
             var a=JSON.stringify(a,replacer);
             var b=JSON.stringify(b,replacer);
-            
-            return a===b;
+           
+            if(a===b){
+                return true;
+            }else{ 
+                try{
+                    return angular.equals(JSON.parse(a),JSON.parse(b));
+                }catch(e){
+                    return false;
+                }
+            }
         }
 
         function keepfunctions(a,b){
