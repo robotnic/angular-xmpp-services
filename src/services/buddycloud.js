@@ -398,6 +398,7 @@ angular.module('BuddycloudModule', [])
             }
 
             function nodeMethods() {
+                delete api.publish;
                 delete api.subscribe;
                 delete api.unsubscribe;
                 delete api.config;
@@ -482,19 +483,21 @@ angular.module('BuddycloudModule', [])
                                 api.q.notify("user added");
                             });
                         }
+                    }
+                }
                 
-                        api.publish = function(content) {
-                            if (this.data.currentnode == "recent") {
-                                api.send('xmpp.buddycloud.publish', {
-                                    'node': '/user/' + api.xmpp.data.me.jid.user + '@' + api.xmpp.data.me.jid.domain + '/posts',
-                                    'content': content
-                                });
-                            } else {
-                                api.send('xmpp.buddycloud.publish', {
-                                    'node': this.data.currentnode,
-                                    'content': content
-                                })
-                            }
+                if (api.data.subscribed) {
+                    api.publish = function(content) {
+                        if (this.data.currentnode == "recent") {
+                            api.send('xmpp.buddycloud.publish', {
+                                'node': '/user/' + api.xmpp.data.me.jid.user + '@' + api.xmpp.data.me.jid.domain + '/posts',
+                                'content': content
+                            });
+                        } else {
+                            api.send('xmpp.buddycloud.publish', {
+                                'node': this.data.currentnode,
+                                'content': content
+                            })
                         }
                     }
                 }
