@@ -424,6 +424,7 @@ angular.module('BuddycloudModule', [])
                                         for(var i=0;i<api.data.items.length;i++){
                                             itemMethods(api.data.items[i]);
                                         }
+                                        nodeMethodes();
                                         api.q.notify("subscribed");
                                     });
                                 }, function(error) {
@@ -457,7 +458,7 @@ angular.module('BuddycloudModule', [])
                                         for(var i=0;i<api.data.items.length;i++){
                                             itemMethods(api.data.items[i]);
                                         }
-
+                                        nodeMethods();
                                         api.q.notify("subscribed");
                                     });
                                 });
