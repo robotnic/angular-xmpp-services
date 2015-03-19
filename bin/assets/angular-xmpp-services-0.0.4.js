@@ -1,5 +1,5 @@
 /**
- * angular-xmpp-services - v0.0.4 - 2015-03-18
+ * angular-xmpp-services - v0.0.4 - 2015-03-19
  * https://github.com/ngbp/ngbp
  *
  * Copyright (c) 2015 Bernhard Zwischenbrugger

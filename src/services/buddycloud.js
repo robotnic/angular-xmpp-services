@@ -418,8 +418,9 @@ angular.module('BuddycloudModule', [])
                                 getAffiliations({
                                     'node': that.data.currentnode
                                 }).then(function() {
-                                    api.q.notify("unsubscribed");
-                                    //api.maketree(api.data.items);
+                                    getAffiliations().then(function(){
+                                        api.q.notify("subscribed");
+                                    });
                                 }, function(error) {
                                     //api.data.errors.unshift(error);
                                 });
@@ -447,7 +448,9 @@ angular.module('BuddycloudModule', [])
                                 getAffiliations({
                                     'node': that.data.currentnode
                                 }).then(function() {
-                                    api.q.notify("subscribed");
+                                    getAffiliations().then(function(){
+                                        api.q.notify("subscribed");
+                                    });
                                 });
                             });
 
