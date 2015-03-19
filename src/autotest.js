@@ -56,6 +56,10 @@ angular.module('Test', ['AngularXmpp','jsonFormatter','angularMoment'])
                 name:"subscription_open",
                 type:"buddycloud",
                 check:["subscriptions",  "affiliations","myaffiliations","items","errors"]
+            },{
+                name:"subscription_open2",
+                type:"buddycloud",
+                check:["subscriptions",  "affiliations","myaffiliations","items","errors"]
             },
             {
                 name:"buddycloud",
@@ -191,9 +195,11 @@ The xmpp websocket connections
             switch(e.keyCode){
                 case 37:
                     $scope.counter--;
+                    e.preventDefault();
                     break;
                 case 39:
                     $scope.counter++;
+                    e.preventDefault();
                     break;
             }
         }

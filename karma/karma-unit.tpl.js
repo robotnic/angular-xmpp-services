@@ -18,7 +18,7 @@ module.exports = function ( karma ) {
       'src/assets/**/*.js'
     ],
     frameworks: [ 'jasmine' ],
-    plugins: [ 'karma-jasmine', 'karma-firefox-launcher', 'karma-coffee-preprocessor' ],
+    plugins: [ 'karma-jasmine', 'karma-firefox-launcher', 'karma-coffee-preprocessor','karma-phantomjs-launcher' ],
     preprocessors: {
       '**/*.coffee': 'coffee',
     },
@@ -53,9 +53,13 @@ module.exports = function ( karma ) {
      * http://localhost:9018/ when you're running tests. The window/tab can be left
      * open and the tests will automatically occur there during the build. This has
      * the aesthetic advantage of not launching a browser every time you save.
+
+see: http://nathanleclaire.com/blog/2013/12/13/how-to-unit-test-controllers-in-angularjs-without-setting-your-hair-on-fire/
+
+
      */
     browsers: [
-      'Firefox'
+      'PhantomJS'
     ]
   });
 };

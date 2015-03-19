@@ -48,7 +48,7 @@ angular.module('BuddycloudModule', [])
                             }
                         }
                         if(isnew){
-                            addMethods(response);
+                            itemMethods(response);
                             response.entry.atom.author.image = response.entry.atom.author.name.split("@")[0];
                             api.data.items.push(response);
                         }
@@ -139,8 +139,10 @@ angular.module('BuddycloudModule', [])
             Add methods to node items
             */
 
-            function addMethods(item) {
-
+            function itemMethods(item) {
+                delete item.reply;
+                delete item.remove;
+                delete item.save;
                 var rights=calcRights(item);
 
                 if(rights.remove){
@@ -419,6 +421,9 @@ angular.module('BuddycloudModule', [])
                                     'node': that.data.currentnode
                                 }).then(function() {
                                     getAffiliations().then(function(){
+                                        for(var i=0;i<api.data.items.length;i++){
+                                            itemMethods(api.data.items[i]);
+                                        }
                                         api.q.notify("subscribed");
                                     });
                                 }, function(error) {
@@ -449,6 +454,10 @@ angular.module('BuddycloudModule', [])
                                     'node': that.data.currentnode
                                 }).then(function() {
                                     getAffiliations().then(function(){
+                                        for(var i=0;i<api.data.items.length;i++){
+                                            itemMethods(api.data.items[i]);
+                                        }
+
                                         api.q.notify("subscribed");
                                     });
                                 });
@@ -672,7 +681,7 @@ angular.module('BuddycloudModule', [])
                                     //workaround for buggy id
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
-                                        addMethods(response[i]);
+                                        itemMethods(response[i]);
                                     }
 
 
@@ -713,7 +722,7 @@ angular.module('BuddycloudModule', [])
                                     //workaround for buggy id
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
-                                        addMethods(response[i]);
+                                        itemMethods(response[i]);
                                     }
 
                                     if (append) {
