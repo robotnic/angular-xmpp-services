@@ -193,7 +193,7 @@ angular.module('BuddycloudModule', [])
         @method search
         */
 
-            /* This will go to an other module
+
             function search(text) {
                 var q = $q.defer();
                 console.log("====", text);
@@ -217,7 +217,7 @@ angular.module('BuddycloudModule', [])
                 );
                 return q.promise;
             }
-*/
+
 
             /* not working
             function rate(node, ref) {
@@ -487,7 +487,7 @@ angular.module('BuddycloudModule', [])
                     }
                 }
                 
-                if (api.data.subscribed) {
+                if (api.data.subscribed || api.data.currentnode == "recent") {
                     api.publish = function(content) {
                         if (this.data.currentnode == "recent") {
                             api.send('xmpp.buddycloud.publish', {
@@ -842,7 +842,7 @@ angular.module('BuddycloudModule', [])
 
 
             var api = {
-                version:"0.0.2",
+                version:"0.1.3",
                 q: xmpp.q,
                 data: {
                     unread: {},
