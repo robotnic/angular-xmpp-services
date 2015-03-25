@@ -2,6 +2,7 @@
   [0,"buddycloud","send('xmpp.buddycloud.discover')"],
   [1,"buddycloud","send('xmpp.buddycloud.discover')"],
   [0,"buddycloud","send('xmpp.buddycloud.items.recent')"],
+  [0,"buddycloud","recent()"],
   [0,"buddycloud","send('xmpp.buddycloud.register',{})"],
   [0,"buddycloud","open({'node':'/user/test1@laos.buddycloud.com/posts',rsm:{'max':2000}})"],
   [1,"buddycloud","open({'node':'/user/test2@laos.buddycloud.com/posts',rsm:{'max':2000}})"],

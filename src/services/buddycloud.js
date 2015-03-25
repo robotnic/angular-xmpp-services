@@ -487,19 +487,20 @@ angular.module('BuddycloudModule', [])
                     }
                 }
                 
-                if (api.data.subscribed || api.data.currentnode == "recent") {
+                if (api.data.subscribed ) {
                     api.publish = function(content) {
-                        if (this.data.currentnode == "recent") {
+                        api.send('xmpp.buddycloud.publish', {
+                            'node': this.data.currentnode,
+                            'content': content
+                        })
+                    }
+                }
+                if(api.data.currentnode=="recent"){
+                    api.publish = function(content) {
                             api.send('xmpp.buddycloud.publish', {
-                                'node': '/user/' + api.xmpp.data.me.jid.user + '@' + api.xmpp.data.me.jid.domain + '/posts',
+                                'node': '/user/' + this.xmpp.data.me.jid.user + '@' + this.xmpp.data.me.jid.domain + '/posts',
                                 'content': content
                             });
-                        } else {
-                            api.send('xmpp.buddycloud.publish', {
-                                'node': this.data.currentnode,
-                                'content': content
-                            })
-                        }
                     }
                 }
                 if(api.data.myaffiliations[api.data.currentnode] && api.data.myaffiliations[api.data.currentnode].affiliation=='owner'){
