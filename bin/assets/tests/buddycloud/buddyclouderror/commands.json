@@ -1,14 +1,8 @@
 [
   [0,"buddycloud","send('xmpp.buddycloud.discover')"],
   [1,"buddycloud","send('xmpp.buddycloud.discover')"],
+  [0,"buddycloud","send('xmpp.buddycloud.items.recent')"],
   [0,"buddycloud","send('xmpp.buddycloud.register',{})"],
-  [0,"buddycloud","send('xmpp.buddycloud.discover.media-server')"],
-  [0,"buddycloud","send('xmpp.buddycloud.discover.media-server',{})"],
-  [0,"buddycloud","send('xmpp.buddycloud.discover.media-server', { 'of': 'laos.buddycloud.com' })"],
-  [0,"buddycloud","send('xmpp.buddycloud.discover.media-server', { 'of': 'topics.buddycloud.com' })"],
-  [0,"buddycloud","send('xmpp.buddycloud.discover.media-server', { 'of': 'buddycloud.com' })"],
-  [0,"buddycloud","send('xmpp.buddycloud.discover.media-server', { 'of': 'buddycloud.org' })"],
-  [0,"buddycloud","send('xmpp.buddycloud.discover.media-server', { 'of': 'evilprofessor.co.uk' })"],
   [0,"buddycloud","open({'node':'/user/test1@laos.buddycloud.com/posts',rsm:{'max':2000}})"],
   [1,"buddycloud","open({'node':'/user/test2@laos.buddycloud.com/posts',rsm:{'max':2000}})"],
   [1,"buddycloud","open({'node':'/user/test2@laos.buddycloud.com',rsm:{'max':2000}})"],
@@ -19,6 +13,7 @@
   [0,"buddycloud","send('xmpp.buddycloud.create', {'node':'/user/test1005@laos.buddycloud.com/posts','options': [ {'var':'buddycloud#channel_type','value':'topic'}, {'var':'buddycloud#default_affiliation','value':'publisher'},  {'var':'pubsub#access_model','value':'open'},  {'var':'pubsub#description','value':'this is a test.'},  {'var':'pubsub#title','value':'this is the title'} ] })"],
   [0,"buddycloud","send('xmpp.buddycloud.create', {'node':'/user/test1006@topics.buddycloud.com/posts','options': [ {'var':'buddycloud#channel_type','value':'topic'}, {'var':'buddycloud#default_affiliation','value':'publisher'},  {'var':'pubsub#access_model','value':'open'},  {'var':'pubsub#description','value':'this is a test.'},  {'var':'pubsub#title','value':'this is the title'} ] })"],
   [0,"buddycloud","send('xmpp.buddycloud.create', {'node':'/xy/test1006@topics.buddycloud.com/posts','options': [ {'var':'buddycloud#channel_type','value':'topic'}, {'var':'buddycloud#default_affiliation','value':'publisher'},  {'var':'pubsub#access_model','value':'open'},  {'var':'pubsub#description','value':'this is a test.'},  {'var':'pubsub#title','value':'this is the title'} ] })"],
+  [0,"buddycloud","send('xmpp.buddycloud.items.recent')"],
   [0,"buddycloud","send('xmpp.buddycloud.create', {'node':'/xy/test1007@laos.buddycloud.com/posts','options': [ {'var':'buddycloud#channel_type','value':'topic'}, {'var':'buddycloud#default_affiliation','value':'publisher'},  {'var':'pubsub#access_model','value':'open'},  {'var':'pubsub#description','value':'this is a test.'},  {'var':'pubsub#title','value':'this is the title'} ] })"],
 
 

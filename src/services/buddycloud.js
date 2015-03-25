@@ -282,6 +282,7 @@ angular.module('BuddycloudModule', [])
             function removeitem(item) {
                 var q = $q.defer();
                 var id=item.entry.atom.id;
+//                var id=item.id;
                 var request={node:item.node,id:id};
                 xmpp.socket.send(
                     'xmpp.buddycloud.item.delete', request,
@@ -544,6 +545,18 @@ angular.module('BuddycloudModule', [])
                     nodeMethods();
                     api.q.notify("opennode");
                 });
+
+            }
+
+            function recent(request){
+                $q.all([
+                    api.send('xmpp.buddycloud.items.recent', request),
+                 ]).then(function() {
+                    nodeMethods();
+                    api.q.notify("recent");
+                });
+
+
 
             }
 
