@@ -762,6 +762,7 @@ angular.module('BuddycloudModule', [])
                                     q.resolve(data);
                                     api.data.rsm = rsm;
                                     api.data.currentnode = "recent"; //not beautiful programming
+                                    nodeMethods();
                                     api.q.notify("recent");
                                 }
                             }
