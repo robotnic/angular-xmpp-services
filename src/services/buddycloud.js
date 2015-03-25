@@ -856,6 +856,9 @@ angular.module('BuddycloudModule', [])
                 open: function(data) {
                     return opennode(data);
                 },
+                recent:function(){
+                    return recent();
+                },
                 send: function(command, data) {
                     return send(command, data);
                 },
