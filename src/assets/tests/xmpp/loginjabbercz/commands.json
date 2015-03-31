@@ -1,0 +1,5 @@
+[
+  [0,"xmpp","send('xmpp.login',{jid:'testtest1@jabber.cz',password:'bbbbbb',resource:'test',register:false})"],
+  [1,"xmpp","send('xmpp.login',{jid:'testtest1@jabber.cz',password:'bbbbbb',resource:'test',register:false})"],
+  [2,"xmpp","send('xmpp.login',{jid:'testtest1@jabber.cz',password:'bbbbbb',resource:'test',register:false})"]
+]

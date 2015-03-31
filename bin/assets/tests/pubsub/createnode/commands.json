@@ -1,0 +1,27 @@
+[
+  [0,"pubsub","send('xmpp.pubsub.subscriptions',{'to':'pubsub.localhost','node':'test2'})"],
+  [1,"pubsub","send('xmpp.pubsub.subscriptions',{'to':'pubsub.localhost','node':'test2'})"],
+  [0,"pubsub","send('xmpp.pubsub.affiliations',{'to':'pubsub.localhost'})"],
+  [0,"pubsub","send('xmpp.pubsub.affiliations',{'to':'pubsub.localhost','node':'test2'})"],
+  [0,"pubsub","send('xmpp.pubsub.config.get',{'to':'pubsub.localhost','node':'test2'})"],
+  [0,"pubsub","send('xmpp.pubsub.subscription.config.get',{'to':'pubsub.localhost','node':'test2'})"],
+  [1,"pubsub","send('xmpp.pubsub.config.get',{'to':'pubsub.localhost','node':'test2'})"],
+  [1,"pubsub","send('xmpp.pubsub.affiliations',{'to':'pubsub.localhost','node':'test2'})"],
+  [0,"pubsub","send('xmpp.pubsub.create',{'node':'test2','to':'pubsub.localhost'})"],
+  [0,"pubsub","send('xmpp.pubsub.create',{'node':'test3','to':'pubsub.localhost'})"],
+  [0,"pubsub","send('xmpp.pubsub.create',{'node':'/user/test1/xx','to':'pubsub.localhost'})"],
+  [0,"pubsub","send( 'xmpp.pubsub.unsubscribe', { 'to': 'pubsub.localhost','node': 'test2'})"],
+  [1,"pubsub","send( 'xmpp.pubsub.subscribe', { 'to': 'pubsub.localhost','node': 'test2'})"],
+  [0,"pubsub","send( 'xmpp.pubsub.subscribe', { 'to': 'pubsub.localhost','node': 'test2'})"],
+  [0,"pubsub","send( 'xmpp.pubsub.subscribe', { 'to': 'pubsub.localhost','node': 'test2 node','id':'bravissimo'})"],
+  [0,"pubsub","send( 'xmpp.pubsub.publish', { 'to': 'pubsub.localhost', 'node': 'test2', 'content': 'Yes, it works !'})" ],
+  [0,"pubsub","send( 'xmpp.pubsub.publish', { 'to': 'pubsub.localhost', 'node': 'test2', 'content': 'I will be deleted user !','id':'asdf'})" ],
+  [0,"pubsub","send( 'xmpp.pubsub.publish', { 'to': 'pubsub.localhost', 'node': 'test2', 'content': 'Really Replaced2!','id':'95638a09-b52b-493f-bc2c-74f3c3d3dc4a'})" ],
+  [0,"pubsub","send( 'xmpp.pubsub.publish', { 'to': 'pubsub.localhost', 'node': 'test2 node', 'content': ' publish to foraign node'})" ],
+  [0,"pubsub","send( 'xmpp.pubsub.retrieve', { 'to': 'pubsub.localhost', 'node': 'test2'})"],
+  [0,"pubsub","send( 'xmpp.pubsub.item.delete', { 'to': 'pubsub.localhost', 'node': 'test2','id':'asdf'})"]
+
+]
+
+
+

@@ -4,6 +4,7 @@ var SCOPE = null; //debug
 var xmpps = [];
 var buddyclouds = [];
 var messages = [];
+var pubsubs = [];
 
 
 /*
@@ -23,12 +24,12 @@ var excludefromtest=["receivetime","id","updated","published"];
 
 
 angular.module('Test', ['AngularXmpp','jsonFormatter','angularMoment'])
-    .controller("test", function($scope, Xmpp, $timeout, $http, $q, BuddycloudFactory,MessageFactory) { 
+    .controller("test", function($scope, Xmpp, $timeout, $http, $q, BuddycloudFactory,MessageFactory,PubsubFactory) { 
 
         $scope.testplan={
             xmpp:[
             {
-                name:"login",
+                name:"loginlocal",
                 type:"xmpp",
                 check:["me"],
             },{
@@ -48,6 +49,15 @@ angular.module('Test', ['AngularXmpp','jsonFormatter','angularMoment'])
                 check:["items","notifications","errors"],
             }
             ],
+            pubsub:[{
+                name:"subscription",
+                type:"pubsub",
+                check:["subscriptions",  "affiliations","items","errors"]
+            },{
+                name:"createnode",
+                type:"pubsub",
+                check:["subscriptions",  "affiliations","items","errors"]
+            }],
             buddycloud:[{
                 name:"subscription",
                 type:"buddycloud",
@@ -91,6 +101,7 @@ angular.module('Test', ['AngularXmpp','jsonFormatter','angularMoment'])
         SCOPE = $scope;
 //        $scope.buddycloud = new BuddycloudFactory();
         $scope.buddyclouds = buddyclouds;
+        $scope.pubsubs = pubsubs;
         $scope.steptime = 3000;
         $scope.commands = [];
         before(3);
@@ -274,6 +285,18 @@ xmppcore
                     }
                 }
             }
+
+            if(test.type=="pubsub"){
+                for (var i = 0; i < 2; i++) {
+                    pubsubs[i] = new PubsubFactory(xmpps[i]);
+                    pubsubs[i].reset=function(i){
+                        reset(i);
+                    }
+                }
+            }
+
+
+
             if(test.type=="message"){
                 for (var i = 0; i < 3; i++) {
                     messages[i] = new MessageFactory(xmpps[i]);
