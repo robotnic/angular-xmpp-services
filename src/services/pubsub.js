@@ -8,29 +8,24 @@ angular.module('PubsubModule', [])
 
             function watch() {
                 xmpp.socket.on('xmpp.pubsub.push.authorisation', function(response) {
-                    console.log("INCOMING",response);
-                    xmpp.q.notify("asdf");                
+                    xmpp.q.notify("xmpp.pubsub.push.authorisation");                
                 })
                 xmpp.socket.on('xmpp.pubsub.push.item', function(response) {
-                    console.log("INCOMING PUSH ITEM",response);
                     if(response.id){
                         push("remove","items",response.from,response.node,response.id);
                     }
                     push("push","items",response.from,response.node,response);
-                    xmpp.q.notify("push.item");                
+                    xmpp.q.notify("xmpp.pubsub.push.item");                
                 })
                 xmpp.socket.on('xmpp.pubsub.push.retract', function(response) {
-                    console.log("INCOMING RETRACT",response);
                     push("remove","items",response.from,response.node,response.id);
-                    xmpp.q.notify("push.retract",response);                
+                    xmpp.q.notify("xmpp.pubsub.push.retract",response);                
                 })
                 xmpp.socket.on('xmpp.pubsub.purge', function(response) {
-                    console.log("INCOMING",response);
-                    xmpp.q.notify("purge");                
+                    xmpp.q.notify("xmpp.pubsub.purge");                
                 })
                 xmpp.socket.on('xmpp.pubsub.push.configuration', function(response) {
-                    console.log("INCOMING",response);
-                    xmpp.q.notify("push.configuration");                
+                    xmpp.q.notify("xmpp.pubsub.push.configuration");                
                 })
             }
 
@@ -93,7 +88,6 @@ angular.module('PubsubModule', [])
 
                             switch(command){
                                 case 'xmpp.pubsub.unsubscribe':
-                                    console.log("UNSUBSCRIVE",response);
                                     if(response){
                                         push("remove","subscriptions",request.to,request.node,request.id);
                                     }
@@ -105,18 +99,14 @@ angular.module('PubsubModule', [])
                                     //push("push","items",request.to,request.node,item);
                                     break;
                                 case 'xmpp.pubsub.item.delete':
-                                    console.log("DELETE", request,response);
                                     break;
                                 case 'xmpp.pubsub.config.get':
-                                    console.log("config",response);
                                     push("set","config",request.to,request.node,response);
                                     break;
                                 case 'xmpp.pubsub.subscriptions':
-                                    console.log("SUBSCRIPTIONS",response);
                                     push("set","subscriptions",request.to,request.node,response);
                                     break;
                                 case 'xmpp.pubsub.affiliations':
-                                    console.log("AFFILIATIONS",response);
                                     if(request.node){
                                         push("set","affilitations",request.to,request.node,response);
                                     }else{
@@ -124,7 +114,6 @@ angular.module('PubsubModule', [])
                                     }
                                     break;
                                 case 'xmpp.pubsub.retrieve':
-                                    console.log("RETRIEVE",response);
                                     var items=push("set","items",request.to,request.node,response);
                                     for(var i=0;i<items.length;i++){
                                         itemMethods(items[i]);
