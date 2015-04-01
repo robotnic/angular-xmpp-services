@@ -3,9 +3,9 @@
   "authors": [
     "bernhard zwischenbrgger"
   ],
-  "version": "0.1.9",
+  "version": "0.2.0",
   "main": [
-    "bin/assets/angular-xmpp-services-0.1.9.js"
+    "bin/assets/angular-xmpp-services-0.2.0.js"
   ],
   "ignore":[
         ".*",

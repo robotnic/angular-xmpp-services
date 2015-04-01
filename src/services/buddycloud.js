@@ -54,10 +54,15 @@ angular.module('BuddycloudModule', [])
                         }
                     }
                     q.notify("push item");
+                    getAffiliations({node:response.node}).then(function() {
+                        q.notify("affiliations after push item");
+                    }, function(error) {
+                        console.log(error);
+                    });
                 });
                 xmpp.socket.on('xmpp.buddycloud.push.delete', function(response) {
                     q.notify("xmpp.buddycloud.push.delete",response);
-                    getAffiliations({node:api.data.currentnode}).then(function() {
+                    getAffiliations({node:response.node}).then(function() {
                         q.notify("affiliations after subscriptions");
                     }, function(error) {
                         console.log(error);
