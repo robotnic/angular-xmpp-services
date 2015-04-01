@@ -887,6 +887,27 @@ angular.module('BuddycloudModule', [])
                 send: function(command, data) {
                     return send(command, data);
                 },
+                createNode:function(node){
+                    var q=$q.defer();
+                    api.send("xmpp.buddycloud.create",{node:node}).then(function(data){
+                        api.send("xmpp.buddycloud.subscriptions",{}).then(function(){
+                            api.q.notify("xmpp.buddycloud.subscriptions");
+                            q.resolve(data);
+                        })
+                    });
+                    return q.promise;
+                },
+                deleteNode:function(node){
+                    var q=$q.defer();
+                    api.send("xmpp.buddycloud.delete",{node:node}).then(function(data){
+                        api.send("xmpp.buddycloud.subscriptions",{}).then(function(){
+                            api.q.notify("xmpp.buddycloud.subscriptions");
+                            q.resolve(data);
+                        })
+                    })
+                    return q.promise;
+ 
+                },
                 init: function() {
                     var q=$q.defer();
                     api.send('xmpp.buddycloud.discover', {}).then(function() {
