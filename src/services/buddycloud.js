@@ -59,11 +59,17 @@ angular.module('BuddycloudModule', [])
                     }, function(error) {
                         console.log(error);
                     });
+                    api.send("xmpp.buddycloud.subscription",{node:response.node}).then(function(){
+                        q.notify("subscriptions");
+                    });
                 });
                 xmpp.socket.on('xmpp.buddycloud.push.delete', function(response) {
                     q.notify("xmpp.buddycloud.push.delete",response);
                     getAffiliations({node:response.node}).then(function() {
                         q.notify("affiliations after subscriptions");
+                        api.send("xmpp.buddycloud.subscriptions",{}).then(function(){
+                            q.notify("xmpp.buddycloud.subscriptions");
+                        });
                     }, function(error) {
                         console.log(error);
                     });
