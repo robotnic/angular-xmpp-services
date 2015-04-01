@@ -58,7 +58,6 @@ angular.module('BuddycloudModule', [])
                 xmpp.socket.on('xmpp.buddycloud.push.delete', function(response) {
                     q.notify("xmpp.buddycloud.push.delete",response);
                     getAffiliations({node:api.data.currentnode}).then(function() {
-                        console.log("aas",api.data.affiliations);
                         q.notify("affiliations after subscriptions");
                     }, function(error) {
                         console.log(error);
@@ -544,6 +543,7 @@ angular.module('BuddycloudModule', [])
         */
 
             function opennode(request) {
+                var q=$q.defer();
                 $q.all([
                     api.send('xmpp.buddycloud.retrieve', request),
                     api.send('xmpp.buddycloud.affiliations', request),
@@ -555,8 +555,11 @@ angular.module('BuddycloudModule', [])
                     }
                     nodeMethods();
                     api.q.notify("opennode");
+                    q.resolve();
+                },function(error){
+                    q.reject(error);
                 });
-
+                return q.promise;
             }
 
             function recent(request){
@@ -842,7 +845,6 @@ angular.module('BuddycloudModule', [])
                             }
                         );
                         return q.promise;
-                        break;
                 }
             }
 
