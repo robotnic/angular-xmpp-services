@@ -29,7 +29,7 @@ angular.module('Test', ['AngularXmpp','jsonFormatter','angularMoment'])
         $scope.testplan={
             xmpp:[
             {
-                name:"loginlocal",
+                name:"login",
                 type:"xmpp",
                 check:["me"],
             },{

@@ -55,6 +55,16 @@ angular.module('BuddycloudModule', [])
                     }
                     q.notify("push item");
                 });
+                xmpp.socket.on('xmpp.buddycloud.push.delete', function(response) {
+                    q.notify("xmpp.buddycloud.push.delete",response);
+                    getAffiliations({node:api.data.currentnode}).then(function() {
+                        console.log("aas",api.data.affiliations);
+                        q.notify("affiliations after subscriptions");
+                    }, function(error) {
+                        console.log(error);
+                    });
+
+                });
 
                 xmpp.socket.on('xmpp.buddycloud.push.retract', function(response) {
                     for (var i = 0; i < api.data.items.length; i++) {
