@@ -517,11 +517,14 @@ angular.module('BuddycloudModule', [])
                     }
                 }
                 if(api.data.currentnode=="recent"){
-                    api.publish = function(content) {
-                            api.send('xmpp.buddycloud.publish', {
-                                'node': '/user/' + this.xmpp.data.me.jid.user + '@' + this.xmpp.data.me.jid.domain + '/posts',
-                                'content': content
-                            });
+                    var affiliation=api.data.myaffiliations[api.data.currentnode].affiliation;
+                    if(affiliation=="publisher" || affiliation=="owner"){
+                        api.publish = function(content) {
+                                api.send('xmpp.buddycloud.publish', {
+                                    'node': '/user/' + this.xmpp.data.me.jid.user + '@' + this.xmpp.data.me.jid.domain + '/posts',
+                                    'content': content
+                                });
+                        }
                     }
                 }
                 if(api.data.myaffiliations[api.data.currentnode] && api.data.myaffiliations[api.data.currentnode].affiliation=='owner'){
