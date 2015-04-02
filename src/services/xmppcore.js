@@ -29,6 +29,9 @@ angular.module('XmppCoreFactory', [])
                 api.data.me=data;
                 api.data.connected=true;
                 q.notify("login");
+            },function(error){
+                api.connected=false;
+                q.notify("login error");
             });
             api.socket.on('xmpp.logout', function(data) {
                 api.data.me=null;
@@ -223,7 +226,7 @@ angular.module('XmppCoreFactory', [])
             jid:null,
             //user:null,
             data:{
-                connected:false,
+                connected:null,
                 roster:[],
                 me:null,
                 items:[]
