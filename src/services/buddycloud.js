@@ -424,6 +424,13 @@ angular.module('BuddycloudModule', [])
                 delete api.unsubscribe;
                 delete api.config;
                 delete api.affiliation;
+                api.data.subscribed = false;
+                for (var i = 0; i < api.data.subscriptions.length; i++) {
+                    if (api.data.subscriptions[i].node == api.data.currentnode) {
+                        api.data.subscribed = true;
+                    }
+                }
+
                 if (api.data.myaffiliations[api.data.currentnode] && api.data.myaffiliations[api.data.currentnode].affiliation == "owner") {
                     api.config = function() {
                         api.send('xmpp.buddycloud.config.get', {
@@ -433,12 +440,6 @@ angular.module('BuddycloudModule', [])
                         });
                     }
                 } else {
-                    api.data.subscribed = false;
-                    for (var i = 0; i < api.data.subscriptions.length; i++) {
-                        if (api.data.subscriptions[i].node == api.data.currentnode) {
-                            api.data.subscribed = true;
-                        }
-                    }
                     if (api.data.myaffiliations[api.data.currentnode]) {
                         api.data.nodeaffiliation = api.data.myaffiliations[api.data.currentnode].affiliation;
                     }
