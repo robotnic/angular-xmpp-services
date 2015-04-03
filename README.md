@@ -112,6 +112,33 @@ There is an outer &lt;xmpp>&lt;/xmpp> that containes the other directives. It pr
         }
     };
 })
+```
+
+##model  { dynamic json }
+```
+[
+  {
+    "jid": {
+      "domain": "denisw.buddycloud.com",
+      "user": "simon"
+    },
+    "subscription": "none",
+    "name": "simon"
+  },
+  {
+    "jid": {
+      "domain": "laos.buddycloud.com",
+      "user": "seppl"
+    },
+    "subscription": "both",
+    "name": "seppl"
+  },
+  {
+    "jid": {
+      "domain": "laos.buddycloud.com",
+      "user": "eva"
+    }
+]
 
 ```
 ##template
