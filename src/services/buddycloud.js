@@ -589,6 +589,13 @@ angular.module('BuddycloudModule', [])
                 console.log("loadmore in api");
                 console.log("currentnode",api.data.currentnode);
                 console.log("rsm",api.data.rsm);
+                var rsm={
+                    "max":5,
+                    "after": api.data.rsm.last
+                }
+                if(api.data.currentnode=="recent"){
+                    recent(rsm);
+                }
             }
 
 
@@ -765,10 +772,13 @@ angular.module('BuddycloudModule', [])
                         break;
                     case 'xmpp.buddycloud.items.recent':
                         var append = false;
+                        if(data)append=true;
                         var q = $q.defer();
+                        /*
                         var rsm = {
                             max: 10
                         };
+                        */
                         xmpp.socket.send(
                             'xmpp.buddycloud.items.recent',
                             data,
