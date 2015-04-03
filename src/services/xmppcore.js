@@ -241,10 +241,17 @@ angular.module('XmppCoreFactory', [])
                 if(api.socket){
                     q.resolve();
                 }
-                api.socket = new Primus(host);
+                api.socket = new Primus(host,{timeout:20000});
                 api.socket.on("open", function() {
                     q.resolve();
                 });
+                api.socket.on("error",function(error){
+                        console.log("Primus error",error);
+                });
+                api.socket.on('disconnection', function (spark) {
+                        console.log("Primus disconnect",spark);
+                });
+
                 return q.promise;
             },
 
