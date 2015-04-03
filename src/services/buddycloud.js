@@ -592,11 +592,13 @@ angular.module('BuddycloudModule', [])
                 if(api.data.rsmloading!=api.data.rsm.last){
                     api.data.rsmloading=api.data.rsm.last; 
                     var rsm={
-                        "max":5,
+                        "max":15,
                         "after": api.data.rsm.last
                     }
                     if(api.data.currentnode=="recent"){
                         recent({rsm:rsm});
+                    }else{
+                        api.send("xmpp.buddycloud.retrieve",{node:api.data.currentnode,rsm:rsm});
                     }
                 }
             }
