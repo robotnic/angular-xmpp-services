@@ -1,6 +1,6 @@
 # angular-xmpp-services
 
-This is a library talks to a xmpp server and generates a model, ready to use for directives. 
+This is a library talks to a xmpp server and generates a model { dynamic json }, ready to use for directives. 
 
 
 ![structure](https://raw.githubusercontent.com/robotnic/angular-xmpp-services/master/src/assets/docimg/structure.png)
@@ -125,8 +125,7 @@ roster/template.tpl.html
         <img ng-src="avatars/{{user.jid.user}}.png" style="height:20px" />
     </td>
     <td>
-        <p ng-if="!user.name">{{user.jid.user}}</p>
-        <p ng-if="user.name">{{user.name}}</p>
+        <p>{{user.jid.user}}</p>
         <p>{{user.presence.status}}</p>
     </td>
 </tr>
