@@ -1,14 +1,46 @@
-# angular-xmpp
+# angular-xmpp-services
 
 is a library,that provides stylable UI Elements for XMPP oder Websockets using xmpp-ftw.
 
-Test here:  http://datenkueche.com/buddycloud/
 
-## sorry, big mess
+![structure](https://raw.githubusercontent.com/robotnic/angular-xmpp-services/master/src/assets/docimg/structure.png)
 
-I try to sepearate content from design. The directives will come again later. 
+The library send and receives xmpp stanzas.
+Based on this messages a model (json tree) is build.
+The lib als handels the rendering timing by sinding promise notify messages.
+https://docs.angularjs.org/api/ng/service/$q
 
+* No $rootScope messaging needed
+* ready to use automatic updating model
+* easy to use API
 
+#install
+
+bower install angular-xmpp-services
+
+#getting started
+`
+    var host="http://loas.buddycloud.com/";
+    $scope.xmpp=new Xmpp(host);
+
+    $scope.xmpp.watch().then(function(data){
+        console.log("end - should never be reached");
+    },function(error){
+        console.log(error);
+    },function(notification){
+        console.log("notification",notification);
+        //$scope.$apply() not needed,empty function fires render process
+    });
+
+    $scope.xmpp.anonymouslogin().then(function(){
+        console.log("THE MODEL",$scope.xmpp.data.me);
+    });
+
+`
+
+#directives
+
+For more infos see: angular-xmpp
 
 ## getting started
 
