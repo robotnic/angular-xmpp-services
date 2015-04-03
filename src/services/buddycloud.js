@@ -755,7 +755,7 @@ angular.module('BuddycloudModule', [])
                                     }
 
 
-                                    if (append) {
+                                    if (api.data.items) {
                                         api.data.items = api.data.items.concat(response);
                                     } else {
                                         api.data.items = response;
