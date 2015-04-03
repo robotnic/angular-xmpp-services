@@ -113,6 +113,9 @@ There is an outher <xmpp></xmpp> the containes the other directives. It provides
     };
 })
 
+##template
+roster/template.tpl.html
+
 ```
 <style type="text/css">
 .indicator{
