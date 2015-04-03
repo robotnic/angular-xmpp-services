@@ -59,7 +59,7 @@ angular.module('BuddycloudModule', [])
                     }, function(error) {
                         console.log(error);
                     });
-                    api.send("xmpp.buddycloud.subscription",{node:response.node}).then(function(){
+                    api.send("xmpp.buddycloud.subscriptions",{node:response.node}).then(function(){
                         q.notify("subscriptions");
                     });
                 });
@@ -589,7 +589,7 @@ angular.module('BuddycloudModule', [])
                 console.log("loadmore in api");
                 console.log("currentnode",api.data.currentnode);
                 console.log("rsm",api.data.rsm);
-                if(api.data.rsm && api.data.rsmloading!=api.data.rsm.last && api.data.rsm.count > api.data.items.length){
+                if(api.data.rsm && api.data.rsmloading!=api.data.rsm.last && (!api.data.rsm.count || api.data.rsm.last)){
                     api.data.rsmloading=api.data.rsm.last; 
                     var rsm={
                         "max":15,
@@ -791,6 +791,7 @@ angular.module('BuddycloudModule', [])
                                     api.data.errors.unshift(error);
                                     q.reject(error);
                                 } else {
+                                    console.log(response,rsm);
                                     //workaround for buggy id
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
