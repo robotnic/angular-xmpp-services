@@ -119,24 +119,18 @@ roster/template.tpl.html
 
 ```
 
-<div class="indicator {{xmpp.data.me.status}}"></div>
-
-```
-##css
-```
-.indicator{
-width:20px;
-height:20px
-background-size:cover;
-}
-
-.online{
-background-image:url('https://raw.githubusercontent.com/psi-im/psi/master/iconsets/roster/default/online.png');
-}
-
-.offline{
-background-image:url('https://raw.githubusercontent.com/psi-im/psi/master/iconsets/roster/default/offline.png');
-}
+<table >
+<tr g-if="user.presence" ng-repeat="user in xmpp.data.roster">
+    <td>
+        <img ng-src="avatars/{{user.jid.user}}.png" style="height:20px" />
+    </td>
+    <td>
+        <p ng-if="!user.name">{{user.jid.user}}</p>
+        <p ng-if="user.name">{{user.name}}</p>
+        <p>{{user.presence.status}}</p>
+    </td>
+</tr>
+</table>
 
 ```
 
