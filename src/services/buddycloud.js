@@ -793,7 +793,7 @@ angular.module('BuddycloudModule', [])
                                     }
 
                                     if (api.data.items) {
-                                        api.data.items = api.data.items.concat(items);
+                                        api.data.items = api.data.items.concat(response);
                                     } else {
                                         api.data.items = response;
                                     }
