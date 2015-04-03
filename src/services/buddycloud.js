@@ -464,12 +464,14 @@ angular.module('BuddycloudModule', [])
 
                             //roster remove
 
+                            /*
                             var jid=that.xmpp.parseNodeString(that.data.currentnode).jid;
                             api.xmpp.send('xmpp.roster.remove', {
                                 "jid": jid
                             }).then(function(data){
                                 api.q.notify("user removed");
                             });
+                            */
 
                         }
                     } else {
@@ -493,12 +495,14 @@ angular.module('BuddycloudModule', [])
 
                             //add user to roster !!!!!!!!!!!!!!!!!!!
 
+                            /*
                             var jid=that.xmpp.parseNodeString(that.data.currentnode).jid;
                             api.xmpp.send('xmpp.roster.add', {
                                 "jid": jid
                             }).then(function(data){
                                 api.q.notify("user added");
                             });
+                            */
                         }
                     }
                 }
