@@ -892,7 +892,7 @@ angular.module('BuddycloudModule', [])
                 },
                 loadmore:function(){
                     return loadmore();
-                }
+                },
                 send: function(command, data) {
                     return send(command, data);
                 },
