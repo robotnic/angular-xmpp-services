@@ -83,7 +83,7 @@ There is an outher <xmpp></xmpp> the containes the other directives. It provides
 
 ```
 
-<xmpp host="https://laos.buddycloud.com">
+<xmpp xmpp-ftw-host="https://laos.buddycloud.com" domain="laos.buddycloud.com">
     <xmpplogin></xmpplogin>
     <xmpproster></xmpproster>
     <xmppminichat></xmppminichat>
@@ -113,57 +113,26 @@ There is an outher <xmpp></xmpp> the containes the other directives. It provides
     };
 })
 
-
-
-
 ```
-
-
-
-
-
-
-## example xmpp muc
-```
-
-<xmpp host="https://laos.buddycloud.com">
-    <xmpplogin></xmpplogin>
-    <xmppmuc room="seehaus@channels.buddycloud.com"></xmppmuc>
-</xmpp>
-
-```
-
-## example xmpp buddycloud
-```
-
-<xmpp host="https://laos.buddycloud.com">
-    <xmpplogin></xmpplogin>
-    <buddycloud room="/user/robotnic@laos.buddycloud.com/posts"></buddycloud>
-</xmpp>
-
-```
-
-
-
-The templates include alle the javascript that has to be done and tries to keep the html simple.
-Your part ist to give them a style.
-
-## Angular binding exampe
-```
-<input ng-mode="node"/>
-<buddycloud room="{{node}}" changenode="nodechangedinsidedirective(node)"></buddycloud>
-```
-
-In your controller
-```
-...
-$scope.node="/user/robotnic@laos.buddycloud.com/posts";
-$scope.nodechangedinsidedirective=function(node){
-    //change hashtag or whatever
+<style type="text/css">
+.indicator{
+width:20px;
+height:20px
+background-size:cover;
 }
 
-```
+.online{
+background-image:url('https://raw.githubusercontent.com/psi-im/psi/master/iconsets/roster/default/online.png');
+}
 
+.offline{
+background-image:url('https://raw.githubusercontent.com/psi-im/psi/master/iconsets/roster/default/offline.png');
+}
+</style>
+
+<div class="indicator {{xmpp.data.me.status}}"></div>
+
+```
 
 
 
