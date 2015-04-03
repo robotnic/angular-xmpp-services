@@ -127,9 +127,7 @@ angular.module('BuddycloudModule', [])
                             api.data.subscribed = true;
                         }
                     }
-                    console.log("request after subs",api.data.currentnode);
                     getAffiliations({node:api.data.currentnode}).then(function() {
-                        console.log("aas",api.data.affiliations);
                         q.notify("affiliations after subscriptions");
                     }, function(error) {
                         console.log(error);
@@ -374,20 +372,17 @@ angular.module('BuddycloudModule', [])
                     xmpp.socket.send(
                         'xmpp.buddycloud.affiliations', request,
                         function(error, data) {
-                            console.log("affiliation data",data);
                             if (error) {
                                 console.log(error);
                                 q.reject(error);
                             } else {
                                 if (!node) {
-                                    console.log("set myaffiliations");
                                     api.data.myaffiliations = {};
                                     for (var i = 0; i < data.length; i++) {
                                         api.data.myaffiliations[data[i].node] = data[i];
                                     }
                      
                                 } else {
-                                    console.log("set other affiliations");
                                     for (var i = 0; i < data.length; i++) {
                                         api.data.affiliations[data[i].node] = {};
                                     }
