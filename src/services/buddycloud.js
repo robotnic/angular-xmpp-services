@@ -508,7 +508,7 @@ angular.module('BuddycloudModule', [])
                     }
                 }
                 
-                if (api.data.subscribed ) {
+                if (api.data.subscribed && api.data.myaffiliations[api.data.currentnode]) {
                     var affiliation=api.data.myaffiliations[api.data.currentnode].affiliation;
                     if(affiliation=="publisher" || affiliation=="owner"){
                         api.publish = function(content) {
