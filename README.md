@@ -20,7 +20,7 @@ bower install angular-xmpp-services
 
 #getting started
 
-`
+```
 
     var host="http://loas.buddycloud.com/";
     $scope.xmpp=new Xmpp(host);
@@ -38,10 +38,11 @@ bower install angular-xmpp-services
         console.log("THE MODEL",$scope.xmpp.data.me);
     });
 
-`
+```
 
 ###Model
 
+```
 {
   "status": "online",
   "jid": {
@@ -52,12 +53,13 @@ bower install angular-xmpp-services
   }
 }
 
+```
 ### template
-`
+```
 <div>user: {{xmpp.data.me.jid.user}}</div>
 <div>domain: {{xmpp.data.me.jid.domain}}</div>
 <div>{{xmpp.data.me.status}}"</div>
-`
+```
 
 #directives
 
