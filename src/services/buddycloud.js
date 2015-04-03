@@ -583,9 +583,12 @@ angular.module('BuddycloudModule', [])
                     nodeMethods();
                     api.q.notify("recent");
                 });
+            }
 
-
-
+            function loadmore(){
+                console.log("loadmore in api");
+                console.log("currentnode",api.data.currentnode);
+                console.log("rsm",api.data.rsm);
             }
 
 
@@ -887,6 +890,9 @@ angular.module('BuddycloudModule', [])
                 recent:function(){
                     return recent();
                 },
+                loadmore:function(){
+                    return loadmore();
+                }
                 send: function(command, data) {
                     return send(command, data);
                 },
