@@ -589,7 +589,7 @@ angular.module('BuddycloudModule', [])
                 console.log("loadmore in api");
                 console.log("currentnode",api.data.currentnode);
                 console.log("rsm",api.data.rsm);
-                if(api.data.rsm && api.data.rsmloading!=api.data.rsm.last){
+                if(api.data.rsm && api.data.rsmloading!=api.data.rsm.last && api.data.rsm.count > api.data.items.length){
                     api.data.rsmloading=api.data.rsm.last; 
                     var rsm={
                         "max":15,
