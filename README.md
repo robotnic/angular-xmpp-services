@@ -76,28 +76,52 @@ Here we learn how to make an directive
 
 
 
+## structure
+
+There is an outher <xmpp></xmpp> the containes the other directives. It provides xmpp core https://xmpp-ftw.jit.su/manual/core/
 
 
-## getting started
-
-```
-<script type="text/javascript" src="../assets/scripts/primus.js"></script>
-<!-- compiled CSS -->
-<link rel="stylesheet" type="text/css" href="../assets/ngbp-0.3.2.css" />
-<!-- compiled JavaScript -->
-<script type="text/javascript" src="../assets/ngbp-0.3.2.js"></script>
-```
-
-## example xmpp chat
 ```
 
 <xmpp host="https://laos.buddycloud.com">
     <xmpplogin></xmpplogin>
     <xmpproster></xmpproster>
     <xmppminichat></xmppminichat>
+    <xmppmycoolapp></xmppmycoolapp>
 </xmpp>
 
 ```
+
+## build directives
+
+```
+.directive('roster', function() {
+    return {
+        'require': '^xmpp',
+        'restrict': 'E',
+        'scope': {
+            oninit:'&oninit'
+        },
+        'transclude': false,
+        'templateUrl': 'roster/template.tpl.html',
+        'link': function(scope, element, attrs,xmppController) {
+            scope.xmpp=xmppController.xmpp;  //this commes from <xmpp></xmpp>
+            xmppController.on("connected",function(event,status){
+                scope.xmpp.send("xmpp.roster.get");
+            });
+        }
+    };
+})
+
+
+
+
+```
+
+
+
+
+
 
 ## example xmpp muc
 ```
