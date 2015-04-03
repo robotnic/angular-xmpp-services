@@ -596,7 +596,7 @@ angular.module('BuddycloudModule', [])
                         "after": api.data.rsm.last
                     }
                     if(api.data.currentnode=="recent"){
-                        recent(rsm);
+                        recent({rsm:rsm});
                     }
                 }
             }
