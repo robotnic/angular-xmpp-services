@@ -18,6 +18,13 @@ https://docs.angularjs.org/api/ng/service/$q
 
 bower install angular-xmpp-services
 
+#scripts
+```
+<script type="text/javascript" src="assets/scripts/primus.js"></script>
+<script type="text/javascript" src="assets/angular-xmpp-services.js"></script>
+
+```
+
 #getting started
 
 ```
@@ -40,8 +47,8 @@ bower install angular-xmpp-services
 
 ```
 
-###Model
-
+###me
+$scope.xmpp.data.me
 ```
 {
   "status": "online",
@@ -49,7 +56,7 @@ bower install angular-xmpp-services
     "local": "robotnic",
     "domain": "laos.buddycloud.com",
     "resource": "angular-xmpp",
-    "user": "bill"
+    "user": "robotnic"
   }
 }
 
@@ -63,7 +70,13 @@ bower install angular-xmpp-services
 
 #directives
 
-For more infos see: angular-xmpp
+If you are looking for ready to use directive collection, this is the place to go: angular-xmpp
+
+Here we learn how to make an directive
+
+
+
+
 
 ## getting started
 
