@@ -772,7 +772,6 @@ angular.module('BuddycloudModule', [])
                         break;
                     case 'xmpp.buddycloud.items.recent':
                         var append = false;
-                        if(data)append=true;
                         var q = $q.defer();
                         /*
                         var rsm = {
@@ -793,7 +792,7 @@ angular.module('BuddycloudModule', [])
                                         itemMethods(response[i]);
                                     }
 
-                                    if (append) {
+                                    if (api.data.items) {
                                         api.data.items = api.data.items.concat(items);
                                     } else {
                                         api.data.items = response;
