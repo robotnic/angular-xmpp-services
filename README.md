@@ -78,7 +78,7 @@ Here we learn how to make an directive
 
 ## structure
 
-There is an outher <xmpp></xmpp> the containes the other directives. It provides xmpp core https://xmpp-ftw.jit.su/manual/core/
+There is an outer &lt;xmpp>&lt;/xmpp> that containes the other directives. It provides xmpp core https://xmpp-ftw.jit.su/manual/core/
 
 
 ```
@@ -118,7 +118,12 @@ There is an outher <xmpp></xmpp> the containes the other directives. It provides
 roster/template.tpl.html
 
 ```
-<style type="text/css">
+
+<div class="indicator {{xmpp.data.me.status}}"></div>
+
+```
+##css
+```
 .indicator{
 width:20px;
 height:20px
@@ -132,11 +137,7 @@ background-image:url('https://raw.githubusercontent.com/psi-im/psi/master/iconse
 .offline{
 background-image:url('https://raw.githubusercontent.com/psi-im/psi/master/iconsets/roster/default/offline.png');
 }
-</style>
-
-<div class="indicator {{xmpp.data.me.status}}"></div>
 
 ```
-
 
 
