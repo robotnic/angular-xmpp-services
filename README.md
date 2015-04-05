@@ -150,17 +150,14 @@ roster/template.tpl.html
 
 ```
 
-<table >
-<tr g-if="user.presence" ng-repeat="user in xmpp.data.roster">
-    <td>
-        <img ng-src="avatars/{{user.jid.user}}.png" style="height:20px" />
-    </td>
-    <td>
-        <p>{{user.jid.user}}</p>
-        <p>{{user.presence.status}}</p>
-    </td>
-</tr>
-</table>
+    <div ng-repeat="item in page.xmpp.data.roster" class="rosteritem">
+        <div ng-show="item.presence || item.subscription"  class="indicator {{item.presence.show}}" ng-class="{'ask':item.subscription=='from','noauth':item.subscription=='to','none':item.subscription=='none'}"></div>
+        <div ng-show="!item.presence && !item.subscription"  class="indicator offline"></div>
+        {{item.jid.user}}
+        <div class="status">
+        {{item.presence.status}}
+        </div>
+    </div>
 
 ```
 
