@@ -32,11 +32,14 @@ angular.module('BuddycloudModule', [])
 
                 xmpp.socket.on('xmpp.buddycloud.push.item', function(response) {
                     var isnew=true;
+
                     if (!api.data.unread[response.node]) {
                         api.data.unread[response.node] = 0;
                     }
-        
                     api.data.unread[response.node]++;
+
+
+
 
                     if (response.node == api.data.currentnode || api.data.currentnode == 'recent') {
                         var ar = response.id.split(",");
@@ -50,7 +53,7 @@ angular.module('BuddycloudModule', [])
                         if(isnew){
                             itemMethods(response);
                             response.entry.atom.author.image = response.entry.atom.author.name.split("@")[0];
-                            api.data.items.push(response);
+                            api.data.items.unshift(response);
                         }
                     }
                     q.notify("push item");
@@ -80,7 +83,6 @@ angular.module('BuddycloudModule', [])
                     for (var i = 0; i < api.data.items.length; i++) {
                         var id = api.data.items[i].id;
                         if (id == response.id) {
-                            console.log (id , response.id) ;
                             api.data.items.splice(i, 1);
                             q.notify("retract");
                             break;
@@ -358,20 +360,22 @@ angular.module('BuddycloudModule', [])
 
             }
 
-            function addToTree(item){
-                //tree is sorted, this is not standardized, but will not change. be carefull if you do infinit scroll to other direction
-                console.log("id",item.id,"reply",item.entry["in-reply-to"],item.entry);
-                if(item.entry["in-reply-to"]){
-                    var node=api.data.tree[item.entry["in-reply-to"].ref];
-                    console.log(node);
-                    if(node){
-                        if(!node.items)node.items={};
-                        node.items[item.id]=item;
+            //https://github.com/buddycloud/buddycloud-server-java/issues/302
+            function  removeDuplicates(response){
+                var result=[];
+                for(var i=0;i<response.length;i++){
+                    var exists=false;
+                    for(var j=0;j<api.data.items.length;j++){
+                       if(response[i].id==api.data.items[j].id){
+                            exists=true;
+                            break;
+                        } 
                     }
-                }else{
-                    api.data.tree[item.id]=item;
+                    if(!exists){
+                        result.push(response[i]);
+                    }
                 }
-                
+                return result;
             }
 
 
@@ -430,6 +434,12 @@ angular.module('BuddycloudModule', [])
                     nodeMethods();
             }
 
+
+
+            /**
+            enable/disable subscribe, unsubscribe, config, publish
+            todo: ugly code
+            */
             function nodeMethods() {
                 delete api.publish;
                 delete api.subscribe;
@@ -478,18 +488,6 @@ angular.module('BuddycloudModule', [])
                                 api.data.errors.unshift(error);
                             });
 
-
-                            //roster remove
-
-                            /*
-                            var jid=that.xmpp.parseNodeString(that.data.currentnode).jid;
-                            api.xmpp.send('xmpp.roster.remove', {
-                                "jid": jid
-                            }).then(function(data){
-                                api.q.notify("user removed");
-                            });
-                            */
-
                         }
                     } else {
                         api.subscribe = function() {
@@ -510,16 +508,6 @@ angular.module('BuddycloudModule', [])
                                 });
                             });
 
-                            //add user to roster !!!!!!!!!!!!!!!!!!!
-
-                            /*
-                            var jid=that.xmpp.parseNodeString(that.data.currentnode).jid;
-                            api.xmpp.send('xmpp.roster.add', {
-                                "jid": jid
-                            }).then(function(data){
-                                api.q.notify("user added");
-                            });
-                            */
                         }
                     }
                 }
@@ -598,14 +586,10 @@ angular.module('BuddycloudModule', [])
                     api.send('xmpp.buddycloud.items.recent', request),
                  ]).then(function() {
                     nodeMethods();
-                    api.q.notify("recent");
                 });
             }
 
             function loadmore(){
-                console.log("loadmore in api");
-                console.log("currentnode",api.data.currentnode);
-                console.log("rsm",api.data.rsm);
                 if(api.data.rsm && api.data.rsmloading!=api.data.rsm.last && (!api.data.rsm.count || api.data.rsm.last)){
                     api.data.rsmloading=api.data.rsm.last; 
                     var rsm={
@@ -638,6 +622,10 @@ angular.module('BuddycloudModule', [])
 
             }
 
+
+            /*
+            todo: put switch after callback
+            */
 
 
             function send(command, data) {
@@ -795,12 +783,12 @@ angular.module('BuddycloudModule', [])
                                     api.data.errors.unshift(error);
                                     q.reject(error);
                                 } else {
-                                    console.log(response,rsm);
+                                    //https://github.com/buddycloud/buddycloud-server-java/issues/302
+                                    response=removeDuplicates(response);
                                     //workaround for buggy id
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
-                                        addToTree(response[i]);
                                     }
 
                                     api.data.items = api.data.items.concat(response);
@@ -834,7 +822,6 @@ angular.module('BuddycloudModule', [])
                                     api.data.errors.unshift(error);
                                     q.reject(error);
                                 } else {
-                                    console.log(response,rsm);
                                     //workaround for buggy id
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
