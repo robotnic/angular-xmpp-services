@@ -1,0 +1,68 @@
+<!doctype html>
+<html ng-app="roster"
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="../../scripts/primus.js"></script>
+    <script type="text/javascript" src="../../angular-xmpp-services.js"></script>
+
+</head>
+<body ng-controller="pageController as page">
+  <title>Meine erste HTML5-Seite</title>
+<h1>angular-xmpp-services - roster</h1>
+<div ng-show="page.xmpp.data.me"  class="indicator {{page.xmpp.data.me.status}}"></div>
+<span ng-show="page.xmpp.data.me" >{{page.xmpp.data.me.jid.user}}@{{page.xmpp.data.me.jid.domain}}</span>
+
+<div class="example">
+    <div ng-repeat="item in page.xmpp.data.roster" class="rosteritem">
+        <div ng-show="item.presence || item.subscription"  class="indicator {{item.presence.show}}" ng-class="{'ask':item.subscription=='from','noauth':item.subscription=='to','none':item.subscription=='none'}"></div>
+        <div ng-show="!item.presence && !item.subscription"  class="indicator offline"></div>
+        {{item.jid.user}} 
+        <div class="status">
+        {{item.presence.status}}
+        </div>
+    </div>
+</div>
+<pre class="model">
+{{page.xmpp.data.roster|json}}
+</pre>
+<pre class="error">
+{{page.xmpp.data.errors|json}}
+</pre>
+
+<script>
+
+
+
+var SCOPE=null;  //debug only
+angular.module("roster",['AngularXmpp'])
+
+.controller('pageController', ['$scope','Xmpp',function($scope,Xmpp){
+        SCOPE=$scope;
+        var host="http://localhost:3000";
+        this.xmpp=new Xmpp(host);
+        var that=this;  //better than $scope?
+        this.xmpp.watch().then(function(data){
+            console.log("end - should never be reached");
+        },function(error){
+            console.log(error);
+        },function(notification){
+            console.log("notification",notification);
+            //$scope.$apply() not needed,empty function fires render process
+        });
+
+        this.xmpp.send('xmpp.login',{
+                 "jid": "test1@laos.buddycloud.com",
+                 "password": "bbb"
+        }).then(function(){
+            that.xmpp.send("xmpp.roster.get")
+            that.xmpp.send("xmpp.presence")
+        });
+
+
+
+}])
+</script>
+</body>
+</html>

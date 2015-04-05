@@ -628,21 +628,21 @@ angular.module('BuddycloudModule', [])
             */
 
 
-            function send(command, data) {
-                if(!data)data={};
+            function send(command, request) {
+                if(!request)request={};
                 switch (command) {
                     case 'xmpp.buddycloud.subscribe':
                         var q = $q.defer();
                         xmpp.socket.send(
-                            'xmpp.buddycloud.subscribe', data,
+                            'xmpp.buddycloud.subscribe', request,
                             function(error, response) {
                                 if (error) {
                                     console.log(error);
                                     api.data.errors.unshift(error);
                                     q.reject(error);
                                 } else {
-                                    q.resolve(data);
-                                    api.q.notify(data);
+                                    q.resolve(request);
+                                    api.q.notify(request);
                                     //addToNodeList(response);
                                     /*
                                     api.data.rights = isSubscribed(data);
@@ -660,7 +660,7 @@ angular.module('BuddycloudModule', [])
                         var q = $q.defer();
                         xmpp.socket.send(
                             'xmpp.buddycloud.unsubscribe',
-                            data,
+                            request,
                             function(error, response) {
                                 if (error) {
                                     console.log(error);
@@ -670,14 +670,14 @@ angular.module('BuddycloudModule', [])
                                 } else {
 
                                     for (var i = 0; i < api.data.subscriptions.length; i++) {
-                                        console.log("subscription bug", api.data.subscriptions[i].node , data.node) ;
-                                        if (api.data.subscriptions[i].node == data.node) {
+                                        console.log("subscription bug", api.data.subscriptions[i].node , request.node) ;
+                                        if (api.data.subscriptions[i].node == request.node) {
                                             api.data.subscriptions.splice(i, 1);
-                                            delete api.data.myaffiliations[data.node];
+                                            delete api.data.myaffiliations[request.node];
                                             api.data.subscribed = false;
                                             nodeMethods();
                                             api.q.notify("unsubscribed");
-                                            q.resolve(data);
+                                            q.resolve(request);
                                             break;
                                         }
                                     }
@@ -709,7 +709,7 @@ angular.module('BuddycloudModule', [])
                     case 'xmpp.buddycloud.subscription':
                         var q = $q.defer();
                         xmpp.socket.send(
-                            'xmpp.buddycloud.subscription', data,
+                            'xmpp.buddycloud.subscription', request,
                             function(error, response) {
                                 if (error) {
                                     api.data.errors.unshift(error);
@@ -726,22 +726,22 @@ angular.module('BuddycloudModule', [])
 
                         break;
                     case 'xmpp.buddycloud.affiliations':
-                        getAffiliations(data).then(function(data) {
+                        getAffiliations(request).then(function(data) {
                             //api.data.subscribers=data;
                         });
                         break;
                     case 'xmpp.buddycloud.retrieve':
 
                         var q = $q.defer();
-                        if(!data.rsm){
-                            data.rsm={rsm:{max:10}}
+                        if(!request.rsm){
+                            request.rsm={rsm:{max:10}}
                             api.data.items=[]
                         }
 
 
                         //var node='/user/team@topics.buddycloud.org/posts';
                         xmpp.socket.send(
-                            'xmpp.buddycloud.retrieve', data,
+                            'xmpp.buddycloud.retrieve', request,
                             function(error, response, rsm) {
                                 if (error) {
                                     q.reject(error);
@@ -757,9 +757,9 @@ angular.module('BuddycloudModule', [])
 
                                     //api.data.tree = maketree(api.data.items);
                                     //api.data.rights = isSubscribed(data.node);
-                                    api.data.unread[data.node] = 0;
+                                    api.data.unread[request.node] = 0;
                                     api.data.rsm = rsm;
-                                    api.data.currentnode = data.node;
+                                    api.data.currentnode = request.node;
                                     nodeMethods();
                                     q.resolve(response);
                                 }
@@ -771,13 +771,13 @@ angular.module('BuddycloudModule', [])
                         break;
                     case 'xmpp.buddycloud.items.recent':
                         var q = $q.defer();
-                        if(!data.rsm){
-                            data={rsm:{max:10}}
+                        if(!request.rsm){
+                            request={rsm:{max:10}}
                             api.data.items=[]
                         }
                         xmpp.socket.send(
                             'xmpp.buddycloud.items.recent',
-                            data,
+                            request,
                             function(error, response, rsm) {
                                 if (error) {
                                     api.data.errors.unshift(error);
@@ -793,7 +793,7 @@ angular.module('BuddycloudModule', [])
 
                                     api.data.items = api.data.items.concat(response);
                                     //api.data.tree = maketree(api.data.items); 
-                                    q.resolve(data);
+                                    q.resolve(request);
                                     api.data.rsm = rsm;
                                     api.data.currentnode = "recent"; //not beautiful programming
                                     nodeMethods();
@@ -811,12 +811,12 @@ angular.module('BuddycloudModule', [])
                             max: 10
                         };
                         */
-                        if(!data.rsm){
-                            data={rsm:{max:10}}
+                        if(!request.rsm){
+                            request={rsm:{max:10}}
                         }
                         xmpp.socket.send(
                             'xmpp.buddycloud.items.feed',
-                            data,
+                            request,
                             function(error, response, rsm) {
                                 if (error) {
                                     api.data.errors.unshift(error);
@@ -834,7 +834,7 @@ angular.module('BuddycloudModule', [])
                                         api.data.items = response;
                                     }
                                     //api.data.tree = maketree(api.data.items); 
-                                    q.resolve(data);
+                                    q.resolve(request);
                                     api.data.rsm = rsm;
                                     api.data.currentnode = "recent"; //not beautiful programming
                                     nodeMethods();
@@ -846,10 +846,10 @@ angular.module('BuddycloudModule', [])
 
                         break;
                     case 'xmpp.buddycloud.item.delete':
-                        return removeitem(data);
+                        return removeitem(request);
                         var q = $q.defer();
                         xmpp.socket.send(
-                            'xmpp.buddycloud.item.delete', data,
+                            'xmpp.buddycloud.item.delete', request,
                             function(error, data) {
                                 if (error) {
                                     api.data.errors.unshift(error);
@@ -874,7 +874,7 @@ angular.module('BuddycloudModule', [])
                         var q = $q.defer();
                         xmpp.socket.send(
                             'xmpp.buddycloud.config.get',
-                            data,
+                            request,
                             function(error, response) {
                                 if (error) {
                                     api.data.errors.unshift(error);
@@ -890,12 +890,12 @@ angular.module('BuddycloudModule', [])
 
                         break;
                     case 'xmpp.buddycloud.presence':
-                        xmpp.socket.send( 'xmpp.buddycloud.presence', data);
+                        xmpp.socket.send( 'xmpp.buddycloud.presence', request);
                         break;
                     default:
                         var q = $q.defer();
                         xmpp.socket.send(
-                            command,data,
+                            command,request,
                             function(error, response) {
                                 if (error) {
                                     api.data.errors.unshift(error);

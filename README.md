@@ -41,8 +41,12 @@ bower install angular-xmpp-services
         //$scope.$apply() not needed,empty function fires render process
     });
 
-    $scope.xmpp.anonymouslogin().then(function(){
-        console.log("THE MODEL",$scope.xmpp.data.me);
+    $scope.xmpp.send('xmpp.login',{
+             "jid": "test1@laos.buddycloud.com",
+             "password": "bbb"
+    }).then(function(){
+        $scope.xmpp.send("xmpp.roster.get")
+        $scope.xmpp.send("xmpp.presence")
     });
 
 ```

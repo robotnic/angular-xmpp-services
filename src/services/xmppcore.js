@@ -31,6 +31,7 @@ angular.module('XmppCoreFactory', [])
                 q.notify("login");
             },function(error){
                 api.connected=false;
+                api.data.errors.unshift(error);
                 q.notify("login error");
             });
             api.socket.on('xmpp.logout', function(data) {
@@ -43,8 +44,8 @@ angular.module('XmppCoreFactory', [])
                 var exists=false;
                 for (var i = 0; i < api.data.roster.length; i++) {
                     if (api.data.roster[i].jid.user == data.jid.user) {   //domain missing you fixit!!
-                            var exists=true;
-
+                            exists=true;
+                            console.log("subcription",data.subscription); 
                             if(data.subscription=="remove"){
                                 api.data.roster.splice(i,1);
                             }else{
@@ -53,7 +54,7 @@ angular.module('XmppCoreFactory', [])
                             break;
                     }
                 }
-                if(!exists){
+                if(!exists && data.subscription!=="remove"){
                     api.data.roster.push(data);
                 }
                 q.notify("roster");
@@ -63,7 +64,6 @@ angular.module('XmppCoreFactory', [])
 
             //presence handling
             api.socket.on('xmpp.presence', function(data) {
-                console.log("xmpp.presence",arguments);
                 var presence={
                     show:data.show,
                     status:data.status,
@@ -83,6 +83,10 @@ angular.module('XmppCoreFactory', [])
                     api.data.me.presence = presence;
                 }
                 q.notify("presence");
+            });
+            api.socket.on('xmpp.error', function(error) {
+                api.data.errors.unshift(error);
+                q.notify("xmpp.error");
             });
 
             api.socket.on('xmpp.presence.subscribe', function(data) {
@@ -111,7 +115,7 @@ angular.module('XmppCoreFactory', [])
                     break;
                 case 'xmpp.login.anonymous':
                     var q=$q.defer();
-                    api.socket.send('xmpp.login.anoymouse');
+                    api.socket.send('xmpp.login.anonymous',request);
                     api.socket.on('xmpp.connection', function(data) {
                         q.resolve(data);
                     });
@@ -229,7 +233,8 @@ angular.module('XmppCoreFactory', [])
                 connected:null,
                 roster:[],
                 me:null,
-                items:[]
+                items:[],
+                errors:[]
             },
             socket:null,
             q:null,
