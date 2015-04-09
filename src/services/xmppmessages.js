@@ -51,8 +51,9 @@ angular.module('XmppMessage', [])
                 return watch();
             },
             send:function(message) {
-                api.items.push(message);
                 xmpp.socket.send('xmpp.chat.message', message);
+                api.items.push(message);
+                message.sendtime=(new Date()).getTime();
             },
             markread:function(jid){
                 api.notifications.unread[jid]=0;

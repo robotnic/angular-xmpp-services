@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="roster"
+<html ng-app="roster">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,7 +54,8 @@ angular.module("roster",['AngularXmpp'])
 
         this.xmpp.send('xmpp.login',{
                  "jid": "test1@laos.buddycloud.com",
-                 "password": "bbb"
+                 "password": "bbb",
+                "resource":"rosterexample"
         }).then(function(){
             that.xmpp.send("xmpp.roster.get")
             that.xmpp.send("xmpp.presence")

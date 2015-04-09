@@ -15,11 +15,13 @@ angular.module('XmppMucFactory', ['XmppCoreFactory'])
             function watch() {
                 console.log("start watching muc");
                 //notify is used to apply changes (render html);
-                var q = $q.defer();
+                var q = xmpp.q;
                 xmpp.socket.on('xmpp.muc.subject', function(message) {
+                    if(message.room!=api.room)return;
                     api.subject=message;
                 });
                 xmpp.socket.on('xmpp.muc.message', function(message) {
+                    if(message.room!=api.room)return;
                     if (!message.delay) {
                         message.receivetime = (new Date()).getTime();
                     }
@@ -27,8 +29,9 @@ angular.module('XmppMucFactory', ['XmppCoreFactory'])
                     q.notify();
                 });
                 xmpp.socket.on('xmpp.muc.roster', function(item) {
-
+                    if(item.room!=api.room)return;
                     console.log("roster", item);
+                    
                     var found = false;
                     for (var i = 0; i < api.roster.length; i++) {
                         if (api.roster[i].nick == item.nick) {
@@ -58,7 +61,7 @@ angular.module('XmppMucFactory', ['XmppCoreFactory'])
                 messages: [],
                 roster: [],
                 room: null,
-                subject: "leer",
+                subject: null,
                 join: function(room, nick) {
                     api.room = room;
                     xmpp.socket.send(
@@ -68,9 +71,10 @@ angular.module('XmppMucFactory', ['XmppCoreFactory'])
                         },
                         function(error, data) {
                             console.log("muc answer", error, data);
-                            api.getSubject(api.room);
                         }
                     );
+                    api.getSubject(api.room);
+                    api.getConfig(api.room);
                 },
                 /**
                 @method send
@@ -103,6 +107,7 @@ angular.module('XmppMucFactory', ['XmppCoreFactory'])
                             }
                             if (data){
                                  q.resolve(data);
+                                api.config=data;
                             }
                         }
                     );
@@ -147,7 +152,7 @@ angular.module('XmppMucFactory', ['XmppCoreFactory'])
                     var q = $q.defer();
                     xmpp.socket.send(
                         'xmpp.muc.subject', {
-                            "subject": "nix nixn nixn  nix"
+                            "room": room
                         },
                         function(error, data) {
                             console.log("-----------SUBJECT config", error, data);
@@ -155,6 +160,7 @@ angular.module('XmppMucFactory', ['XmppCoreFactory'])
                                  q.reject(error);
                             }
                             if (data){
+                                api.subject=data;
                                  q.resolve(data);
                             }
                         }
