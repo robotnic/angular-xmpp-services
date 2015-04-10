@@ -51,7 +51,7 @@ angular.module('BuddycloudModule', [])
                             itemMethods(response);
                             //response.entry.atom.author.image = response.entry.atom.author.name.split("@")[0];
                             api.data.items.unshift(response);
-                            addToTree(response);
+                            addToTree(response,true);
                         }
                     }
                     q.notify("push item");
@@ -558,7 +558,7 @@ angular.module('BuddycloudModule', [])
             }
 
 
-            function addToTree(item){
+            function addToTree(item,attop){
                 var issubitem=false;
                 for(var i=0;i<api.data.tree.length;i++){
                     var treeitem=api.data.tree[i];
@@ -574,7 +574,12 @@ angular.module('BuddycloudModule', [])
                     }
                 }
                 if(!issubitem){
-                    api.data.tree.push(item);
+                    if(attop){
+                        api.data.tree.unshift(item);
+                    }else{
+                        api.data.tree.push(item);
+                    }
+                    
                 }
             }
 
