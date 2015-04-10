@@ -797,8 +797,8 @@ angular.module('BuddycloudModule', [])
                                 if (error) {
                                     q.reject(error);
                                 } else {
-                                    //workaround for buggy id
                                     for (var i = 0; i < response.length; i++) {
+                                        //workaround for buggy id
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
                                         addToTree(response[i]);
