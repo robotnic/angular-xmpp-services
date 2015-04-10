@@ -587,7 +587,7 @@ angular.module('BuddycloudModule', [])
                         if(treeitem.children){
                             for(var j=0;j<treeitem.children.length;j++){
                                 if(treeitem.children[j].id==item.id){
-                                    treeitem.splice(j,1);        
+                                    treeitem.children.splice(j,1);        
                                     var issubitem=true;
                                     break;
                                 }
