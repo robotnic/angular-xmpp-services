@@ -51,6 +51,7 @@ angular.module('BuddycloudModule', [])
                             itemMethods(response);
                             response.entry.atom.author.image = response.entry.atom.author.name.split("@")[0];
                             api.data.items.unshift(response);
+                            addToTree(response);
                         }
                     }
                     q.notify("push item");
@@ -314,6 +315,7 @@ angular.module('BuddycloudModule', [])
                         } else {
                             for (var i = 0; i < api.data.items.length; i++) {
                                 if (api.data.items[i].entry.atom.id === id) {
+                                    removeFromTree(api.data.items[i]);
                                     api.data.items.splice(i, 1);
                                     api.q.notify("deleted");
                                     q.resolve("deleted");
@@ -553,6 +555,29 @@ angular.module('BuddycloudModule', [])
                 }
 
             }
+
+
+            function addToTree(item){
+                var issubitem=false;
+                for(var i=0;i<api.data.tree.length;i++){
+                    var treeitem=api.data.tree[i];
+                    if(!item.entry['in-reply-to']==treeitem.id){
+                        console.log("======================found=============");
+                        if(!treeitem.children){
+                            treeitem.children=[];
+                        }
+                        treeitem.children.push(item);
+                        var issubitem=true;
+                    }
+                }
+                if(!issubitem){
+                    api.data.tree.push(item);
+                }
+            }
+
+            function removeFromTree(item){
+            }
+
 
             /**
         @function open
@@ -859,6 +884,7 @@ angular.module('BuddycloudModule', [])
                                 } else {
                                     for (var i = 0; i < api.data.items.length; i++) {
                                         if (api.data.items[i].entry.atom.id === id) {
+                                            removeFromTree(api.data.items[i]);
                                             api.data.items.splice(i, 1);
                                             api.q.notify("deleted");
                                             q.resolve("deleted");
@@ -924,7 +950,7 @@ angular.module('BuddycloudModule', [])
                 data: {
                     unread: {},
                     items: [],
-                    tree: {},
+                    tree: [],
                     subscriptions: [],
                     affiliations: {},
                     myaffiliations: {},
