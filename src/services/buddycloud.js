@@ -563,7 +563,7 @@ angular.module('BuddycloudModule', [])
                 for(var i=0;i<api.data.tree.length;i++){
                     var treeitem=api.data.tree[i];
                     console.log(item.entry['in-reply-to'],treeitem.id);
-                    if(item.entry['in-reply-to'].ref==treeitem.id){
+                    if(item.entry['in-reply-to'] && item.entry['in-reply-to'].ref==treeitem.id){
                         console.log("======================found=============");
                         if(!treeitem.children){
                             treeitem.children=[];
@@ -582,7 +582,7 @@ angular.module('BuddycloudModule', [])
                 var issubitem=false;
                 for(var i=0;i<api.data.tree.length;i++){
                     var treeitem=api.data.tree[i];
-                    if(item.entry['in-reply-to'].ref==treeitem.id){
+                    if(item.entry['in-reply-to'] && item.entry['in-reply-to'].ref==treeitem.id){
                         console.log("======================found=============");
                         if(treeitem.children){
                             for(var j=0;j<treeitem.children.length;j++){
