@@ -38,9 +38,6 @@ angular.module('BuddycloudModule', [])
                     }
                     api.data.unread[response.node]++;
 
-
-
-
                     if (response.node == api.data.currentnode || api.data.currentnode == 'recent') {
                         var ar = response.id.split(",");
                         var id = ar[ar.length - 1];
@@ -599,7 +596,11 @@ angular.module('BuddycloudModule', [])
                     if(api.data.currentnode=="recent"){
                         recent({rsm:rsm});
                     }else{
-                        api.send("xmpp.buddycloud.retrieve",{node:api.data.currentnode,rsm:rsm});
+                        api.send("xmpp.buddycloud.retrieve",{node:api.data.currentnode,rsm:rsm}).then(function(data){
+                            api.q.notify();
+                        },function(error){
+                            console.log(error);
+                        });
                     }
                 }
             }
