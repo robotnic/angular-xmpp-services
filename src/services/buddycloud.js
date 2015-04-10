@@ -81,6 +81,7 @@ angular.module('BuddycloudModule', [])
                     for (var i = 0; i < api.data.items.length; i++) {
                         var id = api.data.items[i].id;
                         if (id == response.id) {
+                            removeFromTree(api.data.items[i]);
                             api.data.items.splice(i, 1);
                             q.notify("retract");
                             break;
@@ -800,6 +801,7 @@ angular.module('BuddycloudModule', [])
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
+                                        addToTree(response[i]);
                                     }
 
 
@@ -839,6 +841,7 @@ angular.module('BuddycloudModule', [])
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
+                                        addToTree(response[i]);
                                     }
 
                                     api.data.items = api.data.items.concat(response);
@@ -876,6 +879,7 @@ angular.module('BuddycloudModule', [])
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
+                                        addToTree(response[i]);
                                     }
 
                                     if (api.data.items) {
