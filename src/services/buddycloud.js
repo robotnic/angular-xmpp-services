@@ -568,6 +568,7 @@ angular.module('BuddycloudModule', [])
                         }
                         treeitem.children.push(item);
                         var issubitem=true;
+                        break;
                     }
                 }
                 if(!issubitem){
@@ -576,6 +577,28 @@ angular.module('BuddycloudModule', [])
             }
 
             function removeFromTree(item){
+                var issubitem=false;
+                for(var i=0;i<api.data.tree.length;i++){
+                    var treeitem=api.data.tree[i];
+                    if(!item.entry['in-reply-to']==treeitem.id){
+                        console.log("======================found=============");
+                        if(treeitem.children){
+                            for(var j=0;j<treeitem.children.length;j++){
+                                if(treeitem.children[j].id==item.id){
+                                    treeitem.splice(j,1);        
+                                    var issubitem=true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    if(!issubitem){
+                        if(item.id==treeitem.id){
+                            api.data.tree.splice(i,1);
+                        }
+                    }
+                }
+ 
             }
 
 
