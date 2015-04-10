@@ -559,10 +559,10 @@ angular.module('BuddycloudModule', [])
 
 
             function addToTree(item){
-                console.log("item",item);
                 var issubitem=false;
                 for(var i=0;i<api.data.tree.length;i++){
                     var treeitem=api.data.tree[i];
+                    console.log(item.entry['in-reply-to'],treeitem.id);
                     if(item.entry['in-reply-to']==treeitem.id){
                         console.log("======================found=============");
                         if(!treeitem.children){
