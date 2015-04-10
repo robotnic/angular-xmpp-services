@@ -3,7 +3,7 @@
   "authors": [
     "bernhard zwischenbrgger"
   ],
-  "version": "0.5.7",
+  "version": "0.5.8",
   "main": [
     "bin/assets/angular-xmpp-services.js"
   ],

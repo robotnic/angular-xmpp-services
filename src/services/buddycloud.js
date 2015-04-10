@@ -583,10 +583,12 @@ angular.module('BuddycloudModule', [])
                 for(var i=0;i<api.data.tree.length;i++){
                     var treeitem=api.data.tree[i];
                     if(item.entry['in-reply-to'] && item.entry['in-reply-to'].ref==treeitem.id){
-                        console.log("======================found=============");
+                        console.log("======================found remove=============");
                         if(treeitem.children){
                             for(var j=0;j<treeitem.children.length;j++){
+                                console.log("compare",treeitem.children[j].id,item.id);
                                 if(treeitem.children[j].id==item.id){
+                                    console.log("really found",item);
                                     treeitem.children.splice(j,1);        
                                     var issubitem=true;
                                     break;
