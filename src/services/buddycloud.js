@@ -361,6 +361,7 @@ angular.module('BuddycloudModule', [])
             }
 
             function makeConfigObject(response){
+                api.data.configobj: {},
                 for(var i=0;i<response.length;i++){
                     api.data.configobj[response[i].var]=response[i].value;
                 }
