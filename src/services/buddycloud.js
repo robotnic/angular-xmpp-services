@@ -360,6 +360,12 @@ angular.module('BuddycloudModule', [])
 
             }
 
+            function makeConfigObject(response){
+                for(var i=0;i<response.length;i++){
+                    api.data.configobj[response[i].var]=response[i].value;
+                }
+            }
+
             //https://github.com/buddycloud/buddycloud-server-java/issues/302
             function  removeDuplicates(response){
                 var result=[];
@@ -943,6 +949,7 @@ angular.module('BuddycloudModule', [])
                                     q.reject(error);
                                 } else {
                                     api.data.config = response;
+                                    makeConfigObject(response);
                                     api.q.notify("config");
                                     q.resolve(response);
                                 }
