@@ -361,7 +361,7 @@ angular.module('BuddycloudModule', [])
             }
 
             function makeConfigObject(response){
-                api.data.configobj: {},
+                api.data.configobj= {};
                 for(var i=0;i<response.length;i++){
                     api.data.configobj[response[i].var]=response[i].value;
                 }
@@ -569,9 +569,7 @@ angular.module('BuddycloudModule', [])
                 var issubitem=false;
                 for(var i=0;i<api.data.tree.length;i++){
                     var treeitem=api.data.tree[i];
-                    console.log(item.entry['in-reply-to'],treeitem.id);
                     if(item.entry['in-reply-to'] && item.entry['in-reply-to'].ref==treeitem.id){
-                        console.log("======================found=============");
                         if(!treeitem.children){
                             treeitem.children=[];
                         }
@@ -595,12 +593,9 @@ angular.module('BuddycloudModule', [])
                 for(var i=0;i<api.data.tree.length;i++){
                     var treeitem=api.data.tree[i];
                     if(item.entry['in-reply-to'] && item.entry['in-reply-to'].ref==treeitem.id){
-                        console.log("======================found remove=============");
                         if(treeitem.children){
                             for(var j=0;j<treeitem.children.length;j++){
-                                console.log("compare",treeitem.children[j].id,item.id);
                                 if(treeitem.children[j].id==item.id){
-                                    console.log("really found",item);
                                     treeitem.children.splice(j,1);        
                                     var issubitem=true;
                                     break;
@@ -951,7 +946,7 @@ angular.module('BuddycloudModule', [])
                                 } else {
                                     api.data.config = response;
                                     makeConfigObject(response);
-                                    api.q.notify("config");
+                                    api.q.notify('xmpp.buddycloud.config.get');
                                     q.resolve(response);
                                 }
                             }
