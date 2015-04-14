@@ -835,6 +835,7 @@ angular.module('BuddycloudModule', [])
                         if(!request.rsm){
                             request={rsm:{max:10}}
                             api.data.items=[]
+                            api.data.tree=[]
                         }
                         xmpp.socket.send(
                             'xmpp.buddycloud.items.recent',
