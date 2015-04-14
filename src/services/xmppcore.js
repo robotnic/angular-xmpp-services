@@ -110,7 +110,10 @@ angular.module('XmppCoreFactory', [])
                     }
                     api.socket.on('xmpp.connection', function(data) {
                         q.resolve(data);
+                        if(command=="xmpp.login.anonymous")api.data.me.anonymous=true;
+                        if(command=="xmpp.login")api.data.me.anonymous=false;
                         api.q.notify(command);
+
                     });
                     api.socket.send(command, request);
                     return q.promise;

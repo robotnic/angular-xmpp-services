@@ -970,6 +970,12 @@ angular.module('BuddycloudModule', [])
                                     q.reject(error);
                                 } else {
                                     q.resolve(response);
+                                    switch(command){
+                                        case "xmpp.login":
+
+                                            break;
+
+                                    }
                                 }
                             }
                         );
