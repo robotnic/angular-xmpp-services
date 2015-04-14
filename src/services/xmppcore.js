@@ -35,8 +35,8 @@ angular.module('XmppCoreFactory', [])
                 q.notify("login error");
             });
             api.socket.on('xmpp.logout', function(data) {
-                api.data.me=null;
                 api.connected=false;
+                resetData();
                 q.notify("logout");
             });
 
@@ -108,8 +108,12 @@ angular.module('XmppCoreFactory', [])
                     if(!request){
                         q.reject("missing parameters for login");
                     }
-                    if(command=="xmpp.login.anonymous")api.data.anonymous=true;
-                    if(command=="xmpp.login")api.data.anonymous=false;
+                    if(command=="xmpp.login.anonymous"){
+                        api.data.anonymous=true;
+                    }
+                    if(command=="xmpp.login"){
+                        api.data.anonymous=false;
+                    }
                     /*
                     api.socket.on('xmpp.connection', function(data) {
                         q.resolve(data);
@@ -182,18 +186,19 @@ angular.module('XmppCoreFactory', [])
             }
         }
 
-        
-
-        var api={
-            jid:null,
-            //user:null,
-            data:{
+        function resetData(){
+            api.data={
                 connected:null,
                 roster:[],
                 me:null,
                 items:[],
                 errors:[]
-            },
+            }
+        } 
+
+        var api={
+            jid:null,
+            //user:null,
             socket:null,
             q:null,
             watch:function(){
@@ -218,7 +223,7 @@ angular.module('XmppCoreFactory', [])
                 return q.promise;
             },
 
-
+            
     /**
             * @method parseNodeString
             */
@@ -273,6 +278,7 @@ angular.module('XmppCoreFactory', [])
 
         };
         API=api;
+        resetData();
         console.log("---------",host);
         api.connect(host);
 
