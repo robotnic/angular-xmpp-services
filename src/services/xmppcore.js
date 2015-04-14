@@ -108,8 +108,8 @@ angular.module('XmppCoreFactory', [])
                     if(!request){
                         q.reject("missing parameters for login");
                     }
-                    if(command=="xmpp.login.anonymous")api.data.me.anonymous=true;
-                    if(command=="xmpp.login")api.data.me.anonymous=false;
+                    if(command=="xmpp.login.anonymous")api.data.anonymous=true;
+                    if(command=="xmpp.login")api.data.anonymous=false;
                     /*
                     api.socket.on('xmpp.connection', function(data) {
                         q.resolve(data);
