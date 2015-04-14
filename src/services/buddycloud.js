@@ -795,7 +795,8 @@ angular.module('BuddycloudModule', [])
                         var q = $q.defer();
                         if(!request.rsm){
                             request.rsm={rsm:{max:10}}
-                            api.data.items=[]
+                            api.data.items=[];
+                            api.data.tree=[];
                         }
 
 
@@ -832,10 +833,10 @@ angular.module('BuddycloudModule', [])
                         break;
                     case 'xmpp.buddycloud.items.recent':
                         var q = $q.defer();
-                        if(!request.rsm){
+                        if(!request.rsm.last){
                             request={rsm:{max:10}}
-                            api.data.items=[]
-                            api.data.tree=[]
+                            api.data.items=[];
+                            api.data.tree=[];
                         }
                         xmpp.socket.send(
                             'xmpp.buddycloud.items.recent',
