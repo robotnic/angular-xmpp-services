@@ -209,7 +209,20 @@ angular.module('XmppCoreFactory', [])
                 if(api.socket){
                     q.resolve();
                 }
-                api.socket = new Primus(host,{timeout:20000});
+
+ var options = {
+        transformer: 'socket.io',
+        parser: 'JSON',
+        transports: [
+            'websocket',
+            'htmlfile',
+            'xhr-polling',
+            'jsonp-polling'
+        ],
+        global: 'Buddycloud'
+    };
+
+                api.socket = new Primus(host,options);
                 api.socket.on("open", function() {
                     q.resolve();
                 });

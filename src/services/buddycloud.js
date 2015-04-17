@@ -646,6 +646,7 @@ angular.module('BuddycloudModule', [])
             }
 
             function loadmore(){
+                console.log("loadmore");
                 if(api.data.rsm && api.data.rsmloading!=api.data.rsm.last && (!api.data.rsm.count || api.data.rsm.last)){
                     api.data.rsmloading=api.data.rsm.last; 
                     var rsm={
@@ -653,6 +654,7 @@ angular.module('BuddycloudModule', [])
                         "after": api.data.rsm.last
                     }
                     if(api.data.currentnode=="recent"){
+                        console.log("recent rsm",rsm);
                         recent({rsm:rsm});
                     }else{
                         api.send("xmpp.buddycloud.retrieve",{node:api.data.currentnode,rsm:rsm}).then(function(data){
@@ -832,8 +834,9 @@ angular.module('BuddycloudModule', [])
 
                         break;
                     case 'xmpp.buddycloud.items.recent':
+                        console.log("the recent request",request);
                         var q = $q.defer();
-                        if(!request.rsm || !request.rsm.last){
+                        if(!request.rsm || !request.rsm.after){
                             request={rsm:{max:10}}
                             api.data.items=[];
                             api.data.tree=[];
@@ -842,6 +845,7 @@ angular.module('BuddycloudModule', [])
                             'xmpp.buddycloud.items.recent',
                             request,
                             function(error, response, rsm) {
+                                console.log('xmpp.buddycloud.items.recent',arguments);
                                 if (error) {
                                     api.data.errors.unshift(error);
                                     q.reject(error);
@@ -1006,8 +1010,8 @@ angular.module('BuddycloudModule', [])
                 open: function(data) {
                     return opennode(data);
                 },
-                recent:function(){
-                    return recent();
+                recent:function(rsm){
+                    return recent(rsm);
                 },
                 loadmore:function(){
                     return loadmore();
