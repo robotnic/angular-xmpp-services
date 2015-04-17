@@ -833,7 +833,7 @@ angular.module('BuddycloudModule', [])
                         break;
                     case 'xmpp.buddycloud.items.recent':
                         var q = $q.defer();
-                        if(!request.rsm.last){
+                        if(!request.rsm || !request.rsm.last){
                             request={rsm:{max:10}}
                             api.data.items=[];
                             api.data.tree=[];
