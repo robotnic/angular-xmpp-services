@@ -37,6 +37,7 @@ angular.module('BuddycloudModule', [])
                         api.data.unread[response.node] = 0;
                     }
                     api.data.unread[response.node]++;
+                    api.data.totalunread++;
 
                     if (response.node == api.data.currentnode || api.data.currentnode == 'recent') {
                         var ar = response.id.split(",");
@@ -821,6 +822,7 @@ angular.module('BuddycloudModule', [])
 
                                     //api.data.tree = maketree(api.data.items);
                                     //api.data.rights = isSubscribed(data.node);
+                                    api.data.totalunread-=api.data.unread[request.node];
                                     api.data.unread[request.node] = 0;
                                     api.data.rsm = rsm;
                                     api.data.currentnode = request.node;
@@ -999,6 +1001,7 @@ angular.module('BuddycloudModule', [])
                 q: xmpp.q,
                 data: {
                     unread: {},
+                    totalunread: 0,
                     items: [],
                     tree: [],
                     subscriptions: [],
