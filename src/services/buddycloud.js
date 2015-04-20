@@ -29,7 +29,7 @@ angular.module('BuddycloudModule', [])
             function watch() {
                 var q = api.q;
 
-
+                //Notification of new messages 
                 xmpp.socket.on('xmpp.buddycloud.push.item', function(response) {
                     var isnew=true;
 
@@ -65,6 +65,8 @@ angular.module('BuddycloudModule', [])
                         q.notify("subscriptions");
                     });
                 });
+
+                //Item deletion notification
                 xmpp.socket.on('xmpp.buddycloud.push.delete', function(response) {
                     q.notify("xmpp.buddycloud.push.delete",response);
                     getAffiliations({node:response.node}).then(function() {
@@ -78,6 +80,7 @@ angular.module('BuddycloudModule', [])
 
                 });
 
+                //a message was deleted
                 xmpp.socket.on('xmpp.buddycloud.push.retract', function(response) {
                     for (var i = 0; i < api.data.items.length; i++) {
                         var id = api.data.items[i].id;
@@ -91,7 +94,7 @@ angular.module('BuddycloudModule', [])
                 });
 
 
-
+                //notification-of-a-subscription-change
                 xmpp.socket.on('xmpp.buddycloud.push.subscription', function(data) {
                     var forMe = false;
                     if (data.jid.user == api.xmpp.data.me.jid.user && data.jid.domain == api.xmpp.data.me.jid.domain) {
@@ -137,6 +140,8 @@ angular.module('BuddycloudModule', [])
                     });
 
                 });
+
+                //Notification of affiliation changes
                 xmpp.socket.on("xmpp.buddycloud.push.affiliation", function(data) {
                     getAffiliations({
                         'node': data.node
@@ -148,12 +153,20 @@ angular.module('BuddycloudModule', [])
                     });
                 });
 
+                //Node configuration update notification
                 xmpp.socket.on("xmpp.buddycloud.push.configuration", function(data) {
                     console.log("config changed",data);
                     getAffiliations().then(function() {
                         //api.maketree(api.data.items);
                     });
                 });
+
+                //Subscription authorisation request
+                xmpp.socket.on('xmpp.buddycloud.push.authorisation', function(data, callback) {
+                    console.log("not implemented",data)
+                    callback( /* see below */ )
+                })
+
                 return q.promise;
 
 
@@ -172,11 +185,11 @@ angular.module('BuddycloudModule', [])
 
                 if(rights.remove){
                     item.remove = function() {
-                        //emoveitem(this.node,this.entry.atom.id)
                         removeitem(this)
                     };
                 }
                 if(rights.publish){
+                    //to do, make function
                     item.reply = function(text) {
                         xmpp.socket.send("xmpp.buddycloud.publish", {
                             node: item.node,
@@ -193,6 +206,8 @@ angular.module('BuddycloudModule', [])
                         });
                     };
                 }
+
+                /* not working
                 if(rights.update){
                     item.save = function() {
                         xmpp.socket.send("xmpp.buddycloud.publish", {
@@ -208,6 +223,7 @@ angular.module('BuddycloudModule', [])
                         });
                     }
                 }
+                */
             }
 
 
@@ -566,7 +582,7 @@ angular.module('BuddycloudModule', [])
             }
 
 
-            function addToTree(item,attop){
+            function addToTree(item,atTop){
                 var issubitem=false;
                 for(var i=0;i<api.data.tree.length;i++){
                     var treeitem=api.data.tree[i];
@@ -580,7 +596,7 @@ angular.module('BuddycloudModule', [])
                     }
                 }
                 if(!issubitem){
-                    if(attop){
+                    if(atTop){
                         api.data.tree.unshift(item);
                     }else{
                         api.data.tree.push(item);
@@ -822,7 +838,7 @@ angular.module('BuddycloudModule', [])
 
                                     //api.data.tree = maketree(api.data.items);
                                     //api.data.rights = isSubscribed(data.node);
-                                    api.data.totalunread-=api.data.unread[request.node];
+                                    api.data.totalunread-=parseInt(api.data.unread[request.node],10);
                                     api.data.unread[request.node] = 0;
                                     api.data.rsm = rsm;
                                     api.data.currentnode = request.node;
