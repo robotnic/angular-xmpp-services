@@ -210,6 +210,8 @@ angular.module('XmppCoreFactory', [])
                     q.resolve();
                 }
 
+
+//no idea if needed
  var options = {
         transformer: 'socket.io',
         parser: 'JSON',
