@@ -814,6 +814,7 @@ angular.module('BuddycloudModule', [])
                         var q = $q.defer();
                         if(!request.rsm){
                             request.rsm={rsm:{max:10}}
+                            request.rsm={max:10}
                             api.data.items=[];
                             api.data.tree=[];
                         }
