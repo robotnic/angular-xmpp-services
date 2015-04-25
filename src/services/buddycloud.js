@@ -638,7 +638,7 @@ angular.module('BuddycloudModule', [])
                 var q=$q.defer();
                 $q.all([
                     api.send('xmpp.buddycloud.retrieve', request),
-                    api.send('xmpp.buddycloud.affiliations', request),
+                    //api.send('xmpp.buddycloud.affiliations', request),
                     api.send('xmpp.buddycloud.affiliations', {}),
                     api.send('xmpp.buddycloud.config.get', request)
                 ]).then(function() {
