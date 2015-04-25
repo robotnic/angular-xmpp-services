@@ -93,7 +93,6 @@ angular.module('XmppCoreFactory', [])
                  if(api.data.roster){
                     for (var i = 0; i < api.data.roster.length; i++) {
                         if (api.data.roster[i].jid.user == data.from.user && api.data.roster[i].jid.domain == data.from.domain) {  
-                            api.data.roster[i].presence = presence;
                             api.data.roster[i].ask = "subscribe";
                         }
                     }
