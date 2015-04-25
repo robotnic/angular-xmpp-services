@@ -75,6 +75,14 @@ angular.module('Test', ['AngularXmpp','jsonFormatter','angularMoment'])
                 name:"buddycloud",
                 type:"buddycloud",
                 check:["subscriptions",  "affiliations","myaffiliations","errors"]
+            },{
+                name:"recentmore",
+                type:"buddycloud",
+                check:["items",  "errors"]
+            },{
+                name:"retrievemore",
+                type:"buddycloud",
+                check:["items",  "errors"]
             },
             { 
                 name:"buddyclouderror",
@@ -305,7 +313,8 @@ xmppcore
         }
 
         function reset(i){
-                for(var j=0;j<buddyclouds[i].data.items.length;j++){
+                var j=buddyclouds[i].data.items.length;
+                while(j--){
                     if(buddyclouds[i].data.items[j].remove){
                         buddyclouds[i].data.items[j].remove();
                     }else{

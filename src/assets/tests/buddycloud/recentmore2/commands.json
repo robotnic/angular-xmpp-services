@@ -1,0 +1,35 @@
+[
+  [0,"buddycloud","send('xmpp.buddycloud.discover')"],
+  [0,"buddycloud","send('xmpp.buddycloud.register')"],
+
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 1' }}})"],
+
+  [0,"buddycloud","recent()"],
+
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 2' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 3' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 4' }}})"],
+
+
+  [0,"buddycloud","loadmore()"],
+
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 5' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Annai 6' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Annai 7' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 8' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 9' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 10' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 11' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 12' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 13' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 14' }}})"],
+  [0,"buddycloud","send( 'xmpp.buddycloud.publish', { 'node': '/user/test1@laos.buddycloud.com/posts', 'content': { 'atom': { 'content': 'Hi Anna 15' }}})"],
+  [0,"buddycloud","loadmore()"],
+  [0,"buddycloud","loadmore()"],
+  [0,"buddycloud","loadmore()"],
+  [0,"buddycloud","loadmore()"],
+  [0,"buddycloud","loadmore()"],
+  [0,"buddycloud","loadmore()"],
+  [0,"buddycloud","reset(0)"]
+
+]

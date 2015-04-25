@@ -7,7 +7,7 @@ This is a library talks to a xmpp server and generates a model { dynamic json },
 
 The library send and receives xmpp stanzas.
 Based on this messages a model (json tree) is build.
-The lib also handels the rendering timing by sinding promise notify messages.
+The lib also handels the rendering timing by sending promise notify messages.
 https://docs.angularjs.org/api/ng/service/$q
 
 * No $rootScope messaging needed
@@ -41,8 +41,12 @@ bower install angular-xmpp-services
         //$scope.$apply() not needed,empty function fires render process
     });
 
-    $scope.xmpp.anonymouslogin().then(function(){
-        console.log("THE MODEL",$scope.xmpp.data.me);
+    $scope.xmpp.send('xmpp.login',{
+             "jid": "test1@laos.buddycloud.com",
+             "password": "bbb"
+    }).then(function(){
+        $scope.xmpp.send("xmpp.roster.get")
+        $scope.xmpp.send("xmpp.presence")
     });
 
 ```
@@ -70,7 +74,7 @@ $scope.xmpp.data.me
 
 #directives
 
-If you are looking for ready to use directive collection, this is the place to go: angular-xmpp
+If you are looking for ready to use directive collection, this is the place to go: [angular-xmpp](https://github.com/robotnic/angular-xmpp)
 
 Here we learn how to make an directive
 
@@ -146,17 +150,14 @@ roster/template.tpl.html
 
 ```
 
-<table >
-<tr g-if="user.presence" ng-repeat="user in xmpp.data.roster">
-    <td>
-        <img ng-src="avatars/{{user.jid.user}}.png" style="height:20px" />
-    </td>
-    <td>
-        <p>{{user.jid.user}}</p>
-        <p>{{user.presence.status}}</p>
-    </td>
-</tr>
-</table>
+    <div ng-repeat="item in page.xmpp.data.roster" class="rosteritem">
+        <div ng-show="item.presence || item.subscription"  class="indicator {{item.presence.show}}" ng-class="{'ask':item.subscription=='from','noauth':item.subscription=='to','none':item.subscription=='none'}"></div>
+        <div ng-show="!item.presence && !item.subscription"  class="indicator offline"></div>
+        {{item.jid.user}}
+        <div class="status">
+        {{item.presence.status}}
+        </div>
+    </div>
 
 ```
 

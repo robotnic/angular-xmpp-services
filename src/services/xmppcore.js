@@ -31,11 +31,12 @@ angular.module('XmppCoreFactory', [])
                 q.notify("login");
             },function(error){
                 api.connected=false;
+                api.data.errors.unshift(error);
                 q.notify("login error");
             });
             api.socket.on('xmpp.logout', function(data) {
-                api.data.me=null;
                 api.connected=false;
+                resetData();
                 q.notify("logout");
             });
 
@@ -43,8 +44,8 @@ angular.module('XmppCoreFactory', [])
                 var exists=false;
                 for (var i = 0; i < api.data.roster.length; i++) {
                     if (api.data.roster[i].jid.user == data.jid.user) {   //domain missing you fixit!!
-                            var exists=true;
-
+                            exists=true;
+                            console.log("subcription",data.subscription); 
                             if(data.subscription=="remove"){
                                 api.data.roster.splice(i,1);
                             }else{
@@ -53,7 +54,7 @@ angular.module('XmppCoreFactory', [])
                             break;
                     }
                 }
-                if(!exists){
+                if(!exists && data.subscription!=="remove"){
                     api.data.roster.push(data);
                 }
                 q.notify("roster");
@@ -63,7 +64,6 @@ angular.module('XmppCoreFactory', [])
 
             //presence handling
             api.socket.on('xmpp.presence', function(data) {
-                console.log("xmpp.presence",arguments);
                 var presence={
                     show:data.show,
                     status:data.status,
@@ -84,6 +84,10 @@ angular.module('XmppCoreFactory', [])
                 }
                 q.notify("presence");
             });
+            api.socket.on('xmpp.error', function(error) {
+                api.data.errors.unshift(error);
+                q.notify("xmpp.error");
+            });
 
             api.socket.on('xmpp.presence.subscribe', function(data) {
                 console.log('-----------------------------------------xmpp.presence.subscribe',data);
@@ -96,25 +100,27 @@ angular.module('XmppCoreFactory', [])
 
         function send(command,request){
             console.log("send",command,request);
+            if(!request)request={};
             switch(command){
                 case 'xmpp.login':
+                case 'xmpp.login.anonymous':
                     var q=$q.defer();
                     if(!request){
                         q.reject("missing parameters for login");
                     }
-                    api.socket.send('xmpp.login', request);
+                    if(command=="xmpp.login.anonymous"){
+                        api.data.anonymous=true;
+                    }
+                    if(command=="xmpp.login"){
+                        api.data.anonymous=false;
+                    }
+                    /*
                     api.socket.on('xmpp.connection', function(data) {
                         q.resolve(data);
-                        api.q.notify(data);
+                        api.q.notify(command);
                     });
-                    return q.promise;
-                    break;
-                case 'xmpp.login.anonymous':
-                    var q=$q.defer();
-                    api.socket.send('xmpp.login.anoymouse');
-                    api.socket.on('xmpp.connection', function(data) {
-                        q.resolve(data);
-                    });
+                    */
+                    api.socket.send(command, request);
                     return q.promise;
                     break;
                 case 'xmpp.logout':
@@ -135,102 +141,64 @@ angular.module('XmppCoreFactory', [])
                     );
                     return q.promise;
                     break;
-                case 'xmpp.chat.message':
-                    api.socket.send('xmpp.chat.message',request);
-                    break;
-                case 'xmpp.chat.receipt':
-                    break;
-                case 'xmpp.presence':
-                    if(!request)request={};
-                    api.socket.send( 'xmpp.presence', request);
-                    break;
-                case 'xmpp.presence.subscribe':
-                    api.socket.send( 'xmpp.presence.subscribe', request);
-                    break;
-                case 'xmpp.presence.subscribed':
-                    console.log(request);
-                    api.socket.send( 'xmpp.presence.subscribed', request);
-                    break;
-                case 'xmpp.presence.unsubscribe':
-                        console.log(request);
-                    api.socket.send( 'xmpp.presence.unsubscribe', request);
-                    break;
-                case 'xmpp.presence.unsubscribed':
-                    api.socket.send( 'xmpp.presence.unsubscribed', request);
-                    break;
                 case 'xmpp.roster.get':
+                case 'xmpp.roster.add':
+                case 'xmpp.roster.remove':
+                case 'xmpp.discover.items':
                     var q=$q.defer();
                     api.socket.send(
-                        'xmpp.roster.get', {},
+                        command, request,
 
                         function(error, data) {
-
-                            //replace content of roster array (but don't replace array);
-                            api.data.roster.length=0;  //clear
-                            for(var i=0;i<data.length;i++){
-                               api.data.roster.push(data[i]);
+                            switch(command){
+                            case "xmpp.roster.get":
+                                //replace content of roster array (but don't replace array);
+                                api.data.roster.length=0;  //clear
+                                for(var i=0;i<data.length;i++){
+                                   api.data.roster.push(data[i]);
+                                }
+                                if(api.q){
+                                    api.q.notify("roster");
+                                }
+                                q.resolve(command);
+                                break;
+                            case "xmpp.roster.remove":
+                                for(var i=0;i<api.data.roster.length;i++){
+                                    var item=api.data.roster[i];
+                                    if(item.subscription=="remove"){
+                                            api.data.roster.splice(i,1);
+                                            break;
+                                    }
+                                }
+                                api.q.notify("roster remove");
+                                q.resolve(command);
+                                break;
+                            case 'xmpp.discover.items':
+                                q.resolve(data);
                             }
-                            if(api.q){
-                                api.q.notify("roster");
-                            }
-                            q.resolve("roster");
-
                         }
                     );
                     return q.promise;
 
                     break;
-                case 'xmpp.roster.add':
-                    var q=$q.defer();
-                    api.socket.send( 'xmpp.roster.add', request,
-                    function(error, data) {
-                        if(error){
-                            console.log("error",error);
-                        }else{
-                            q.resolve("roster add");
-                        }
-                    })
-                    return q.promise;
-                    break;
-                case 'xmpp.roster.remove':
-                    var q=$q.defer();
-                    api.socket.send( 'xmpp.roster.remove', request,
-                    function(error, data) {
-                        if(error){
-                            console.log("error",error);
-                        }else{
-                            for(var i=0;i<api.data.roster.length;i++){
-                                var item=api.data.roster[i];
-                                if(item.subscription=="remove"){
-                                        api.data.roster.splice(i,1);
-                                        break;
-                                }
-                            }
-                            api.q.notify("roster remove");
-                            q.resolve("roster remove");
-                        }
-                    })
-                    return q.promise;
-                    break;
-                case 'xmpp.roster.edit':
-                    //no idea what this is for
-                    break;
-
-                default:console.log(command,"not implemented");
+                default:console.log(command,"no promise, fire and forget");
+                    api.socket.send( command, request);
             }
         }
 
-        
+        function resetData(){
+            api.data={
+                connected:null,
+                roster:[],
+                me:null,
+                items:[],
+                errors:[]
+            }
+        } 
 
         var api={
             jid:null,
             //user:null,
-            data:{
-                connected:null,
-                roster:[],
-                me:null,
-                items:[]
-            },
             socket:null,
             q:null,
             watch:function(){
@@ -241,7 +209,22 @@ angular.module('XmppCoreFactory', [])
                 if(api.socket){
                     q.resolve();
                 }
-                api.socket = new Primus(host,{timeout:20000});
+
+
+//no idea if needed
+ var options = {
+        transformer: 'socket.io',
+        parser: 'JSON',
+        transports: [
+            'websocket',
+            'htmlfile',
+            'xhr-polling',
+            'jsonp-polling'
+        ],
+        global: 'Buddycloud'
+    };
+
+                api.socket = new Primus(host,options);
                 api.socket.on("open", function() {
                     q.resolve();
                 });
@@ -255,7 +238,7 @@ angular.module('XmppCoreFactory', [])
                 return q.promise;
             },
 
-
+            
     /**
             * @method parseNodeString
             */
@@ -310,6 +293,7 @@ angular.module('XmppCoreFactory', [])
 
         };
         API=api;
+        resetData();
         console.log("---------",host);
         api.connect(host);
 
@@ -324,7 +308,7 @@ angular.module('XmppCoreFactory', [])
 
 
 /*
-To Array filter is hidden here
+To Array filter is hidden here, should go to helpers
 */
 
 

@@ -29,14 +29,15 @@ angular.module('BuddycloudModule', [])
             function watch() {
                 var q = api.q;
 
-
+                //Notification of new messages 
                 xmpp.socket.on('xmpp.buddycloud.push.item', function(response) {
                     var isnew=true;
+
                     if (!api.data.unread[response.node]) {
                         api.data.unread[response.node] = 0;
                     }
-        
                     api.data.unread[response.node]++;
+                    api.data.totalunread++;
 
                     if (response.node == api.data.currentnode || api.data.currentnode == 'recent') {
                         var ar = response.id.split(",");
@@ -49,8 +50,9 @@ angular.module('BuddycloudModule', [])
                         }
                         if(isnew){
                             itemMethods(response);
-                            response.entry.atom.author.image = response.entry.atom.author.name.split("@")[0];
-                            api.data.items.push(response);
+                            //response.entry.atom.author.image = response.entry.atom.author.name.split("@")[0];
+                            api.data.items.unshift(response);
+                            addToTree(response,true);
                         }
                     }
                     q.notify("push item");
@@ -63,6 +65,8 @@ angular.module('BuddycloudModule', [])
                         q.notify("subscriptions");
                     });
                 });
+
+                //Item deletion notification
                 xmpp.socket.on('xmpp.buddycloud.push.delete', function(response) {
                     q.notify("xmpp.buddycloud.push.delete",response);
                     getAffiliations({node:response.node}).then(function() {
@@ -76,19 +80,21 @@ angular.module('BuddycloudModule', [])
 
                 });
 
+                //a message was deleted
                 xmpp.socket.on('xmpp.buddycloud.push.retract', function(response) {
                     for (var i = 0; i < api.data.items.length; i++) {
                         var id = api.data.items[i].id;
                         if (id == response.id) {
+                            removeFromTree(api.data.items[i]);
                             api.data.items.splice(i, 1);
+                            q.notify("retract");
                             break;
                         }
                     }
-                    q.notify("retract");
                 });
 
 
-
+                //notification-of-a-subscription-change
                 xmpp.socket.on('xmpp.buddycloud.push.subscription', function(data) {
                     var forMe = false;
                     if (data.jid.user == api.xmpp.data.me.jid.user && data.jid.domain == api.xmpp.data.me.jid.domain) {
@@ -134,6 +140,8 @@ angular.module('BuddycloudModule', [])
                     });
 
                 });
+
+                //Notification of affiliation changes
                 xmpp.socket.on("xmpp.buddycloud.push.affiliation", function(data) {
                     getAffiliations({
                         'node': data.node
@@ -145,11 +153,20 @@ angular.module('BuddycloudModule', [])
                     });
                 });
 
+                //Node configuration update notification
                 xmpp.socket.on("xmpp.buddycloud.push.configuration", function(data) {
+                    console.log("config changed",data);
                     getAffiliations().then(function() {
                         //api.maketree(api.data.items);
                     });
                 });
+
+                //Subscription authorisation request
+                xmpp.socket.on('xmpp.buddycloud.push.authorisation', function(data, callback) {
+                    console.log("not implemented",data)
+                    callback( /* see below */ )
+                })
+
                 return q.promise;
 
 
@@ -168,11 +185,11 @@ angular.module('BuddycloudModule', [])
 
                 if(rights.remove){
                     item.remove = function() {
-                        //emoveitem(this.node,this.entry.atom.id)
                         removeitem(this)
                     };
                 }
                 if(rights.publish){
+                    //to do, make function
                     item.reply = function(text) {
                         xmpp.socket.send("xmpp.buddycloud.publish", {
                             node: item.node,
@@ -189,6 +206,8 @@ angular.module('BuddycloudModule', [])
                         });
                     };
                 }
+
+                /* not working
                 if(rights.update){
                     item.save = function() {
                         xmpp.socket.send("xmpp.buddycloud.publish", {
@@ -204,6 +223,7 @@ angular.module('BuddycloudModule', [])
                         });
                     }
                 }
+                */
             }
 
 
@@ -313,6 +333,7 @@ angular.module('BuddycloudModule', [])
                         } else {
                             for (var i = 0; i < api.data.items.length; i++) {
                                 if (api.data.items[i].entry.atom.id === id) {
+                                    removeFromTree(api.data.items[i]);
                                     api.data.items.splice(i, 1);
                                     api.q.notify("deleted");
                                     q.resolve("deleted");
@@ -356,6 +377,30 @@ angular.module('BuddycloudModule', [])
 
             }
 
+            function makeConfigObject(response){
+                api.data.configobj= {};
+                for(var i=0;i<response.length;i++){
+                    api.data.configobj[response[i].var]=response[i].value;
+                }
+            }
+
+            //https://github.com/buddycloud/buddycloud-server-java/issues/302
+            function  removeDuplicates(response){
+                var result=[];
+                for(var i=0;i<response.length;i++){
+                    var exists=false;
+                    for(var j=0;j<api.data.items.length;j++){
+                       if(response[i].id==api.data.items[j].id){
+                            exists=true;
+                            break;
+                        } 
+                    }
+                    if(!exists){
+                        result.push(response[i]);
+                    }
+                }
+                return result;
+            }
 
 
             function getAffiliations(request) {
@@ -413,6 +458,12 @@ angular.module('BuddycloudModule', [])
                     nodeMethods();
             }
 
+
+
+            /**
+            enable/disable subscribe, unsubscribe, config, publish
+            todo: ugly code
+            */
             function nodeMethods() {
                 delete api.publish;
                 delete api.subscribe;
@@ -461,18 +512,6 @@ angular.module('BuddycloudModule', [])
                                 api.data.errors.unshift(error);
                             });
 
-
-                            //roster remove
-
-                            /*
-                            var jid=that.xmpp.parseNodeString(that.data.currentnode).jid;
-                            api.xmpp.send('xmpp.roster.remove', {
-                                "jid": jid
-                            }).then(function(data){
-                                api.q.notify("user removed");
-                            });
-                            */
-
                         }
                     } else {
                         api.subscribe = function() {
@@ -493,16 +532,6 @@ angular.module('BuddycloudModule', [])
                                 });
                             });
 
-                            //add user to roster !!!!!!!!!!!!!!!!!!!
-
-                            /*
-                            var jid=that.xmpp.parseNodeString(that.data.currentnode).jid;
-                            api.xmpp.send('xmpp.roster.add', {
-                                "jid": jid
-                            }).then(function(data){
-                                api.q.notify("user added");
-                            });
-                            */
                         }
                     }
                 }
@@ -552,6 +581,55 @@ angular.module('BuddycloudModule', [])
 
             }
 
+
+            function addToTree(item,atTop){
+                var issubitem=false;
+                for(var i=0;i<api.data.tree.length;i++){
+                    var treeitem=api.data.tree[i];
+                    if(item.entry['in-reply-to'] && item.entry['in-reply-to'].ref==treeitem.id){
+                        if(!treeitem.children){
+                            treeitem.children=[];
+                        }
+                        treeitem.children.push(item);
+                        var issubitem=true;
+                        break;
+                    }
+                }
+                if(!issubitem){
+                    if(atTop){
+                        api.data.tree.unshift(item);
+                    }else{
+                        api.data.tree.push(item);
+                    }
+                    
+                }
+            }
+
+            function removeFromTree(item){
+                var issubitem=false;
+                for(var i=0;i<api.data.tree.length;i++){
+                    var treeitem=api.data.tree[i];
+                    if(item.entry['in-reply-to'] && item.entry['in-reply-to'].ref==treeitem.id){
+                        if(treeitem.children){
+                            for(var j=0;j<treeitem.children.length;j++){
+                                if(treeitem.children[j].id==item.id){
+                                    treeitem.children.splice(j,1);        
+                                    var issubitem=true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    if(!issubitem){
+                        if(item.id==treeitem.id){
+                            api.data.tree.splice(i,1);
+                        }
+                    }
+                }
+ 
+            }
+
+
             /**
         @function open
         */
@@ -581,24 +659,26 @@ angular.module('BuddycloudModule', [])
                     api.send('xmpp.buddycloud.items.recent', request),
                  ]).then(function() {
                     nodeMethods();
-                    api.q.notify("recent");
                 });
             }
 
             function loadmore(){
-                console.log("loadmore in api");
-                console.log("currentnode",api.data.currentnode);
-                console.log("rsm",api.data.rsm);
+                console.log("loadmore");
                 if(api.data.rsm && api.data.rsmloading!=api.data.rsm.last && (!api.data.rsm.count || api.data.rsm.last)){
                     api.data.rsmloading=api.data.rsm.last; 
                     var rsm={
-                        "max":15,
+                        "max":10,
                         "after": api.data.rsm.last
                     }
                     if(api.data.currentnode=="recent"){
+                        console.log("recent rsm",rsm);
                         recent({rsm:rsm});
                     }else{
-                        api.send("xmpp.buddycloud.retrieve",{node:api.data.currentnode,rsm:rsm});
+                        api.send("xmpp.buddycloud.retrieve",{node:api.data.currentnode,rsm:rsm}).then(function(data){
+                            api.q.notify();
+                        },function(error){
+                            console.log(error);
+                        });
                     }
                 }
             }
@@ -622,22 +702,26 @@ angular.module('BuddycloudModule', [])
             }
 
 
+            /*
+            todo: put switch after callback
+            */
 
-            function send(command, data) {
-                if(!data)data={};
+
+            function send(command, request) {
+                if(!request)request={};
                 switch (command) {
                     case 'xmpp.buddycloud.subscribe':
                         var q = $q.defer();
                         xmpp.socket.send(
-                            'xmpp.buddycloud.subscribe', data,
+                            'xmpp.buddycloud.subscribe', request,
                             function(error, response) {
                                 if (error) {
                                     console.log(error);
                                     api.data.errors.unshift(error);
                                     q.reject(error);
                                 } else {
-                                    q.resolve(data);
-                                    api.q.notify(data);
+                                    q.resolve(request);
+                                    api.q.notify(request);
                                     //addToNodeList(response);
                                     /*
                                     api.data.rights = isSubscribed(data);
@@ -655,7 +739,7 @@ angular.module('BuddycloudModule', [])
                         var q = $q.defer();
                         xmpp.socket.send(
                             'xmpp.buddycloud.unsubscribe',
-                            data,
+                            request,
                             function(error, response) {
                                 if (error) {
                                     console.log(error);
@@ -665,14 +749,14 @@ angular.module('BuddycloudModule', [])
                                 } else {
 
                                     for (var i = 0; i < api.data.subscriptions.length; i++) {
-                                        console.log("subscription bug", api.data.subscriptions[i].node , data.node) ;
-                                        if (api.data.subscriptions[i].node == data.node) {
+                                        console.log("subscription bug", api.data.subscriptions[i].node , request.node) ;
+                                        if (api.data.subscriptions[i].node == request.node) {
                                             api.data.subscriptions.splice(i, 1);
-                                            delete api.data.myaffiliations[data.node];
+                                            delete api.data.myaffiliations[request.node];
                                             api.data.subscribed = false;
                                             nodeMethods();
                                             api.q.notify("unsubscribed");
-                                            q.resolve(data);
+                                            q.resolve(request);
                                             break;
                                         }
                                     }
@@ -704,7 +788,7 @@ angular.module('BuddycloudModule', [])
                     case 'xmpp.buddycloud.subscription':
                         var q = $q.defer();
                         xmpp.socket.send(
-                            'xmpp.buddycloud.subscription', data,
+                            'xmpp.buddycloud.subscription', request,
                             function(error, response) {
                                 if (error) {
                                     api.data.errors.unshift(error);
@@ -721,51 +805,44 @@ angular.module('BuddycloudModule', [])
 
                         break;
                     case 'xmpp.buddycloud.affiliations':
-                        getAffiliations(data).then(function(data) {
+                        getAffiliations(request).then(function(data) {
                             //api.data.subscribers=data;
                         });
                         break;
                     case 'xmpp.buddycloud.retrieve':
-                        var start = 0;
-                        var max = 10;
+
                         var q = $q.defer();
-                        var append = false;
-                        if (start === 0) {
-                            api.data.rsm = null;
+                        if(!request.rsm){
+                            request.rsm={rsm:{max:10}}
+                            request.rsm={max:10}
+                            api.data.items=[];
+                            api.data.tree=[];
                         }
-                        var rsm = {
-                            max: max
-                        };
-                        if (api.data.rsm) {
-                            rsm.after = api.data.rsm.last;
-                            append = true; //concat result
-                        }
+
 
                         //var node='/user/team@topics.buddycloud.org/posts';
                         xmpp.socket.send(
-                            'xmpp.buddycloud.retrieve', data,
+                            'xmpp.buddycloud.retrieve', request,
                             function(error, response, rsm) {
                                 if (error) {
                                     q.reject(error);
                                 } else {
-                                    //workaround for buggy id
                                     for (var i = 0; i < response.length; i++) {
+                                        //workaround for buggy id
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
+                                        addToTree(response[i]);
                                     }
 
 
-                                    if (api.data.items) {
-                                        api.data.items = api.data.items.concat(response);
-                                    } else {
-                                        api.data.items = response;
-                                    }
+                                    api.data.items = api.data.items.concat(response);
 
                                     //api.data.tree = maketree(api.data.items);
                                     //api.data.rights = isSubscribed(data.node);
-                                    api.data.unread[data.node] = 0;
+                                    api.data.totalunread-=parseInt(api.data.unread[request.node],10);
+                                    api.data.unread[request.node] = 0;
                                     api.data.rsm = rsm;
-                                    api.data.currentnode = data.node;
+                                    api.data.currentnode = request.node;
                                     nodeMethods();
                                     q.resolve(response);
                                 }
@@ -776,35 +853,34 @@ angular.module('BuddycloudModule', [])
 
                         break;
                     case 'xmpp.buddycloud.items.recent':
-                        var append = false;
+                        console.log("the recent request",request);
                         var q = $q.defer();
-                        /*
-                        var rsm = {
-                            max: 10
-                        };
-                        */
+                        if(!request.rsm || !request.rsm.after){
+                            request={rsm:{max:10}}
+                            api.data.items=[];
+                            api.data.tree=[];
+                        }
                         xmpp.socket.send(
                             'xmpp.buddycloud.items.recent',
-                            data,
+                            request,
                             function(error, response, rsm) {
+                                console.log('xmpp.buddycloud.items.recent',arguments);
                                 if (error) {
                                     api.data.errors.unshift(error);
                                     q.reject(error);
                                 } else {
-                                    console.log(response,rsm);
+                                    //https://github.com/buddycloud/buddycloud-server-java/issues/302
+                                    response=removeDuplicates(response);
                                     //workaround for buggy id
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
+                                        addToTree(response[i]);
                                     }
 
-                                    if (api.data.items) {
-                                        api.data.items = api.data.items.concat(response);
-                                    } else {
-                                        api.data.items = response;
-                                    }
+                                    api.data.items = api.data.items.concat(response);
                                     //api.data.tree = maketree(api.data.items); 
-                                    q.resolve(data);
+                                    q.resolve(request);
                                     api.data.rsm = rsm;
                                     api.data.currentnode = "recent"; //not beautiful programming
                                     nodeMethods();
@@ -813,13 +889,55 @@ angular.module('BuddycloudModule', [])
                             }
                         );
                         return q.promise;
+                        break;
+                     case 'xmpp.buddycloud.items.feed':
+                        var append = false;
+                        var q = $q.defer();
+                        /*
+                        var rsm = {
+                            max: 10
+                        };
+                        */
+                        if(!request.rsm){
+                            request={rsm:{max:10}}
+                        }
+                        xmpp.socket.send(
+                            'xmpp.buddycloud.items.feed',
+                            request,
+                            function(error, response, rsm) {
+                                if (error) {
+                                    api.data.errors.unshift(error);
+                                    q.reject(error);
+                                } else {
+                                    //workaround for buggy id
+                                    for (var i = 0; i < response.length; i++) {
+                                        response[i].id = response[i].id.split(",").pop();
+                                        itemMethods(response[i]);
+                                        addToTree(response[i]);
+                                    }
+
+                                    if (api.data.items) {
+                                        api.data.items = api.data.items.concat(response);
+                                    } else {
+                                        api.data.items = response;
+                                    }
+                                    //api.data.tree = maketree(api.data.items); 
+                                    q.resolve(request);
+                                    api.data.rsm = rsm;
+                                    api.data.currentnode = "recent"; //not beautiful programming
+                                    nodeMethods();
+                                    api.q.notify("feed");
+                                }
+                            }
+                        );
+                        return q.promise;
 
                         break;
                     case 'xmpp.buddycloud.item.delete':
-                        return removeitem(data);
+                        return removeitem(request);
                         var q = $q.defer();
                         xmpp.socket.send(
-                            'xmpp.buddycloud.item.delete', data,
+                            'xmpp.buddycloud.item.delete', request,
                             function(error, data) {
                                 if (error) {
                                     api.data.errors.unshift(error);
@@ -828,6 +946,7 @@ angular.module('BuddycloudModule', [])
                                 } else {
                                     for (var i = 0; i < api.data.items.length; i++) {
                                         if (api.data.items[i].entry.atom.id === id) {
+                                            removeFromTree(api.data.items[i]);
                                             api.data.items.splice(i, 1);
                                             api.q.notify("deleted");
                                             q.resolve("deleted");
@@ -844,14 +963,15 @@ angular.module('BuddycloudModule', [])
                         var q = $q.defer();
                         xmpp.socket.send(
                             'xmpp.buddycloud.config.get',
-                            data,
+                            request,
                             function(error, response) {
                                 if (error) {
                                     api.data.errors.unshift(error);
                                     q.reject(error);
                                 } else {
                                     api.data.config = response;
-                                    api.q.notify("config");
+                                    makeConfigObject(response);
+                                    api.q.notify('xmpp.buddycloud.config.get');
                                     q.resolve(response);
                                 }
                             }
@@ -860,12 +980,12 @@ angular.module('BuddycloudModule', [])
 
                         break;
                     case 'xmpp.buddycloud.presence':
-                        xmpp.socket.send( 'xmpp.buddycloud.presence', data);
+                        xmpp.socket.send( 'xmpp.buddycloud.presence', request);
                         break;
                     default:
                         var q = $q.defer();
                         xmpp.socket.send(
-                            command,data,
+                            command,request,
                             function(error, response) {
                                 if (error) {
                                     api.data.errors.unshift(error);
@@ -873,6 +993,12 @@ angular.module('BuddycloudModule', [])
                                     q.reject(error);
                                 } else {
                                     q.resolve(response);
+                                    switch(command){
+                                        case "xmpp.login":
+
+                                            break;
+
+                                    }
                                 }
                             }
                         );
@@ -888,11 +1014,13 @@ angular.module('BuddycloudModule', [])
 
 
             var api = {
-                version:"0.1.3",
+                version:"0.4.6",
                 q: xmpp.q,
                 data: {
                     unread: {},
-                    nodes: [],
+                    totalunread: 0,
+                    items: [],
+                    tree: [],
                     subscriptions: [],
                     affiliations: {},
                     myaffiliations: {},
@@ -902,8 +1030,8 @@ angular.module('BuddycloudModule', [])
                 open: function(data) {
                     return opennode(data);
                 },
-                recent:function(){
-                    return recent();
+                recent:function(rsm){
+                    return recent(rsm);
                 },
                 loadmore:function(){
                     return loadmore();
