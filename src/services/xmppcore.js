@@ -90,7 +90,15 @@ angular.module('XmppCoreFactory', [])
             });
 
             api.socket.on('xmpp.presence.subscribe', function(data) {
-                console.log('-----------------------------------------xmpp.presence.subscribe',data);
+                 if(api.data.roster){
+                    for (var i = 0; i < api.data.roster.length; i++) {
+                        if (api.data.roster[i].jid.user == data.from.user && api.data.roster[i].jid.domain == data.from.domain) {  
+                            api.data.roster[i].presence = presence;
+                            api.data.roster[i].ask = "subscribe";
+                        }
+                    }
+                }
+                console.log('-----------------------------------------xmpp.presence.subscribe',data,api.data.roster);
             });
             api.socket.on('xmpp.presence.subscribed', function(data) {
                 console.log('-----------------------------------------xmpp.presence.subscribed',data);
