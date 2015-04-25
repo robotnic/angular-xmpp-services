@@ -7,7 +7,7 @@ This is a library talks to a xmpp server and generates a model { dynamic json },
 
 The library send and receives xmpp stanzas.
 Based on this messages a model (json tree) is build.
-The lib also handels the rendering timing by sinding promise notify messages.
+The lib also handels the rendering timing by sending promise notify messages.
 https://docs.angularjs.org/api/ng/service/$q
 
 * No $rootScope messaging needed
@@ -74,7 +74,7 @@ $scope.xmpp.data.me
 
 #directives
 
-If you are looking for ready to use directive collection, this is the place to go: angular-xmpp
+If you are looking for ready to use directive collection, this is the place to go: [angular-xmpp](https://github.com/robotnic/angular-xmpp)
 
 Here we learn how to make an directive
 
