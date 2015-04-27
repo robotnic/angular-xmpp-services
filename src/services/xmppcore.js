@@ -115,20 +115,20 @@ angular.module('XmppCoreFactory', [])
                     if(!request){
                         q.reject("missing parameters for login");
                     }
-                    if(command=="xmpp.login.anonymous"){
-                        api.data.anonymous=true;
-                    }
-                    if(command=="xmpp.login"){
-                        api.data.anonymous=false;
-                    }
-                    /*
                     api.socket.on('xmpp.connection', function(data) {
+                        if(command=="xmpp.login.anonymous"){
+                            api.data.anonymous=true;
+                        }
+                        if(command=="xmpp.login"){
+                            api.data.anonymous=false;
+                        }
                         q.resolve(data);
                         api.q.notify(command);
                     });
-                    */
-                    api.socket.send(command, request);
-                    return q.promise;
+                    api.socket.send(command, request).then(function(){
+                        alert("geh leck");
+                    });
+                    //return q.promise;
                     break;
                 case 'xmpp.logout':
                     var q=$q.defer();
