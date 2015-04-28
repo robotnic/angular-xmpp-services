@@ -128,7 +128,7 @@ angular.module('XmppCoreFactory', [])
                     api.socket.send(command, request).then(function(){
                         alert("geh leck");
                     });
-                    //return q.promise;
+                    return q.promise;
                     break;
                 case 'xmpp.logout':
                     var q=$q.defer();
