@@ -239,6 +239,9 @@ angular.module('XmppCoreFactory', [])
                 api.socket.on('disconnection', function (spark) {
                         console.log("Primus disconnect",spark);
                 });
+                api.socket.on('reconnect', function (spark) {
+                        console.log("Primus reconnect",spark);
+                });
 
                 return q.promise;
             },
