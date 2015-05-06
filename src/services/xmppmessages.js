@@ -11,7 +11,6 @@ angular.module('XmppMessage', [])
                     message.receivetime=(new Date()).getTime();
                 }
                 message.from.jid=message.from.user+"@"+message.from.domain;
-                console.log("message",message);
                 if(message.state){
                     if(message.state=="composing"){
                         api.notifications.composing[message.from.jid]=true;
@@ -32,7 +31,6 @@ angular.module('XmppMessage', [])
                     }
                     api.notifications.unread[message.from.jid]++;
                     api.notifications.composing[message.from.jid]=false;
-                    console.log("boop");
                 }
                 q.notify(message);
             });
@@ -66,7 +64,6 @@ angular.module('XmppMessage', [])
             }
 
         };
-        console.log(xmpp);
         watch(xmpp.q);
         MESSAGES=api;  //debug only;
         return api;
