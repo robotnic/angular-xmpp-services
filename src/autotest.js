@@ -23,7 +23,7 @@ var excludefromtest=["receivetime","id","updated","published"];
 
 
 
-angular.module('Test', ['AngularXmpp','jsonFormatter','angularMoment'])
+angular.module('Test', ['AngularXmppServices','jsonFormatter','angularMoment'])
     .controller("test", function($scope, Xmpp, $timeout, $http, $q, BuddycloudFactory,MessageFactory,PubsubFactory) { 
 
         $scope.testplan={

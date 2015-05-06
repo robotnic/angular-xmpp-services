@@ -216,18 +216,18 @@ angular.module('XmppCoreFactory', [])
                 }
 
 
-//no idea if needed
- var options = {
-        transformer: 'socket.io',
-        parser: 'JSON',
-        transports: [
-            'websocket',
-            'htmlfile',
-            'xhr-polling',
-            'jsonp-polling'
-        ],
-        global: 'Buddycloud'
-    };
+                //no idea if needed poking to get stable connection
+                 var options = {
+                    transformer: 'socket.io',
+                    parser: 'JSON',
+                    transports: [
+                        'websocket',
+                        'htmlfile',
+                        'xhr-polling',
+                        'jsonp-polling'
+                    ],
+                    global: 'Buddycloud'
+                };
 
                 api.socket = new Primus(host,options);
                 api.socket.on("open", function() {
@@ -241,6 +241,8 @@ angular.module('XmppCoreFactory', [])
                 });
                 api.socket.on('reconnect', function (spark) {
                         console.log("Primus reconnect",spark);
+                        api.q.resolve("reconnect");
+
                 });
 
                 return q.promise;
