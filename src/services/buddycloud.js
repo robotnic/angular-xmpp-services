@@ -96,6 +96,18 @@ angular.module('BuddycloudModule', [])
 
                 //notification-of-a-subscription-change
                 xmpp.socket.on('xmpp.buddycloud.push.subscription', function(data) {
+                    pushSubscription(data);
+                });
+
+                //fallback for superfeeder side effect on xmpp-ftw
+                xmpp.socket.on('xmpp.pubsub.push.subscription', function(data) {
+                    pushSubscription(data);
+                });
+
+
+                function pushSubscription(data){
+console.log("-----------xmpp.buddycloud.push.subscription--------",data);
+                    delete data.from;  //superfeeder side effect
                     var forMe = false;
                     if (data.jid.user == api.xmpp.data.me.jid.user && data.jid.domain == api.xmpp.data.me.jid.domain) {
                         forMe = true;
@@ -128,7 +140,9 @@ angular.module('BuddycloudModule', [])
                             //addToNodeList(data);
                         }
                     }
+console.log(data.subscription);
                     if (data.subscription == 'subscribed') {
+console.log("------------------------------------------------subscribed");
                         if (data.node == api.data.currentnode) {
                             api.data.subscribed = true;
                         }
@@ -139,7 +153,7 @@ angular.module('BuddycloudModule', [])
                         console.log(error);
                     });
 
-                });
+                };
 
                 //Notification of affiliation changes
                 xmpp.socket.on("xmpp.buddycloud.push.affiliation", function(data) {
@@ -536,8 +550,11 @@ angular.module('BuddycloudModule', [])
                     }
                 }
                 
+console.log("api.data.subscribed",api.data.subscribed);
+console.log(api.data.myaffiliations[api.data.currentnode]);
                 if (api.data.subscribed && api.data.myaffiliations[api.data.currentnode]) {
                     var affiliation=api.data.myaffiliations[api.data.currentnode].affiliation;
+console.log("AFFILIATION",affiliation);
                     if(affiliation=="publisher" || affiliation=="owner"){
                         api.publish = function(content) {
                             api.send('xmpp.buddycloud.publish', {
@@ -643,7 +660,7 @@ angular.module('BuddycloudModule', [])
                     api.send('xmpp.buddycloud.config.get', request)
                 ]).then(function() {
                     if (request.node == api.data.currentnode) {
-                        //api.data.subscribed=true;
+                        api.data.subscribed=true;
                     }
                     nodeMethods();
                     api.q.notify("opennode");
