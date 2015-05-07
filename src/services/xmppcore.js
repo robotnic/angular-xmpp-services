@@ -125,6 +125,7 @@ angular.module('XmppCoreFactory', [])
                         q.resolve(data);
                         api.q.notify(command);
                     });
+                    api.data.credentials={command:command, request:request};  
                     api.socket.send(command, request);
                     return q.promise;
                     break;
