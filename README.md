@@ -19,7 +19,7 @@ https://docs.angularjs.org/api/ng/service/$q
 bower install angular-xmpp-services
 
 #scripts
-```
+```html
 <script type="text/javascript" src="assets/scripts/primus.js"></script>
 <script type="text/javascript" src="assets/angular-xmpp-services.js"></script>
 
@@ -91,7 +91,7 @@ $scope.xmpp.model.me
 
 ### roster with presence
 
-```
+```html
  <div ng-repeat="item in xmpp.model.roster">
     <div ng-if="item.presence" class="status online"></div>
     <div ng-if="!item.presence" class="status offline"></div>
@@ -110,8 +110,7 @@ The documentation is here: <a href="https://xmpp-ftw.jit.su/manual/core/#messagi
 $scope.xmpp.send( 'xmpp.chat.message', {
     "to": "other@evilprofessor.co.uk",
     "content": "Hello world",
-    }
-)
+})
 ```
 
 <a href="http://plnkr.co/edit/woHSouYiMziZzKrq5lrL?p=preview" target="_blank">plunker</a>
@@ -131,7 +130,7 @@ Here we learn how to make an directive
 There is an outer &lt;xmpp>&lt;/xmpp> that containes the other directives. It provides xmpp core https://xmpp-ftw.jit.su/manual/core/
 
 
-```
+```xml
 
 <xmpp xmpp-ftw-host="https://laos.buddycloud.com" domain="laos.buddycloud.com">
     <xmpplogin></xmpplogin>
