@@ -34,7 +34,7 @@ angular.module('BuddycloudModule', [])
                     pushItem(response);
                 });
 
-                function pushItem(data){
+                function pushItem(response){
                     var isnew=true;
 
                     if (!api.data.unread[response.node]) {
@@ -66,7 +66,7 @@ angular.module('BuddycloudModule', [])
                         console.log(error);
                     });
                     api.send("xmpp.buddycloud.subscriptions",{node:response.node}).then(function(){
-                        q.notify("subscriptions");
+                        q.notify("xmpp.buddycloud.subscriptions");
                     });
                 };
 
@@ -91,7 +91,7 @@ angular.module('BuddycloudModule', [])
                         if (id == response.id) {
                             removeFromTree(api.data.items[i]);
                             api.data.items.splice(i, 1);
-                            q.notify("retract");
+                            q.notify("xmpp.buddycloud.push.retract");
                             break;
                         }
                     }
@@ -232,7 +232,7 @@ console.log("------------------------------------------------subscribed");
                                 }
                             }
                         }, function(data) {
-                            api.q.notify(data);
+                            api.q.notify("xmpp.buddycloud.publish");
                         });
                     };
                 }
@@ -349,8 +349,8 @@ console.log("------------------------------------------------subscribed");
            
             function removeitem(item) {
                 var q = $q.defer();
-                var id=item.entry.atom.id;
-//                var id=item.id;
+                var id=item.entry.atom.id;  //this works
+//                var id=item.id;  //this should work
                 var request={node:item.node,id:id};
                 xmpp.socket.send(
                     'xmpp.buddycloud.item.delete', request,
@@ -361,6 +361,7 @@ console.log("------------------------------------------------subscribed");
                             api.q.notify("error");
                             q.reject("deleted");
                         } else {
+                            /*
                             for (var i = 0; i < api.data.items.length; i++) {
                                 if (api.data.items[i].entry.atom.id === id) {
                                     removeFromTree(api.data.items[i]);
@@ -369,6 +370,7 @@ console.log("------------------------------------------------subscribed");
                                     q.resolve("deleted");
                                 }
                             }
+                            */
                         }
                     }
                 );
@@ -754,7 +756,7 @@ console.log("AFFILIATION",affiliation);
                                     q.reject(error);
                                 } else {
                                     q.resolve(request);
-                                    api.q.notify(request);
+                                    api.q.notify(command);
                                     //addToNodeList(response);
                                     /*
                                     api.data.rights = isSubscribed(data);
@@ -788,7 +790,7 @@ console.log("AFFILIATION",affiliation);
                                             delete api.data.myaffiliations[request.node];
                                             api.data.subscribed = false;
                                             nodeMethods();
-                                            api.q.notify("unsubscribed");
+                                            api.q.notify("xmpp.buddycloud.unsubscribe");
                                             q.resolve(request);
                                             break;
                                         }
