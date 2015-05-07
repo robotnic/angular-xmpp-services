@@ -55,7 +55,7 @@ Command list: <a href="https://xmpp-ftw.jit.su/manual/core/" target="_blank">xmp
 ```
 
 ###me
-$scope.xmpp.data.me
+$scope.xmpp.model.me
 ```
 {
   "status": "online",
@@ -74,9 +74,9 @@ $scope.xmpp.data.me
 
 ### template
 ```
-<div>user: {{xmpp.data.me.jid.user}}</div>
-<div>domain: {{xmpp.data.me.jid.domain}}</div>
-<div>{{xmpp.data.me.status}}"</div>
+<div>user: {{xmpp.model.me.jid.user}}</div>
+<div>domain: {{xmpp.model.me.jid.domain}}</div>
+<div>{{xmpp.model.me.status}}"</div>
 ```
 
 <a href="http://plnkr.co/edit/tT45xZnb0lrBEo4AwsFJ?p=preview" target="_blank">plunker</a>
@@ -85,7 +85,7 @@ $scope.xmpp.data.me
 ### roster with presence
 
 ```
- <div ng-repeat="item in xmpp.data.roster">
+ <div ng-repeat="item in xmpp.model.roster">
     <div ng-if="item.presence" class="status online"></div>
     <div ng-if="!item.presence" class="status offline"></div>
     {{item.jid.user}}@{{item.jid.domain}}
@@ -179,7 +179,7 @@ roster/template.tpl.html
 
 ```
 
-    <div ng-repeat="item in page.xmpp.data.roster" class="rosteritem">
+    <div ng-repeat="item in page.xmpp.model.roster" class="rosteritem">
         <div ng-show="item.presence || item.subscription"  class="indicator {{item.presence.show}}" ng-class="{'ask':item.subscription=='from','noauth':item.subscription=='to','none':item.subscription=='none'}"></div>
         <div ng-show="!item.presence && !item.subscription"  class="indicator offline"></div>
         {{item.jid.user}}
