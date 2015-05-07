@@ -979,6 +979,7 @@ console.log("AFFILIATION",affiliation);
                                     api.q.notify("delete error");
                                     q.reject("deleted");
                                 } else {
+                                    /*
                                     for (var i = 0; i < api.data.items.length; i++) {
                                         if (api.data.items[i].entry.atom.id === id) {
                                             removeFromTree(api.data.items[i]);
@@ -987,6 +988,7 @@ console.log("AFFILIATION",affiliation);
                                             q.resolve("deleted");
                                         }
                                     }
+                                    */
                                 }
                             }
                         );
