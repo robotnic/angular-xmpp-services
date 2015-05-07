@@ -64,6 +64,9 @@ $scope.xmpp.data.me
   }
 }
 
+
+[plunker](http://plnkr.co/edit/rolSSZnV7YzVg39aprAG?p=preview)
+
 ```
 ### template
 ```
@@ -72,6 +75,7 @@ $scope.xmpp.data.me
 <div>{{xmpp.data.me.status}}"</div>
 ```
 
+[plunker](http://plnkr.co/edit/YU4cbe3UpG3KrR2Xot4X?p=preview)
 #directives
 
 If you are looking for ready to use directive collection, this is the place to go: [angular-xmpp](https://github.com/robotnic/angular-xmpp)
