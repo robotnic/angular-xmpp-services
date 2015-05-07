@@ -27,6 +27,9 @@ bower install angular-xmpp-services
 
 #getting started
 
+Command list: <a href="https://xmpp-ftw.jit.su/manual/core/">xmpp-ftw-core</a>
+
+
 ```
 
     var host="http://loas.buddycloud.com/";
