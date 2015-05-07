@@ -31,6 +31,10 @@ angular.module('BuddycloudModule', [])
 
                 //Notification of new messages 
                 xmpp.socket.on('xmpp.buddycloud.push.item', function(response) {
+                    pushItem(response);
+                });
+
+                function pushItem(data){
                     var isnew=true;
 
                     if (!api.data.unread[response.node]) {
@@ -64,7 +68,7 @@ angular.module('BuddycloudModule', [])
                     api.send("xmpp.buddycloud.subscriptions",{node:response.node}).then(function(){
                         q.notify("subscriptions");
                     });
-                });
+                };
 
                 //Item deletion notification
                 xmpp.socket.on('xmpp.buddycloud.push.delete', function(response) {
@@ -104,6 +108,9 @@ angular.module('BuddycloudModule', [])
                     pushSubscription(data);
                 });
 
+                xmpp.socket.on('fanout.fpp.push', function(data) {
+                    pushSubscription(data);
+                });
 
                 function pushSubscription(data){
 console.log("-----------xmpp.buddycloud.push.subscription--------",data);
@@ -185,6 +192,15 @@ console.log("------------------------------------------------subscribed");
 
 
             }
+
+
+
+
+
+
+
+
+
 
 
             /**
