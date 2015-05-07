@@ -27,7 +27,7 @@ bower install angular-xmpp-services
 
 #getting started
 
-Command list: <a href="https://xmpp-ftw.jit.su/manual/core/">xmpp-ftw-core</a>
+Command list: <a href="https://xmpp-ftw.jit.su/manual/core/" target="_blank">xmpp-ftw-core</a>
 
 
 ```

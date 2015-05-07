@@ -26,38 +26,38 @@ angular.module('XmppCoreFactory', [])
             //roster change
             api.socket.on('xmpp.connection', function(data) {
                 console.log("loged in",data);
-                api.data.me=data;
-                api.data.connected=true;
-                q.notify("login");
+                api.model.me=data;
+                api.model.connected=true;
+                q.notify("xmpp.connection");
             },function(error){
                 api.connected=false;
-                api.data.errors.unshift(error);
+                api.model.errors.unshift(error);
                 q.notify("login error");
             });
             api.socket.on('xmpp.logout', function(data) {
                 api.connected=false;
-                resetData();
-                q.notify("logout");
+                resetModel();
+                q.notify("xmpp.logout");
             });
 
             api.socket.on('xmpp.roster.push', function(data) {
                 var exists=false;
-                for (var i = 0; i < api.data.roster.length; i++) {
-                    if (api.data.roster[i].jid.user == data.jid.user) {   //domain missing you fixit!!
+                for (var i = 0; i < api.model.roster.length; i++) {
+                    if (api.model.roster[i].jid.user == data.jid.user) {   //domain missing you fixit!!
                             exists=true;
                             console.log("subcription",data.subscription); 
                             if(data.subscription=="remove"){
-                                api.data.roster.splice(i,1);
+                                api.model.roster.splice(i,1);
                             }else{
-                                api.data.roster[i]=data;
+                                api.model.roster[i]=data;
                             }
                             break;
                     }
                 }
                 if(!exists && data.subscription!=="remove"){
-                    api.data.roster.push(data);
+                    api.model.roster.push(data);
                 }
-                q.notify("roster");
+                q.notify("xmpp.roster.push");
             });
 
 
@@ -69,35 +69,35 @@ angular.module('XmppCoreFactory', [])
                     status:data.status,
                     priority:data.priority,
                 }
-                if(api.data.roster){
-                    for (var i = 0; i < api.data.roster.length; i++) {
-                        if (api.data.roster[i].jid.user == data.from.user && api.data.roster[i].jid.domain == data.from.domain) {  
-                            api.data.roster[i].presence = presence;
+                if(api.model.roster){
+                    for (var i = 0; i < api.model.roster.length; i++) {
+                        if (api.model.roster[i].jid.user == data.from.user && api.model.roster[i].jid.domain == data.from.domain) {  
+                            api.model.roster[i].presence = presence;
                             if(data.show=="offline"){
-                                delete api.data.roster[i].presence;
+                                delete api.model.roster[i].presence;
                             }
                         }
                     }
                 }
-                if (api.data.me.jid.user == data.from.user && api.data.me.jid.domain == data.from.domain) {  
-                    api.data.me.presence = presence;
+                if (api.model.me.jid.user == data.from.user && api.model.me.jid.domain == data.from.domain) {  
+                    api.model.me.presence = presence;
                 }
-                q.notify("presence");
+                q.notify("xmpp.presence");
             });
             api.socket.on('xmpp.error', function(error) {
-                api.data.errors.unshift(error);
+                api.model.errors.unshift(error);
                 q.notify("xmpp.error");
             });
 
             api.socket.on('xmpp.presence.subscribe', function(data) {
-                 if(api.data.roster){
-                    for (var i = 0; i < api.data.roster.length; i++) {
-                        if (api.data.roster[i].jid.user == data.from.user && api.data.roster[i].jid.domain == data.from.domain) {  
-                            api.data.roster[i].ask = "subscribe";
+                 if(api.model.roster){
+                    for (var i = 0; i < api.model.roster.length; i++) {
+                        if (api.model.roster[i].jid.user == data.from.user && api.model.roster[i].jid.domain == data.from.domain) {  
+                            api.model.roster[i].ask = "subscribe";
                         }
                     }
                 }
-                console.log('-----------------------------------------xmpp.presence.subscribe',data,api.data.roster);
+                console.log('-----------------------------------------xmpp.presence.subscribe',data,api.model.roster);
             });
             api.socket.on('xmpp.presence.subscribed', function(data) {
                 console.log('-----------------------------------------xmpp.presence.subscribed',data);
@@ -117,15 +117,15 @@ angular.module('XmppCoreFactory', [])
                     }
                     api.socket.on('xmpp.connection', function(data) {
                         if(command=="xmpp.login.anonymous"){
-                            api.data.anonymous=true;
+                            api.model.anonymous=true;
                         }
                         if(command=="xmpp.login"){
-                            api.data.anonymous=false;
+                            api.model.anonymous=false;
                         }
                         q.resolve(data);
                         api.q.notify(command);
                     });
-                    api.data.credentials={command:command, request:request};  
+                    api.model.credentials={command:command, request:request};  
                     api.socket.send(command, request);
                     return q.promise;
                     break;
@@ -138,8 +138,8 @@ angular.module('XmppCoreFactory', [])
                             if(error){
                                 console.log(error);
                             }else{
-                                api.data.me=null;
-                                api.data.connected=false;
+                                api.model.me=null;
+                                api.model.connected=false;
                                 api.q.notify("logout");
                                 q.resolve("logout");
                             }
@@ -159,9 +159,9 @@ angular.module('XmppCoreFactory', [])
                             switch(command){
                             case "xmpp.roster.get":
                                 //replace content of roster array (but don't replace array);
-                                api.data.roster.length=0;  //clear
+                                api.model.roster.length=0;  //clear
                                 for(var i=0;i<data.length;i++){
-                                   api.data.roster.push(data[i]);
+                                   api.model.roster.push(data[i]);
                                 }
                                 if(api.q){
                                     api.q.notify("roster");
@@ -169,10 +169,10 @@ angular.module('XmppCoreFactory', [])
                                 q.resolve(command);
                                 break;
                             case "xmpp.roster.remove":
-                                for(var i=0;i<api.data.roster.length;i++){
-                                    var item=api.data.roster[i];
+                                for(var i=0;i<api.model.roster.length;i++){
+                                    var item=api.model.roster[i];
                                     if(item.subscription=="remove"){
-                                            api.data.roster.splice(i,1);
+                                            api.model.roster.splice(i,1);
                                             break;
                                     }
                                 }
@@ -192,14 +192,15 @@ angular.module('XmppCoreFactory', [])
             }
         }
 
-        function resetData(){
-            api.data={
+        function resetModel(){
+            api.model={
                 connected:null,
                 roster:[],
                 me:null,
                 items:[],
                 errors:[]
             }
+            api.data=api.model; //outdated
         } 
 
         var api={
@@ -304,7 +305,7 @@ angular.module('XmppCoreFactory', [])
 
         };
         API=api;
-        resetData();
+        resetModel();
         console.log("---------",host);
         api.connect(host);
 
