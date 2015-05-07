@@ -77,6 +77,20 @@ $scope.xmpp.data.me
 ```
 
 <a href="http://plnkr.co/edit/tT45xZnb0lrBEo4AwsFJ?p=preview" target="_blank">plunker</a>
+
+
+### roster with presence
+
+```
+ <div ng-repeat="item in xmpp.data.roster">
+    <div ng-if="item.presence" class="status online"></div>
+    <div ng-if="!item.presence" class="status offline"></div>
+    {{item.jid.user}}@{{item.jid.domain}}
+<p class="statustext">{{item.presence.status}}</p>
+  </div>
+```
+
+<a href="http://plnkr.co/edit/YU4cbe3UpG3KrR2Xot4X?p=preview">plunker</a>
 #directives
 
 If you are looking for ready to use directive collection, this is the place to go: [angular-xmpp](https://github.com/robotnic/angular-xmpp)
