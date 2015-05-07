@@ -64,10 +64,11 @@ $scope.xmpp.data.me
   }
 }
 
+```
 
 [plunker](http://plnkr.co/edit/rolSSZnV7YzVg39aprAG?p=preview)
 
-```
+
 ### template
 ```
 <div>user: {{xmpp.data.me.jid.user}}</div>
