@@ -32,11 +32,12 @@ Command list: <a href="https://xmpp-ftw.jit.su/manual/core/" target="_blank">xmp
 
 ```javascript
     //to use this lib we need a server with xmpp-ftw
-    var host="http://loas.buddycloud.com/";
+    var host="http://laos.buddycloud.com/";
     $scope.xmpp=new Xmpp(host);
 
     //Here is the angular magic. 
-    //If the model has changed and needs rerender, the factory will trigger the digest process by send a notification
+    //If the model has changed and needs rerender, 
+    //the factory will trigger the digest process by send a notification
     $scope.xmpp.watch().then(function(data){
         console.log("end - should never be reached");
     },function(error){
@@ -102,6 +103,16 @@ $scope.xmpp.model.me
 <a href="http://plnkr.co/edit/YU4cbe3UpG3KrR2Xot4X?p=preview" target="_blank">plunker</a>
 
 ### send messages
+Now lets try to send a message.
+The documentation is here: <a href="https://xmpp-ftw.jit.su/manual/core/#messaging" target="_blanc">xmpp_ftw send message</a>
+
+```javascript
+$scope.xmpp.send( 'xmpp.chat.message', {
+    "to": "other@evilprofessor.co.uk",
+    "content": "Hello world",
+    }
+)
+```
 
 <a href="http://plnkr.co/edit/woHSouYiMziZzKrq5lrL?p=preview" target="_blank">plunker</a>
 
