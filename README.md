@@ -30,7 +30,7 @@ bower install angular-xmpp-services
 Command list: <a href="https://xmpp-ftw.jit.su/manual/core/" target="_blank">xmpp-ftw-core</a>
 
 
-```
+```javascript
     //to use this lib we need a server with xmpp-ftw
     var host="http://loas.buddycloud.com/";
     $scope.xmpp=new Xmpp(host);
