@@ -1,13 +1,14 @@
 # angular-xmpp-services
 
-This is a library talks to a xmpp server and generates a model { dynamic json }, ready to use for directives. 
+This is a library talks to a xmpp server and generates a model { dynamic json }, ready to use for controllers and directives. 
+Serverside <a href="https://github.com/xmpp-ftw/xmpp-ftw">xmpp_ftw</a> is needed.
 
 
 ![structure](https://raw.githubusercontent.com/robotnic/angular-xmpp-services/master/src/assets/docimg/structure.png)
 
-The library send and receives xmpp stanzas.
+The library sends and receives xmpp stanzas.
 Based on this messages a model (json tree) is build.
-The lib also handels the rendering timing by sending promise notify messages.
+The lib also handels the render timing by sending promise notify messages.
 https://docs.angularjs.org/api/ng/service/$q
 
 * No $rootScope messaging needed
@@ -20,8 +21,8 @@ bower install angular-xmpp-services
 
 #scripts
 ```html
-<script type="text/javascript" src="assets/scripts/primus.js"></script>
-<script type="text/javascript" src="assets/angular-xmpp-services.js"></script>
+<script type="text/javascript" src="bower_components/angular-xmpp-services/bin/assets/scripts/primus.js"></script>
+<script type="text/javascript" src="bower_components/angular-xmpp-services/bin/assets/angular-xmpp-services.js"></script>
 
 ```
 
@@ -80,7 +81,7 @@ $scope.xmpp.model.me
 
 
 ### template
-```
+```html
 <div>user: {{xmpp.model.me.jid.user}}</div>
 <div>domain: {{xmpp.model.me.jid.domain}}</div>
 <div>{{xmpp.model.me.status}}"</div>
@@ -117,7 +118,7 @@ $scope.xmpp.send( 'xmpp.chat.message', {
 
 
 
-#directives
+#Directives
 
 If you are looking for ready to use directive collection, this is the place to go: [angular-xmpp](https://github.com/robotnic/angular-xmpp)
 
