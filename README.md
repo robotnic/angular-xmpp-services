@@ -63,7 +63,7 @@ The xmpp traffic is monitored and a model (json tree) is generated.
 The model is updated automaticaly and the changes will be rendered by angular.
 ###me
 $scope.xmpp.model.me
-```
+```json
 {
   "status": "online",
   "jid": {
@@ -143,7 +143,7 @@ There is an outer &lt;xmpp>&lt;/xmpp> that containes the other directives. It pr
 
 ## build directives
 
-```
+```javascript
 .directive('roster', function() {
     return {
         'require': '^xmpp',
@@ -164,7 +164,7 @@ There is an outer &lt;xmpp>&lt;/xmpp> that containes the other directives. It pr
 ```
 
 ##model  { dynamic json }
-```
+```json
 [
   {
     "jid": {
@@ -193,7 +193,7 @@ There is an outer &lt;xmpp>&lt;/xmpp> that containes the other directives. It pr
 ##template
 roster/template.tpl.html
 
-```
+```html
 
     <div ng-repeat="item in page.xmpp.model.roster" class="rosteritem">
         <div ng-show="item.presence || item.subscription"  class="indicator {{item.presence.show}}" ng-class="{'ask':item.subscription=='from','noauth':item.subscription=='to','none':item.subscription=='none'}"></div>
