@@ -66,7 +66,7 @@ $scope.xmpp.data.me
 
 ```
 
-[plunker](http://plnkr.co/edit/rolSSZnV7YzVg39aprAG?p=preview)
+<a href="http://plnkr.co/edit/rolSSZnV7YzVg39aprAG?p=preview" target="_blank">plunker</a>
 
 
 ### template
