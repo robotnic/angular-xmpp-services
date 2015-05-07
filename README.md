@@ -31,10 +31,12 @@ Command list: <a href="https://xmpp-ftw.jit.su/manual/core/" target="_blank">xmp
 
 
 ```
-
+    //to use this lib we need a server with xmpp-ftw
     var host="http://loas.buddycloud.com/";
     $scope.xmpp=new Xmpp(host);
 
+    //Here is the angular magic. 
+    //If the model has changed and needs rerender, the factory will trigger the digest process by send a notification
     $scope.xmpp.watch().then(function(data){
         console.log("end - should never be reached");
     },function(error){
@@ -44,6 +46,7 @@ Command list: <a href="https://xmpp-ftw.jit.su/manual/core/" target="_blank">xmp
         //$scope.$apply() not needed,empty function fires render process
     });
 
+    //login (please don't change the password)
     $scope.xmpp.send('xmpp.login',{
              "jid": "test1@laos.buddycloud.com",
              "password": "bbb"
@@ -53,7 +56,10 @@ Command list: <a href="https://xmpp-ftw.jit.su/manual/core/" target="_blank">xmp
     });
 
 ```
-
+##The Model
+angular-xmpp-services sends your commands directly to xmpp-ftw.
+The xmpp traffic is monitored and a model (json tree) is generated. 
+The model is updated automaticaly and the changes will be rendered by angular.
 ###me
 $scope.xmpp.model.me
 ```
