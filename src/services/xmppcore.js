@@ -110,10 +110,10 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                           "subscription": "none",
                           "ask": "subscribed"
                         }
-                        roster.push(item);
+                        api.model.roster.push(item);
                     }
                 }
-                console.log('-----------------------------------------xmpp.presence.subscribe',data,api.model.roster);
+                console.log('----2-------------------------------------xmpp.presence.subscribe',data,api.model.roster);
             });
             api.socket.on('xmpp.presence.subscribed', function(data) {
                 console.log('-----------------------------------------xmpp.presence.subscribed',data);
