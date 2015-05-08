@@ -79,7 +79,7 @@ angular.module('XmppMessages', [])
                 for(var m in api.byjid){
                    sum+=api.byjid[m].unread;
                 }
-                api.model.unread=sum;
+                api.unread=sum;
             }
 
         };
