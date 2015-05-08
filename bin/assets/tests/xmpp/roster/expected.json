@@ -12,7 +12,18 @@
           "user": "test1"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -26,7 +37,18 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -40,7 +62,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -59,7 +92,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -73,7 +117,18 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -87,7 +142,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -106,7 +172,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -120,7 +197,18 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -134,13 +222,33 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
     {
       "connected": true,
-      "roster": [],
+      "roster": [
+        {
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test2"
+          },
+          "subscription": "none",
+          "ask": "subscribed"
+        }
+      ],
       "me": {
         "status": "online",
         "jid": {
@@ -153,7 +261,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -177,7 +296,18 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -191,7 +321,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -219,7 +360,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -242,7 +394,18 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -256,7 +419,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -285,7 +459,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -296,7 +481,8 @@
             "user": "test1"
           },
           "subscription": "to",
-          "name": "test1"
+          "name": "test1",
+          "ask": "subscribed"
         }
       ],
       "me": {
@@ -308,7 +494,18 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -322,7 +519,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -350,7 +558,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -373,7 +592,18 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -387,7 +617,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -424,7 +665,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -447,11 +699,31 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
-      "roster": [],
+      "roster": [
+        {
+          "jid": {
+            "domain": "laos.buddycloud.com",
+            "user": "test1"
+          },
+          "subscription": "none",
+          "ask": "subscribed"
+        }
+      ],
       "me": {
         "status": "online",
         "jid": {
@@ -461,7 +733,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -497,7 +780,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -520,7 +814,18 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -543,7 +848,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -564,7 +880,8 @@
             "user": "test3"
           },
           "subscription": "to",
-          "name": "test3"
+          "name": "test3",
+          "ask": "subscribed"
         }
       ],
       "me": {
@@ -579,7 +896,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -602,7 +930,18 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -626,7 +965,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -662,7 +1012,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -685,7 +1046,18 @@
           "user": "test2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -708,7 +1080,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -747,7 +1130,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -776,7 +1170,18 @@
           "status": "Cool that"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -799,7 +1204,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -838,7 +1254,18 @@
           "status": "bored to death"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -867,7 +1294,18 @@
           "status": "Cool that2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -890,7 +1328,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -929,7 +1378,18 @@
           "status": "I also haz new status"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -958,7 +1418,18 @@
           "status": "Cool that2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -981,7 +1452,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -1017,7 +1499,18 @@
           "status": "I also haz new status"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -1034,7 +1527,18 @@
           "status": "Cool that2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -1057,7 +1561,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -1085,7 +1600,18 @@
           "status": "I also haz new status"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -1102,7 +1628,18 @@
           "status": "Cool that2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -1125,7 +1662,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -1144,7 +1692,18 @@
           "status": "I also haz new status"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -1161,7 +1720,18 @@
           "status": "Cool that2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -1184,7 +1754,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -1203,7 +1784,18 @@
           "status": "I also haz new status"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -1220,7 +1812,18 @@
           "status": "Cool that2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -1243,7 +1846,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ],
   [
@@ -1262,7 +1876,18 @@
           "status": "I also haz new status"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test1@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -1279,7 +1904,18 @@
           "status": "Cool that2"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test2@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     },
     {
       "connected": true,
@@ -1293,7 +1929,18 @@
           "user": "test3"
         }
       },
-      "items": []
+      "items": [],
+      "errors": [],
+      "credentials": {
+        "command": "xmpp.login",
+        "request": {
+          "jid": "test3@laos.buddycloud.com",
+          "password": "bbb",
+          "resource": "test",
+          "register": false
+        }
+      },
+      "anonymous": false
     }
   ]
 ]

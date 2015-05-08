@@ -38,7 +38,7 @@ Command list: <a href="https://xmpp-ftw.jit.su/manual/core/" target="_blank">xmp
 
     //Here is the angular magic. 
     //If the model has changed and needs rerender, 
-    //the factory will trigger the digest cycle by send a notification
+    //the factory will trigger the digest cycle by sending a notification
     $scope.xmpp.watch().then(function(data){
         console.log("disconnect - you have to login again");
     },function(error){
@@ -109,7 +109,7 @@ You can change the {{xmpp.model.me}} to an other value to explore the model.
 There are 3 additional function to xmpp-ftw.
 ```javascript;
 xmpp.addContact('somebody@somewhere.org');
-xmpp.confiremContact('somebody@somewhere.org');
+xmpp.confirmContact('somebody@somewhere.org');
 xmpp.removeContact('somebody@somewhere.org');
 ```
 <a href="http://plnkr.co/edit/RMRYTBlk1eUsIHiJ8tSs?p=preview" target="_blank">plunker</a>
@@ -157,6 +157,7 @@ The inner directives share the same instance of the XmppCore Factory.
 ##<xmpp></xmpp>
 
 <a href="http://plnkr.co/edit/LvoypNETtIYB9RtUdp0H?p=preview" target="_blank">plunker</a>  (outer directive)
+<br/>
 <a href="http://plnkr.co/edit/klNGeJZfnPZsxCgW1wO7?p=preview" target="_blank">plunker</a>  (login)
 
 
