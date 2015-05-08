@@ -17,14 +17,14 @@ var testaccount1 = "test1@laos.buddycloud.com";
 var testaccount2 = "test2@laos.buddycloud.com";
 var testaccount3 = "test3@laos.buddycloud.com";
 
-var excludefromtest=["receivetime","id","updated","published"];
+var excludefromtest=["receivetime","sendtime","id","updated","published"];
 
 
 
 
 
 angular.module('Test', ['AngularXmppServices','jsonFormatter','angularMoment'])
-    .controller("test", function($scope, Xmpp, $timeout, $http, $q, BuddycloudFactory,MessageFactory,PubsubFactory) { 
+    .controller("test", function($scope, Xmpp, $timeout, $http, $q, BuddycloudFactory,MessagesFactory,PubsubFactory) { 
 
         $scope.testplan={
             xmpp:[
@@ -46,7 +46,7 @@ angular.module('Test', ['AngularXmppServices','jsonFormatter','angularMoment'])
             {
                 name:"message",
                 type:"message",
-                check:["items","notifications","errors"],
+                check:["byjid","unread","topmessages","errors"],
             }
             ],
             pubsub:[{
@@ -307,7 +307,7 @@ xmppcore
 
             if(test.type=="message"){
                 for (var i = 0; i < 3; i++) {
-                    messages[i] = new MessageFactory(xmpps[i]);
+                    messages[i] = new MessagesFactory(xmpps[i]);
                 }
             }
         }

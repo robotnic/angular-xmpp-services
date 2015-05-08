@@ -5,11 +5,11 @@ XmppCore
 */
 
 
-angular.module('XmppCoreFactory', ['XmppMessage'])
+angular.module('XmppCoreFactory', ['XmppMessages'])
 
 
 
-.factory("Xmpp",function($q,MessageFactory){
+.factory("Xmpp",function($q,MessagesFactory){
     return function(host,callback){
         console.log("New XMPP init");
 
@@ -24,7 +24,7 @@ angular.module('XmppCoreFactory', ['XmppMessage'])
             api.q=q;
 
             //messages are in a seperat Factory
-            api.model.messages=new MessageFactory(api);
+            api.messages=new MessagesFactory(api);
 
             //roster change
             api.socket.on('xmpp.connection', function(data) {
@@ -149,6 +149,9 @@ angular.module('XmppCoreFactory', ['XmppMessage'])
                         }
                     );
                     return q.promise;
+                    break;
+                case 'xmpp.chat.message':
+                    api.messages.send(command,request);
                     break;
                 case 'xmpp.roster.get':
                 case 'xmpp.roster.add':

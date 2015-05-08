@@ -1,3 +1,7 @@
+/*
+This Modul is outdated and will be deleted in near future
+*/
+
 angular.module('XmppMessage', [])
 
 
@@ -50,8 +54,8 @@ angular.module('XmppMessage', [])
             },
             send:function(message) {
                 xmpp.socket.send('xmpp.chat.message', message);
-                api.items.push(message);
                 message.sendtime=(new Date()).getTime();
+                api.items.push(message);
             },
             markread:function(jid){
                 api.notifications.unread[jid]=0;
@@ -65,7 +69,6 @@ angular.module('XmppMessage', [])
 
         };
         watch(xmpp.q);
-        MESSAGES=api;  //debug only;
         return api;
     };
 }])
