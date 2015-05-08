@@ -25,7 +25,7 @@ angular.module('XmppCoreFactory', ['XmppMessage'])
             api.q=q;
 
             //messages are in a seperat Factory
-            api.messages=new MessageFactory(api);
+            api.model.messages=new MessageFactory(api);
 
             //roster change
             api.socket.on('xmpp.connection', function(data) {
