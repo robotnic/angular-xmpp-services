@@ -306,6 +306,9 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                 send('xmpp.presence.subscribed',{to:jid})
             },
             removeContact:function(jid){
+                if(typeof(jid)=='object'){
+                    jid=jid.user+"@"+jid.domain;
+                }
                 api.send('xmpp.roster.remove',{jid:jid});
             },
             watch:function(){

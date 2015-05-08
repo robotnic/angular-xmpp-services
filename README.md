@@ -104,6 +104,18 @@ You can change the {{xmpp.model.me}} to an other value to explore the model.
 
 <a href="http://plnkr.co/edit/YU4cbe3UpG3KrR2Xot4X?p=preview" target="_blank">plunker</a>
 
+### Contact management
+
+There are 3 additional function to xmpp-ftw.
+```javascript;
+xmpp.addContact('somebody@somewhere.org');
+xmpp.confiremContact('somebody@somewhere.org');
+xmpp.removeContact('somebody@somewhere.org');
+```
+<a href="http://plnkr.co/edit/RMRYTBlk1eUsIHiJ8tSs?p=preview" target="_blank">plunker</a>
+
+
+
 ### send messages
 Now lets try to send a message.
 The documentation is here: <a href="https://xmpp-ftw.jit.su/manual/core/#messaging" target="_blanc">xmpp_ftw send message</a>
