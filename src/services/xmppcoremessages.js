@@ -73,6 +73,7 @@ angular.module('XmppMessages', [])
                 console.log(api.byjid);
             },
             markread:function(jid){
+                initjid(jid);
                 api.byjid[jid].unread=0;
                 api.topmessages[jid]=[];
                 var sum=0;
