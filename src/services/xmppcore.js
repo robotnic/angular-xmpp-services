@@ -312,12 +312,12 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                 return({user:user,domain:domain,resource:resource});
 
             },
-            makeJid(jid){
+            makeJid:function(jid){
                 if(typeof(jid)=='object'){
                     jid=jid.user+"@"+jid.domain;
                 }
                 return jid;
-            };
+            },
             addContact:function(jid){
                 jid=api.makeJid(jid);
                 send('xmpp.presence.subscribe',{to:jid})
