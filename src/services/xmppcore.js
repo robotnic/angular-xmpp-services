@@ -97,7 +97,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                  if(api.model.roster){
                     for (var i = 0; i < api.model.roster.length; i++) {
                         if (api.model.roster[i].jid.user == data.from.user && api.model.roster[i].jid.domain == data.from.domain) {  
-                            api.model.roster[i].ask = "subscribe";
+                            api.model.roster[i].ask = "subscribed";
                             found=true;
                         }
                     }
@@ -325,6 +325,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
             confirmContact:function(jid){
                 jid=api.makeJid(jid);
                 send('xmpp.presence.subscribed',{to:jid})
+                send('xmpp.presence.subscribe',{to:jid})
             },
             removeContact:function(jid){
                 jid=api.makeJid(jid);
