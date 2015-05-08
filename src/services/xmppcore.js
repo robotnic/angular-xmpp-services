@@ -151,7 +151,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                     return q.promise;
                     break;
                 case 'xmpp.chat.message':
-                    api.messages.send(command,request);
+                    api.messages.send(request);
                     break;
                 case 'xmpp.roster.get':
                 case 'xmpp.roster.add':
