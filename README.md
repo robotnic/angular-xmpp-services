@@ -145,7 +145,7 @@ The inner directives share the same instance of the XmppCore Factory.
 
 ```xml
 
-<xmpp xmpp-ftw-host="https://laos.buddycloud.com" domain="laos.buddycloud.com">
+<xmpp host="https://laos.buddycloud.com" domain="laos.buddycloud.com">
     <xmpplogin></xmpplogin>
     <xmpproster></xmpproster>
     <xmppminichat></xmppminichat>
@@ -153,6 +153,11 @@ The inner directives share the same instance of the XmppCore Factory.
 </xmpp>
 
 ```
+
+##<xmpp></xmpp>
+
+<a href="http://plnkr.co/edit/LvoypNETtIYB9RtUdp0H?p=preview" target="_blank">plunker</a>
+
 
 ## build directives
 
