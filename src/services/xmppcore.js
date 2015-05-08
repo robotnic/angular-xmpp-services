@@ -4,7 +4,6 @@ XmppCore
 @params 9
 */
 
-var API=null;  //global for debugging
 
 angular.module('XmppCoreFactory', ['XmppMessage'])
 
@@ -309,7 +308,6 @@ angular.module('XmppCoreFactory', ['XmppMessage'])
 
 
         };
-        API=api;
         resetModel();
         console.log("---------",host);
         api.connect(host);
