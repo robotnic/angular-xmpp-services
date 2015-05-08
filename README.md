@@ -7,7 +7,7 @@ Serverside <a href="https://github.com/xmpp-ftw/xmpp-ftw">xmpp_ftw</a> is needed
 ![structure](https://raw.githubusercontent.com/robotnic/angular-xmpp-services/master/src/assets/docimg/structure.png)
 
 The library sends and receives xmpp stanzas.
-Based on this messages a model (json tree) is build.
+Based on these messages a model (json tree) is build.
 The lib also handels the render timing by sending promise notify messages.
 https://docs.angularjs.org/api/ng/service/$q
 
@@ -38,9 +38,9 @@ Command list: <a href="https://xmpp-ftw.jit.su/manual/core/" target="_blank">xmp
 
     //Here is the angular magic. 
     //If the model has changed and needs rerender, 
-    //the factory will trigger the digest process by send a notification
+    //the factory will trigger the digest cycle by send a notification
     $scope.xmpp.watch().then(function(data){
-        console.log("end - should never be reached");
+        console.log("disconnect - you have to login again");
     },function(error){
         console.log(error);
     },function(notification){
@@ -50,8 +50,8 @@ Command list: <a href="https://xmpp-ftw.jit.su/manual/core/" target="_blank">xmp
 
     //login (please don't change the password)
     $scope.xmpp.send('xmpp.login',{
-             "jid": "test1@laos.buddycloud.com",
-             "password": "bbb"
+         "jid": "u9@laos.buddycloud.com",
+         "password": "nix"
     }).then(function(){
         $scope.xmpp.send("xmpp.roster.get")
         $scope.xmpp.send("xmpp.presence")
@@ -79,6 +79,7 @@ $scope.xmpp.model.me
 
 <a href="http://plnkr.co/edit/rolSSZnV7YzVg39aprAG?p=preview" target="_blank">plunker</a>
 
+You can change the {{xmpp.model.me}} to an other value to explore the model.
 
 ### template
 ```html
@@ -120,16 +121,16 @@ $scope.xmpp.send( 'xmpp.chat.message', {
 
 #Directives
 
-If you are looking for ready to use directive collection, this is the place to go: [angular-xmpp](https://github.com/robotnic/angular-xmpp)
+If you are looking for a ready to use directive collection, this is the place to go: [angular-xmpp](https://github.com/robotnic/angular-xmpp)
 
-Here we learn how to make an directive
+Here we learn how to make directives
 
 
 
 ## structure
 
 There is an outer &lt;xmpp>&lt;/xmpp> that containes the other directives. It provides xmpp core https://xmpp-ftw.jit.su/manual/core/
-
+The inner directives share the same instance of the XmppCore Factory.
 
 ```xml
 

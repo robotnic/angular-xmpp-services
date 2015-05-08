@@ -6,11 +6,11 @@ XmppCore
 
 var API=null;  //global for debugging
 
-angular.module('XmppCoreFactory', [])
+angular.module('XmppCoreFactory', ['XmppMessage'])
 
 
 
-.factory("Xmpp",function($q){
+.factory("Xmpp",function($q,MessageFactory){
     return function(host,callback){
         console.log("New XMPP init");
 
@@ -23,6 +23,10 @@ angular.module('XmppCoreFactory', [])
         function watch(){
             var q=$q.defer();
             api.q=q;
+
+            //messages are in a seperat Factory
+            api.messages=new MessageFactory(api);
+
             //roster change
             api.socket.on('xmpp.connection', function(data) {
                 console.log("loged in",data);
@@ -199,6 +203,7 @@ angular.module('XmppCoreFactory', [])
                 me:null,
                 items:[],
                 errors:[]
+
             }
             api.data=api.model; //outdated
         } 
@@ -232,6 +237,7 @@ angular.module('XmppCoreFactory', [])
                 };
 
                 api.socket = new Primus(host,options);
+
                 api.socket.on("open", function() {
                     q.resolve();
                 });
@@ -246,7 +252,6 @@ angular.module('XmppCoreFactory', [])
                         api.q.resolve("reconnect");
 
                 });
-
                 return q.promise;
             },
 
@@ -323,7 +328,7 @@ angular.module('XmppCoreFactory', [])
 To Array filter is hidden here, should go to helpers
 */
 
-
+/*
 .filter('toArray', function() {
     'use strict';
 
@@ -344,6 +349,6 @@ To Array filter is hidden here, should go to helpers
         });
     };
 })
-
+*/
 
 
