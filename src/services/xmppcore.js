@@ -312,16 +312,22 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                 return({user:user,domain:domain,resource:resource});
 
             },
-            addContact:function(jid){
-                send('xmpp.presence.subscribe',{to:jid})
-            },
-            confirmContact:function(jid){
-                send('xmpp.presence.subscribed',{to:jid})
-            },
-            removeContact:function(jid){
+            makeJid(jid){
                 if(typeof(jid)=='object'){
                     jid=jid.user+"@"+jid.domain;
                 }
+                return jid;
+            };
+            addContact:function(jid){
+                jid=api.makeJid(jid);
+                send('xmpp.presence.subscribe',{to:jid})
+            },
+            confirmContact:function(jid){
+                jid=api.makeJid(jid);
+                send('xmpp.presence.subscribed',{to:jid})
+            },
+            removeContact:function(jid){
+                jid=api.makeJid(jid);
                 api.send('xmpp.roster.remove',{jid:jid});
             },
             watch:function(){
