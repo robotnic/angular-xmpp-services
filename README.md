@@ -156,7 +156,8 @@ The inner directives share the same instance of the XmppCore Factory.
 
 ##<xmpp></xmpp>
 
-<a href="http://plnkr.co/edit/LvoypNETtIYB9RtUdp0H?p=preview" target="_blank">plunker</a>
+<a href="http://plnkr.co/edit/LvoypNETtIYB9RtUdp0H?p=preview" target="_blank">plunker</a>  (outer directive)
+<a href="http://plnkr.co/edit/klNGeJZfnPZsxCgW1wO7?p=preview" target="_blank">plunker</a>  (login)
 
 
 ## build directives
