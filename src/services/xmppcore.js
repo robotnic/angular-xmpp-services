@@ -299,6 +299,15 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                 return({user:user,domain:domain,resource:resource});
 
             },
+            addContact:function(jid){
+                send('xmpp.presence.subscribe',{to:jid})
+            },
+            confirmContact:function(jid){
+                send('xmpp.presence.subscribed',{to:jid})
+            },
+            removeContact:function(jid){
+                api.send('xmpp.roster.remove',{jid:'test1@laos.buddycloud.com'});
+            },
             watch:function(){
                 return watch();
             },
