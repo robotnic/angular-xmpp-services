@@ -93,11 +93,24 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
             });
 
             api.socket.on('xmpp.presence.subscribe', function(data) {
+                 var found=false;
                  if(api.model.roster){
                     for (var i = 0; i < api.model.roster.length; i++) {
                         if (api.model.roster[i].jid.user == data.from.user && api.model.roster[i].jid.domain == data.from.domain) {  
                             api.model.roster[i].ask = "subscribe";
+                            found=true;
                         }
+                    }
+                    if(!found){
+                        var item={
+                          "jid": {
+                            "domain": data.from.domain,
+                            "user": data.from.user
+                          },
+                          "subscription": "none",
+                          "ask": "subscribed"
+                        }
+                        roster.push(item);
                     }
                 }
                 console.log('-----------------------------------------xmpp.presence.subscribe',data,api.model.roster);
