@@ -112,6 +112,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                         }
                         api.model.roster.push(item);
                     }
+                    api.q.notify("xmpp.presence.subscribe");
                 }
                 console.log('----2-------------------------------------xmpp.presence.subscribe',data,api.model.roster);
             });
