@@ -115,8 +115,7 @@ $scope.xmpp.send( 'xmpp.chat.message', {
 })
 ```
 
-<a href="http://plnkr.co/edit/woHSouYiMziZzKrq5lrL?p=preview" target="_blank">plunker</a>
-
+<a href="http://plnkr.co/edit/eNkNiEj3PJPT9QDKCZ2m?p=preview" target="_blank">plunker</a>
 
 
 #Directives
