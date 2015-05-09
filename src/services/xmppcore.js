@@ -72,6 +72,8 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                     }
                 }
                 if(!exists && data.subscription!=="remove"){
+
+                    data.jid.jid=data.jid.user+"@"+data.jid.domain; //need id for performance
                     api.model.roster.push(data);
                 }
                 q.notify("xmpp.roster.push");
@@ -119,7 +121,8 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                         var item={
                           "jid": {
                             "domain": data.from.domain,
-                            "user": data.from.user
+                            "user": data.from.user,
+                            "jid":data.from.user+"@"+data.from.domain
                           },
                           "subscription": "none",
                           "ask": "subscribed"
@@ -195,6 +198,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                                 //replace content of roster array (but don't replace array);
                                 api.model.roster.length=0;  //clear
                                 for(var i=0;i<data.length;i++){
+                                    data[i].jid.jid=data[i].jid.user+"@"+data[i].jid.domain; //need id for performance
                                    api.model.roster.push(data[i]);
                                 }
                                 if(api.q){

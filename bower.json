@@ -3,7 +3,7 @@
   "authors": [
     "bernhard zwischenbrgger"
   ],
-  "version": "0.9.7",
+  "version": "0.9.8",
   "main": [
     "bin/assets/angular-xmpp-services.js"
   ],
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git@github.com:robotnic/angular-xmpp-services.git"
   },
-  "divDependencies": {
+  "devDependencies": {
     "angular-moment":"*",
     "json-formatter":"*"
   }
