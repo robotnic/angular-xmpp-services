@@ -71,7 +71,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                 if(!exists && data.subscription!=="remove"){
 
                     data.jid.jid=data.jid.user+"@"+data.jid.domain; //need id for performance
-                    api.model.roster.push(data);
+                    pushToRoster(data);
                 }
                 q.notify("xmpp.roster.push");
             });
@@ -124,7 +124,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                           "subscription": "none",
                           "ask": "subscribed"
                         }
-                        api.model.roster.push(item);
+                        pushToRoster(data);
                     }
                     api.q.notify("xmpp.presence.subscribe");
                 }
@@ -194,7 +194,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                                 api.model.roster.length=0;  //clear
                                 for(var i=0;i<data.length;i++){
                                     data[i].jid.jid=data[i].jid.user+"@"+data[i].jid.domain; //need id for performance
-                                   api.model.roster.push(data[i]);
+                                    pushToRoster(data[i]);
                                 }
                                 if(api.q){
                                     api.q.notify("roster");
@@ -236,6 +236,16 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
             }
             api.data=api.model; //outdated
         } 
+
+        function pushToRoster(item){
+            for(var i=0;i<api.model.roster.length;i++){
+                if(api.model.roster[i].jid.jid==item.jid.jid){
+                    return false;
+                }
+            }
+            api.model.roster.push(data[i]);
+            return true;
+        }
 
         var api={
             jid:null,
