@@ -124,7 +124,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                           "subscription": "none",
                           "ask": "subscribed"
                         }
-                        pushToRoster(data);
+                        pushToRoster(item);
                     }
                     api.q.notify("xmpp.presence.subscribe");
                 }
