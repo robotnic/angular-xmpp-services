@@ -191,7 +191,6 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                                 //replace content of roster array (but don't replace array);
                                 api.model.roster.length=0;  //clear
                                 for(var i=0;i<data.length;i++){
-                                    data[i].jid.jid=data[i].jid.user+"@"+data[i].jid.domain; //need id for performance
                                     pushToRoster(data[i]);
                                 }
                                 if(api.q){
@@ -237,11 +236,11 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
 
         function pushToRoster(item){
             for(var i=0;i<api.model.roster.length;i++){
-                if(api.model.roster[i].jid.jid==item.jid.jid){
+                if(api.model.roster[i].jid.user==item.jid.user && api.model.roster[i].jid.domain==item.jid.domain ){
                     return false;
                 }
             }
-            item.fulljid=item.jid.user+"@"+item.jid.domain
+            item.jid.fulljid=item.jid.user+"@"+item.jid.domain
             api.model.roster.push(item);
             return true;
         }
