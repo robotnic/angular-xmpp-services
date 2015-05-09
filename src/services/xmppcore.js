@@ -23,21 +23,18 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
             var orignotify=q.notify;
             var timeout=null;
             var notifystack=[];
+
+            //notify delay to relieve render process
             q.notify=function(param){
-                console.log("notify",arguments);
                 if(timeout){
                     $timeout.cancel(timeout);
-                    console.log("after clear timeout",timeout);
                 }
                 notifystack.push(param);
                 timeout=$timeout(function(){ 
-                    console.log("exec notify",notifystack);
                     orignotify.apply(this, notifystack)
                     notifystack.length=0;
                 },5);
-
             }
-            console.log("qqqqqq",q);
             api.q=q;
 
             //messages are in a seperat Factory
