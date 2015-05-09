@@ -8,8 +8,7 @@ XmppCore
 angular.module('XmppCoreFactory', ['XmppMessages'])
 
 
-
-.factory("Xmpp",function($q,MessagesFactory){
+.factory("Xmpp",function($q,MessagesFactory,$timeout){
     return function(host,callback){
         console.log("New XMPP init");
 
@@ -21,6 +20,24 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
 
         function watch(){
             var q=$q.defer();
+            var orignotify=q.notify;
+            var timeout=null;
+            var notifystack=[];
+            q.notify=function(param){
+                console.log("notify",arguments);
+                if(timeout){
+                    $timeout.cancel(timeout);
+                    console.log("after clear timeout",timeout);
+                }
+                notifystack.push(param);
+                timeout=$timeout(function(){ 
+                    console.log("exec notify",notifystack);
+                    orignotify.apply(this, notifystack)
+                    notifystack.length=0;
+                },5);
+
+            }
+            console.log("qqqqqq",q);
             api.q=q;
 
             //messages are in a seperat Factory
