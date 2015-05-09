@@ -70,7 +70,6 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                 }
                 if(!exists && data.subscription!=="remove"){
 
-                    data.jid.jid=data.jid.user+"@"+data.jid.domain; //need id for performance
                     pushToRoster(data);
                 }
                 q.notify("xmpp.roster.push");
@@ -242,7 +241,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                     return false;
                 }
             }
-            item.fulljid=item.from.user+"@"+item.from.domain
+            item.fulljid=item.jid.user+"@"+item.jid.domain
             api.model.roster.push(item);
             return true;
         }

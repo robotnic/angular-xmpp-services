@@ -39,7 +39,7 @@ This is the testscript for angular-xmpp-core
 
 <body ng-controller="test" ng-keydown="down($event)">
     <div style="position:fixed;top:0px;left:0px;width:100%;padding:5px;box-shadow:0px 0px 10px rgba(0,0,0,0.2);background-color:white;z-index:10">
-        <h3>Testcenter v0.9.14: XmppServices ({{counter +1}}/{{expected.length}}/<span style="color:green">{{good}}</span>/<span style="color:red">{{bad}}</span>)</h3>
+        <h3>Testcenter v0.9.15: XmppServices ({{counter +1}}/{{expected.length}}/<span style="color:green">{{good}}</span>/<span style="color:red">{{bad}}</span>)</h3>
         <div ng-repeat="(key,value) in testplan"><span class="topic">{{key}}</span>
         <a class="link" ng-repeat="item in value" ng-click="loadTest(item)">{{item.name}}</a>
         </div>
