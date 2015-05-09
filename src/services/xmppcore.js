@@ -243,7 +243,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                     return false;
                 }
             }
-            api.model.roster.push(data[i]);
+            api.model.roster.push(item);
             return true;
         }
 
