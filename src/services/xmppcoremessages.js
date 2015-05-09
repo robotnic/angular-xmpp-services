@@ -13,11 +13,19 @@ angular.module('XmppMessages', [])
             }
         }
 
+        function generateid(){
+                return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+                    return v.toString(16);
+                });
+        }
+
         //notify is used to apply changes (render html);
         function watch(q){
             xmpp.socket.on('xmpp.chat.message', function(message) {
                 if(!message.delay){
                     message.receivetime=(new Date()).getTime();
+                    message.id=generateid();
                 }
                 message.from.jid=message.from.user+"@"+message.from.domain;
                 initjid(message.from.jid);
@@ -68,6 +76,7 @@ angular.module('XmppMessages', [])
             send:function(message) {
                 xmpp.socket.send('xmpp.chat.message', message);
                 message.sendtime=(new Date()).getTime();
+                message.id=generateid();
                 initjid(message.to);
                 api.byjid[message.to].items.push(message);
                 console.log(api.byjid);
