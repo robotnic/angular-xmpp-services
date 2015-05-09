@@ -46,7 +46,6 @@ angular.module('XmppMessages', [])
                     api.byjid[message.from.jid].unread++;
                     delete api.byjid[message.from.jid].composing;
                 }
-                console.log(api.byjid);
                 q.notify(message);
             });
         }
@@ -79,7 +78,6 @@ angular.module('XmppMessages', [])
                 message.id=generateid();
                 initjid(message.to);
                 api.byjid[message.to].items.push(message);
-                console.log(api.byjid);
             },
             markread:function(jid){
                 initjid(jid);

@@ -10,7 +10,6 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
 
 .factory("Xmpp",function($q,MessagesFactory,$timeout){
     return function(host,callback){
-        console.log("New XMPP init");
 
 
         /**
@@ -42,7 +41,6 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
 
             //roster change
             api.socket.on('xmpp.connection', function(data) {
-                console.log("loged in",data);
                 api.model.me=data;
                 api.model.connected=true;
                 q.notify("xmpp.connection");
@@ -62,7 +60,6 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                 for (var i = 0; i < api.model.roster.length; i++) {
                     if (api.model.roster[i].jid.user == data.jid.user) {   //domain missing you fixit!!
                             exists=true;
-                            console.log("subcription",data.subscription); 
                             if(data.subscription=="remove"){
                                 api.model.roster.splice(i,1);
                             }else{
@@ -131,16 +128,14 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                     }
                     api.q.notify("xmpp.presence.subscribe");
                 }
-                console.log('----2-------------------------------------xmpp.presence.subscribe',data,api.model.roster);
             });
             api.socket.on('xmpp.presence.subscribed', function(data) {
-                console.log('-----------------------------------------xmpp.presence.subscribed',data);
+                console.log('not implemented-----------------------------------------xmpp.presence.subscribed',data);
             });
             return q.promise;
         }
 
         function send(command,request){
-            console.log("send",command,request);
             if(!request)request={};
             switch(command){
                 case 'xmpp.login':
@@ -225,7 +220,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                     return q.promise;
 
                     break;
-                default:console.log(command,"no promise, fire and forget");
+                default:
                     api.socket.send( command, request);
             }
         }
@@ -355,7 +350,6 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
             },
 
             send:function(command,request){
-                console.log(command,request);
                 return send(command,request);
             }
 
@@ -363,7 +357,6 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
 
         };
         resetModel();
-        console.log("---------",host);
         api.connect(host);
 
 

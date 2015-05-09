@@ -3,7 +3,7 @@
   "authors": [
     "bernhard zwischenbrgger"
   ],
-  "version": "0.9.8",
+  "version": "0.9.9",
   "main": [
     "bin/assets/angular-xmpp-services.js"
   ],
@@ -14,7 +14,14 @@
         "karma",
         "build",
         "vendor",
-        "npm_modules"
+        "npm_modules".
+        "bin/css",  
+        "bin/docimg",  
+        "bin/examples",  
+        "bin/icons",  
+        "bin/partials",  
+        "bin/scripts",  
+        "bin/tests"
     ],
   "repository": {
     "type": "git",

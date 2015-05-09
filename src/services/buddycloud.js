@@ -19,7 +19,6 @@ angular.module('BuddycloudModule', [])
 .factory('BuddycloudFactory', ['$q',
     function($q) {
         return function(xmpp) {
-            console.log("init buddycloud", xmpp);
 
 
             /**
@@ -113,7 +112,6 @@ angular.module('BuddycloudModule', [])
                 });
 
                 function pushSubscription(data){
-console.log("-----------xmpp.buddycloud.push.subscription--------",data);
                     delete data.from;  //superfeeder side effect
                     var forMe = false;
                     if (data.jid.user == api.xmpp.data.me.jid.user && data.jid.domain == api.xmpp.data.me.jid.domain) {
@@ -147,9 +145,7 @@ console.log("-----------xmpp.buddycloud.push.subscription--------",data);
                             //addToNodeList(data);
                         }
                     }
-console.log(data.subscription);
                     if (data.subscription == 'subscribed') {
-console.log("------------------------------------------------subscribed");
                         if (data.node == api.data.currentnode) {
                             api.data.subscribed = true;
                         }
@@ -176,7 +172,6 @@ console.log("------------------------------------------------subscribed");
 
                 //Node configuration update notification
                 xmpp.socket.on("xmpp.buddycloud.push.configuration", function(data) {
-                    console.log("config changed",data);
                     getAffiliations().then(function() {
                         //api.maketree(api.data.items);
                     });
@@ -184,8 +179,8 @@ console.log("------------------------------------------------subscribed");
 
                 //Subscription authorisation request
                 xmpp.socket.on('xmpp.buddycloud.push.authorisation', function(data, callback) {
-                    console.log("not implemented",data)
-                    callback( /* see below */ )
+                    console.log("xmpp.buddycloud.push.authorisation  not implemented",data)
+                    //callback( /* see below */ )
                 })
 
                 return q.promise;
@@ -264,7 +259,6 @@ console.log("------------------------------------------------subscribed");
 
             function search(text) {
                 var q = $q.defer();
-                console.log("====", text);
                 var stanza = {
                     form: [{
                         "var": 'content',
@@ -278,7 +272,6 @@ console.log("------------------------------------------------subscribed");
                             console.error(stanza, error);
                             //$scope.create(stanza.node);
                         } else {
-                            console.log("search result:", data);
                             q.resolve("search result");
                         }
                     }
@@ -514,7 +507,7 @@ console.log("------------------------------------------------subscribed");
                         api.send('xmpp.buddycloud.config.get', {
                             node: this.data.currentnode
                         }).then(function(response) {
-                            console.log("form", response);
+                            //console.log("form", response);
                         });
                     }
                 } else {
@@ -568,11 +561,8 @@ console.log("------------------------------------------------subscribed");
                     }
                 }
                 
-console.log("api.data.subscribed",api.data.subscribed);
-console.log(api.data.myaffiliations[api.data.currentnode]);
                 if (api.data.subscribed && api.data.myaffiliations[api.data.currentnode]) {
                     var affiliation=api.data.myaffiliations[api.data.currentnode].affiliation;
-console.log("AFFILIATION",affiliation);
                     if(affiliation=="publisher" || affiliation=="owner"){
                         api.publish = function(content) {
                             api.send('xmpp.buddycloud.publish', {
@@ -698,7 +688,6 @@ console.log("AFFILIATION",affiliation);
             }
 
             function loadmore(){
-                console.log("loadmore");
                 if(api.data.rsm && api.data.rsmloading!=api.data.rsm.last && (!api.data.rsm.count || api.data.rsm.last)){
                     api.data.rsmloading=api.data.rsm.last; 
                     var rsm={
@@ -706,7 +695,6 @@ console.log("AFFILIATION",affiliation);
                         "after": api.data.rsm.last
                     }
                     if(api.data.currentnode=="recent"){
-                        console.log("recent rsm",rsm);
                         recent({rsm:rsm});
                     }else{
                         api.send("xmpp.buddycloud.retrieve",{node:api.data.currentnode,rsm:rsm}).then(function(data){
@@ -732,7 +720,6 @@ console.log("AFFILIATION",affiliation);
 
 
             function subscription(data) {
-                console.log("SUBSCRIPTION CHANGED", data);
 
             }
 
@@ -784,7 +771,6 @@ console.log("AFFILIATION",affiliation);
                                 } else {
 
                                     for (var i = 0; i < api.data.subscriptions.length; i++) {
-                                        console.log("subscription bug", api.data.subscriptions[i].node , request.node) ;
                                         if (api.data.subscriptions[i].node == request.node) {
                                             api.data.subscriptions.splice(i, 1);
                                             delete api.data.myaffiliations[request.node];
@@ -888,7 +874,6 @@ console.log("AFFILIATION",affiliation);
 
                         break;
                     case 'xmpp.buddycloud.items.recent':
-                        console.log("the recent request",request);
                         var q = $q.defer();
                         if(!request.rsm || !request.rsm.after){
                             request={rsm:{max:10}}
@@ -899,7 +884,6 @@ console.log("AFFILIATION",affiliation);
                             'xmpp.buddycloud.items.recent',
                             request,
                             function(error, response, rsm) {
-                                console.log('xmpp.buddycloud.items.recent',arguments);
                                 if (error) {
                                     api.data.errors.unshift(error);
                                     q.reject(error);
