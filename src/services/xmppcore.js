@@ -119,7 +119,6 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                           "jid": {
                             "domain": data.from.domain,
                             "user": data.from.user,
-                            "jid":data.from.user+"@"+data.from.domain
                           },
                           "subscription": "none",
                           "ask": "subscribed"
@@ -243,6 +242,7 @@ angular.module('XmppCoreFactory', ['XmppMessages'])
                     return false;
                 }
             }
+            item.fulljid=item.from.user+"@"+item.from.domain
             api.model.roster.push(item);
             return true;
         }
