@@ -832,6 +832,7 @@ angular.module('BuddycloudModule', [])
                         break;
                     case 'xmpp.buddycloud.retrieve':
 
+                        api.data.requested = request.node;
                         var q = $q.defer();
                         if(!request.rsm){
                             request.rsm={max:20}
@@ -873,6 +874,7 @@ angular.module('BuddycloudModule', [])
 
                         break;
                     case 'xmpp.buddycloud.items.recent':
+                        api.data.requested = request.node;
                         var q = $q.defer();
                         if(!request.rsm || !request.rsm.after){
                             request={rsm:{max:20}}
@@ -909,6 +911,7 @@ angular.module('BuddycloudModule', [])
                         return q.promise;
                         break;
                      case 'xmpp.buddycloud.items.feed':
+                        api.data.requested = request.node;
                         var append = false;
                         var q = $q.defer();
                         /*
@@ -942,7 +945,7 @@ angular.module('BuddycloudModule', [])
                                     //api.data.tree = maketree(api.data.items); 
                                     q.resolve(request);
                                     api.data.rsm = rsm;
-                                    api.data.currentnode = "recent"; //not beautiful programming
+                                    api.data.currentnode = request.node;
                                     nodeMethods();
                                     api.q.notify("feed");
                                 }
