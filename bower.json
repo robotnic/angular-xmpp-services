@@ -3,7 +3,7 @@
   "authors": [
     "bernhard zwischenbrgger"
   ],
-  "version": "0.9.15",
+  "version": "0.9.16",
   "main": [
     "bin/assets/angular-xmpp-services.js"
   ],
@@ -23,7 +23,10 @@
         "bin/assets/partials",  
         "bin/assets/scripts",  
         "bin/assets/tests",
-        "Gruntfile"
+        "build.config.js",
+        "Gruntfile.js",
+        "module.suffix",
+        "module.prefix"
     ],
   "repository": {
     "type": "git",
