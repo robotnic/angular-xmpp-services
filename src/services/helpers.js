@@ -3,6 +3,7 @@ angular.module('Helpers', [])
 
 .filter('getUser', function() {
     return function(item) {
+        if(typeof(item)!=="string")return "";
         var user="";
         if (item.indexOf("@") !== -1) {
             user= item.split("@")[0];

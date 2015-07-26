@@ -875,9 +875,13 @@ angular.module('BuddycloudModule', [])
                         break;
                     case 'xmpp.buddycloud.items.recent':
                         api.data.requested = request.node;
+                        var parentOnly=false;
+                        if(request.parentOnly){
+                            parentOnly=true;
+                        }
                         var q = $q.defer();
                         if(!request.rsm || !request.rsm.after){
-                            request={rsm:{max:20}}
+                            request={rsm:{max:20},parentOnly:parentOnly}
                             api.data.items=[];
                             api.data.tree=[];
                         }
