@@ -615,8 +615,10 @@ angular.module('BuddycloudModule', [])
                         if(!treeitem.children){
                             treeitem.children=[];
                         }
-                        treeitem.children.push(item);
-                        var issubitem=true;
+                        if(angular.isArray(treeitem.children)){
+                            treeitem.children.push(item);
+                            var issubitem=true;  //what's that? ugly
+                        }
                         break;
                     }
                 }
@@ -986,6 +988,36 @@ angular.module('BuddycloudModule', [])
                         return q.promise;
 
                         break;
+
+
+/*
+3:::{"type":0,"data":["xmpp.buddycloud.items.replies",{"node":"/user/oldhouse@buddycloud.org/posts","id":"f4787723-e431-4c2b-9e96-d26b13a5fc2a","rsm":{"max":1}}],"id":13}
+*/
+
+                    case 'xmpp.buddycloud.items.replies':
+                        var q = $q.defer();
+                        xmpp.socket.send(
+                            'xmpp.buddycloud.items.replies', request,
+                            function(error, response) {
+                                if (error) {
+                                    api.data.errors.unshift(error);
+                                    q.reject(error);
+                                } else {
+                                    for (var i = 0; i < response.length; i++) {
+                                        response[i].id = response[i].id.split(",").pop();
+                                        itemMethods(response[i]);
+                                        addToTree(response[i]);
+                                    }
+
+                                    api.q.notify('xmpp.buddycloud.item.replies');
+                                    q.resolve(response);
+                                }
+
+                            })
+                        return q.promise;
+
+                        break;
+
                     case 'xmpp.buddycloud.config.get':
                         var q = $q.defer();
                         xmpp.socket.send(
