@@ -55,7 +55,7 @@ angular.module('BuddycloudModule', [])
                             itemMethods(response);
                             //response.entry.atom.author.image = response.entry.atom.author.name.split("@")[0];
                             api.data.items.unshift(response);
-                            addToTree(response,true);
+                            addToTree(response,null,true);
                         }
                     }
                     q.notify("push item");
@@ -607,7 +607,7 @@ angular.module('BuddycloudModule', [])
             }
 
 
-            function addToTree(item,atTop){
+            function addToTree(item,rsm,atTop){
                 var issubitem=false;
                 for(var i=0;i<api.data.tree.length;i++){
                     var treeitem=api.data.tree[i];
@@ -618,6 +618,9 @@ angular.module('BuddycloudModule', [])
                         if(angular.isArray(treeitem.children)){
                             treeitem.children.push(item);
                             var issubitem=true;  //what's that? ugly
+                        }
+                        if(rsm){
+                            treeitem.rsm=rsm;
                         }
                         break;
                     }
@@ -877,7 +880,7 @@ angular.module('BuddycloudModule', [])
                                         //workaround for buggy id
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
-                                        addToTree(response[i]);
+                                        addToTree(response[i],rsm);
                                     }
 
 
@@ -924,7 +927,7 @@ angular.module('BuddycloudModule', [])
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
-                                        addToTree(response[i]);
+                                        addToTree(response[i],rsm);
                                     }
 
                                     api.data.items = api.data.items.concat(response);
@@ -963,7 +966,7 @@ angular.module('BuddycloudModule', [])
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
-                                        addToTree(response[i]);
+                                        addToTree(response[i],rsm);
                                     }
 
                                     if (api.data.items) {
@@ -1021,7 +1024,7 @@ angular.module('BuddycloudModule', [])
                         var q = $q.defer();
                         xmpp.socket.send(
                             'xmpp.buddycloud.items.replies', request,
-                            function(error, response) {
+                            function(error, response,rsm) {
                                 if (error) {
                                     api.data.errors.unshift(error);
                                     q.reject(error);
@@ -1029,7 +1032,7 @@ angular.module('BuddycloudModule', [])
                                     for (var i = 0; i < response.length; i++) {
                                         response[i].id = response[i].id.split(",").pop();
                                         itemMethods(response[i]);
-                                        addToTree(response[i]);
+                                        addToTree(response[i],rsm);
                                     }
 
                                     api.q.notify('xmpp.buddycloud.item.replies');
