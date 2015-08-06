@@ -684,15 +684,29 @@ angular.module('BuddycloudModule', [])
             function recent(request){
                 $q.all([
                     api.send('xmpp.buddycloud.items.recent', request),
-                 ]).then(function(response) {
-                    console.log(response); 
-                    loadChildnodes("THE Parents",response.data); 
+                 ]).then(function() {
+                    loadChildnodes("THE Parents"); 
                     nodeMethods();
                 });
             }
 
             function loadChildnodes(data){
                 console.log("load child nodes",api.data.tree);
+
+                for(var i=0;i<$api.data.tree.length;i++){
+                    var item=$api.data.tree[i];
+                    
+                    $scope.buddycloud.send( 'xmpp.buddycloud.items.replies', {
+                        "node": item.node,
+                        "id": item.id,
+                        rsm:{max:3}
+                    }).then(function(){
+                        console.log(arguments);
+                    });
+                }
+
+
+
             }
 
             function loadmore(request){
