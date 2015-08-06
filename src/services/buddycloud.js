@@ -684,7 +684,7 @@ angular.module('BuddycloudModule', [])
             function recent(request){
                 $q.all([
                     api.send('xmpp.buddycloud.items.recent', request),
-                 ]).then(function() {
+                 ]).then(function(response) {
                     console.log(response); 
                     loadChildnodes("THE Parents",response.data); 
                     nodeMethods();
