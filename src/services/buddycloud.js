@@ -693,8 +693,8 @@ angular.module('BuddycloudModule', [])
             function loadChildnodes(data){
                 console.log("load child nodes",api.data.tree);
 
-                for(var i=0;i<$api.data.tree.length;i++){
-                    var item=$api.data.tree[i];
+                for(var i=0;i<api.data.tree.length;i++){
+                    var item=api.data.tree[i];
                     
                     $scope.buddycloud.send( 'xmpp.buddycloud.items.replies', {
                         "node": item.node,
