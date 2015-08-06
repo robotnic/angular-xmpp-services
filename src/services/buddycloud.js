@@ -685,8 +685,14 @@ angular.module('BuddycloudModule', [])
                 $q.all([
                     api.send('xmpp.buddycloud.items.recent', request),
                  ]).then(function() {
+                    console.log(response); 
+                    loadChildnodes("THE Parents",response.data); 
                     nodeMethods();
                 });
+            }
+
+            function loadChildnodes(data){
+                console.log("load child nodes",api.data.tree);
             }
 
             function loadmore(request){
@@ -913,7 +919,7 @@ angular.module('BuddycloudModule', [])
                                     api.data.rsm = rsm;
                                     api.data.currentnode = "recent"; //not beautiful programming
                                     nodeMethods();
-                                    api.q.notify("recent");
+                                    api.q.notify("xmpp.buddycloud.items.recent");
                                 }
                             }
                         );
