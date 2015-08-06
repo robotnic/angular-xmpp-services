@@ -689,17 +689,20 @@ angular.module('BuddycloudModule', [])
                 });
             }
 
-            function loadmore(){
+            function loadmore(request){
                 if(api.data.rsm && api.data.rsmloading!=api.data.rsm.last && (!api.data.rsm.count || api.data.rsm.last)){
                     api.data.rsmloading=api.data.rsm.last; 
                     var rsm={
                         "max":10,
                         "after": api.data.rsm.last
                     }
+                    if(!request)request={};
+                    request.rsm=rsm;
                     if(api.data.currentnode=="recent"){
-                        recent({rsm:rsm});
+                        recent(request);
                     }else{
-                        api.send("xmpp.buddycloud.retrieve",{node:api.data.currentnode,rsm:rsm}).then(function(data){
+                        request.node=api.data.currentnode;
+                        api.send("xmpp.buddycloud.retrieve",request).then(function(data){
                             api.q.notify();
                         },function(error){
                             console.log(error);
@@ -1092,8 +1095,8 @@ angular.module('BuddycloudModule', [])
                 recent:function(rsm){
                     return recent(rsm);
                 },
-                loadmore:function(){
-                    return loadmore();
+                loadmore:function(request){
+                    return loadmore(request);
                 },
                 send: function(command, data) {
                     return send(command, data);
