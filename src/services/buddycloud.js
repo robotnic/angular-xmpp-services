@@ -688,7 +688,7 @@ angular.module('BuddycloudModule', [])
                 $q.all([
                     api.send('xmpp.buddycloud.items.recent', request),
                  ]).then(function() {
-                    loadChildnodes("THE Parents"); 
+                    loadChildnodes("THE Parents",arguments); 
                     nodeMethods();
                 });
             }
@@ -1026,6 +1026,7 @@ angular.module('BuddycloudModule', [])
                         xmpp.socket.send(
                             'xmpp.buddycloud.items.replies', request,
                             function(error, response,rsm) {
+                                console.log("items.replies",arguments);
                                 if (error) {
                                     api.data.errors.unshift(error);
                                     q.reject(error);
