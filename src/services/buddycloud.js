@@ -623,7 +623,11 @@ angular.module('BuddycloudModule', [])
                             treeitem.rsm=rsm;
                         }
                         break;
+                    } 
+                    if(!item.entry['in-reply-to'] ){
+                        loadChildnodes(treeitem);
                     }
+
                 }
                 if(!issubitem){
                     if(atTop){
@@ -689,18 +693,16 @@ angular.module('BuddycloudModule', [])
                     api.send('xmpp.buddycloud.items.recent', request),
                  ]).then(function(response) {
                     console.log("THE Parents",response); 
-                    loadChildnodes(response[0]); 
+                    //loadChildnodes(response[0]); 
                     nodeMethods();
                 });
             }
 
-            function loadChildnodes(data){
+            function loadChildnodes(item){
                 console.log("load child nodes",api.data.tree,data);
 
                 //for(var i=0;i<api.data.tree.length;i++){
                  //   var item=api.data.tree[i];
-                for(var i=0;i<data.length;i++){
-                    var item=data[i];
                     console.log(item);
                     
                     api.send( 'xmpp.buddycloud.items.replies', {
@@ -710,7 +712,6 @@ angular.module('BuddycloudModule', [])
                     }).then(function(){
                         console.log(arguments);
                     });
-                }
 
 
 
