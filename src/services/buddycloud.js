@@ -688,13 +688,14 @@ angular.module('BuddycloudModule', [])
                 $q.all([
                     api.send('xmpp.buddycloud.items.recent', request),
                  ]).then(function() {
-                    loadChildnodes("THE Parents",arguments); 
+                    console.log("THE Parents",arguments); 
+                    loadChildnodes(arguments); 
                     nodeMethods();
                 });
             }
 
             function loadChildnodes(data){
-                console.log("load child nodes",api.data.tree);
+                console.log("load child nodes",api.data.tree,data);
 
                 for(var i=0;i<api.data.tree.length;i++){
                     var item=api.data.tree[i];
