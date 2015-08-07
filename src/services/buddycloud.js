@@ -689,7 +689,7 @@ angular.module('BuddycloudModule', [])
                     api.send('xmpp.buddycloud.items.recent', request),
                  ]).then(function(response) {
                     console.log("THE Parents",response); 
-                    loadChildnodes(response); 
+                    loadChildnodes(response[0]); 
                     nodeMethods();
                 });
             }
@@ -701,6 +701,7 @@ angular.module('BuddycloudModule', [])
                  //   var item=api.data.tree[i];
                 for(var i=0;i<data.length;i++){
                     var item=data[i];
+                    console.log(item);
                     
                     api.send( 'xmpp.buddycloud.items.replies', {
                         "node": item.node,
