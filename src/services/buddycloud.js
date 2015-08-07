@@ -932,7 +932,8 @@ angular.module('BuddycloudModule', [])
 
                                     api.data.items = api.data.items.concat(response);
                                     //api.data.tree = maketree(api.data.items); 
-                                    q.resolve(request);
+                                    console.log("ITEM.RECENT",response);
+                                    q.resolve(response);
                                     api.data.rsm = rsm;
                                     api.data.currentnode = "recent"; //not beautiful programming
                                     nodeMethods();
