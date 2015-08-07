@@ -699,7 +699,7 @@ angular.module('BuddycloudModule', [])
             }
 
             function loadChildnodes(item){
-                console.log("load child nodes",api.data.tree,data);
+                console.log("load child nodes",api.data.tree,item);
 
                 //for(var i=0;i<api.data.tree.length;i++){
                  //   var item=api.data.tree[i];
