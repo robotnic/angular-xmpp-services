@@ -609,6 +609,9 @@ angular.module('BuddycloudModule', [])
 
             function addToTree(item,rsm,atTop){
                 var issubitem=false;
+                if(!item.entry['in-reply-to'] ){
+                    loadChildnodes(item);
+                }
                 for(var i=0;i<api.data.tree.length;i++){
                     var treeitem=api.data.tree[i];
                     if(item.entry['in-reply-to'] && item.entry['in-reply-to'].ref==treeitem.id){
@@ -624,9 +627,6 @@ angular.module('BuddycloudModule', [])
                         }
                         break;
                     } 
-                    if(!item.entry['in-reply-to'] ){
-                        loadChildnodes(treeitem);
-                    }
 
                 }
                 if(!issubitem){
