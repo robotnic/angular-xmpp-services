@@ -692,25 +692,22 @@ angular.module('BuddycloudModule', [])
                 $q.all([
                     api.send('xmpp.buddycloud.items.recent', request),
                  ]).then(function(response) {
-                    console.log("THE Parents",response); 
                     //loadChildnodes(response[0]); 
                     nodeMethods();
                 });
             }
 
             function loadChildnodes(item){
-                console.log("load child nodes",api.data.tree,item);
 
                 //for(var i=0;i<api.data.tree.length;i++){
                  //   var item=api.data.tree[i];
-                    console.log(item);
                     
                     api.send( 'xmpp.buddycloud.items.replies', {
                         "node": item.node,
                         "id": item.id,
                         rsm:{max:3}
                     }).then(function(){
-                        console.log(arguments);
+                        //console.log(arguments); //no idea what's happening here
                     });
 
 
@@ -937,7 +934,6 @@ angular.module('BuddycloudModule', [])
 
                                     api.data.items = api.data.items.concat(response);
                                     //api.data.tree = maketree(api.data.items); 
-                                    console.log("ITEM.RECENT",response);
                                     q.resolve(response);
                                     api.data.rsm = rsm;
                                     api.data.currentnode = "recent"; //not beautiful programming
@@ -1031,7 +1027,6 @@ angular.module('BuddycloudModule', [])
                         xmpp.socket.send(
                             'xmpp.buddycloud.items.replies', request,
                             function(error, response,rsm) {
-                                console.log("items.replies",arguments);
                                 if (error) {
                                     api.data.errors.unshift(error);
                                     q.reject(error);
