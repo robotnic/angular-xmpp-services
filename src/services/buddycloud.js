@@ -67,6 +67,7 @@ angular.module('BuddycloudModule', [])
                     api.send("xmpp.buddycloud.subscriptions",{node:response.node}).then(function(){
                         q.notify("xmpp.buddycloud.subscriptions");
                     });
+                    api.notification(response);
                 };
 
                 //Item deletion notification
@@ -1125,6 +1126,12 @@ angular.module('BuddycloudModule', [])
                 },
                 send: function(command, data) {
                     return send(command, data);
+                },
+                notification: function(command, data) {
+                    this.notificationCallback(command,data);
+                },
+                onnotification:function(callback){
+                    this.notificationCallback=callback;
                 },
                 createNode:function(request){
                     var q=$q.defer();
