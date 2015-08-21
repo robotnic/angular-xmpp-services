@@ -58,7 +58,7 @@ angular.module('BuddycloudModule', [])
                             addToTree(response,null,true);
                         }
                     }
-                    q.notify("push item");
+                    q.notify("xmpp.buddycloud.push.item");
                     getAffiliations({node:response.node}).then(function() {
                         q.notify("affiliations after push item");
                     }, function(error) {
@@ -981,7 +981,7 @@ angular.module('BuddycloudModule', [])
                                     api.data.rsm = rsm;
                                     api.data.currentnode = request.node;
                                     nodeMethods();
-                                    api.q.notify("feed");
+                                    api.q.notify("xmpp.buddycloud.items.feed");
                                 }
                             }
                         );
